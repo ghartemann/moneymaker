@@ -18,15 +18,6 @@ jobs:
                 with:
                     node-version: '18'
 
-            -   name: Install Yarn
-                run: npm install -g yarn
-
-            -   name: Install dependencies
-                run: yarn install
-
-            -   name: Build the application
-                run: yarn build
-
             -   name: Build the Docker image
                 run: sudo docker compose build --build-arg ENV=prod
 

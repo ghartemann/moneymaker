@@ -1,18 +1,18 @@
 export default [
     {
-        name: 'a baguette',
+        name: 'A baguette',
         slug: 'baguette',
         icon: 'i-lucide-ruler',
         price: 1.2
     },
     {
-        name: 'bus fare',
+        name: 'Bus fare',
         slug: 'bus',
         icon: 'i-lucide-bus',
         price: 2.5
     },
     {
-        name: 'lunch',
+        name: 'Lunch',
         slug: 'lunch',
         icon: 'i-lucide-utensils',
         price: 16
@@ -30,19 +30,25 @@ export default [
         price: 1229
     },
     {
-        name: 'a (nice) car',
+        name: 'A (nice) car',
         slug: 'car',
         icon: 'i-lucide-car',
         price: 40000
     },
     {
-        name: 'a house',
+        name: 'A Rolex made of gold',
+        slug: 'rolex',
+        icon: 'i-lucide-watch',
+        price: 59800
+    },
+    {
+        name: 'A house',
         slug: 'house',
         icon: 'i-lucide-house',
         price: 350000
     },
     {
-        name: 'entry level private jet',
+        name: 'Entry level private jet',
         slug: 'jet',
         icon: 'i-lucide-plane',
         price: 2500000,
@@ -56,7 +62,33 @@ export default [
         }
     },
     {
-        name: 'a 65m long yacht',
+        name: 'Trump\'s golden toilet',
+        slug: 'toilet',
+        icon: 'i-lucide-toilet',
+        price: (4800000 * 1.2).toFixed(), // pounds to eur
+        source: {
+            name: 'CNN Style',
+            text: 'The satirical work, titled “America” by Italian conceptual artist Maurizio Cattelan, poked fun at ' +
+                'excessive wealth. It weighed just over 215 pounds (98 kilograms) and was insured for £4.8 million ' +
+                '($6 million). The value of the gold at the time was £2.8 million ($3.5 million).The piece had ' +
+                'previously been on display at The Guggenheim Museum in New York. The museum had offered the work to ' +
+                'US President Donald Trump during his first term in office after he had asked to borrow a Van Gogh painting.',
+            date: '2025-02-25',
+            link: 'https://edition.cnn.com/2025/02/25/style/gold-toilet-trial-blenheim-palace'
+        }
+    },
+    {
+        name: 'A Caribbean private island',
+        slug: 'island',
+        icon: 'i-lucide-tree-palm',
+        price: 9995000,
+        source: {
+            name: 'Private Islands Inc.',
+            link: 'https://www.privateislandsonline.com/caribbean/bahamas/the-abacos/coconut-palm-bay-the-ultimate-private-island-style-retreat'
+        }
+    },
+    {
+        name: 'A 65m long yacht',
         slug: 'yacht',
         icon: 'i-lucide-ship',
         price: 35000000,
@@ -67,17 +99,7 @@ export default [
         }
     },
     {
-        name: 'a Caribbean private island',
-        slug: 'island',
-        icon: 'i-lucide-tree-palm',
-        price: 9995000,
-        source: {
-            name: 'Private Islands Inc.',
-            link: 'https://www.privateislandsonline.com/caribbean/bahamas/the-abacos/coconut-palm-bay-the-ultimate-private-island-style-retreat'
-        }
-    },
-    {
-        name: 'a Falcon Heavy launch',
+        name: 'A Falcon Heavy launch',
         slug: 'spacex',
         icon: 'i-lucide-rocket',
         price: 97000000
@@ -95,13 +117,13 @@ export default [
         }
     },
     {
-        name: 'a Boeing 747',
+        name: 'A Boeing 747',
         slug: 'boeing',
         icon: 'i-lucide-plane-takeoff',
         price: 220000000
     },
     {
-        name: 'a penthouse in Monaco',
+        name: 'A penthouse in Monaco',
         slug: 'penthouse',
         icon: 'i-lucide-building-2',
         price: 335000000,

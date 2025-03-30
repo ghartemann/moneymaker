@@ -55,6 +55,7 @@ function initMoneyMakers() {
 
                 return acc;
             }, {}),
+            source: moneyMaker.source,
             displayed: moneyMaker.displayed
         });
     });

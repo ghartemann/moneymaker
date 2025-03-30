@@ -10,8 +10,33 @@
             ></USwitch>
         </div>
 
-        <div class="text-xs text-gray-500">
-            {{ useFormat().formatNumber(moneyMaker.hourlyWage) }} per hour
+        <div class="flex gap-1">
+            <div class="text-xs text-gray-500">
+                {{ useFormat().formatNumber(moneyMaker.hourlyWage) }} per hour
+            </div>
+
+            <UTooltip
+                v-if="moneyMaker.source"
+                :delay-duration="0"
+                :ui="{content: 'h-full min-w-fit max-w-96'}"
+            >
+                <UIcon name="i-lucide-info" class="size-4"/>
+
+                <template #content>
+                    <div class="space-y-4">
+                        <div v-if="moneyMaker.source.text"
+                             v-html="moneyMaker.source.text"
+                        ></div>
+
+                        <div class="text-gray-500">
+                            Source <span v-if="moneyMaker.source.date">({{ moneyMaker.source.date }})</span>:
+                            <a :href="moneyMaker.source.link" target="_blank" class="underline">
+                                {{ moneyMaker.source.name }}
+                            </a>
+                        </div>
+                    </div>
+                </template>
+            </UTooltip>
         </div>
 
         <template v-if="moneyMaker.displayed">

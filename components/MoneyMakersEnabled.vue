@@ -1,10 +1,12 @@
 <template>
-    <TransitionGroup tag="div" name="fade" class="grid grid-cols-3 gap-4">
+    <TransitionGroup tag="div" name="fade" class="flex gap-4 overflow-x-auto p-[1px] pb-4 relative">
         <card-money-maker
             v-for="moneyMaker in moneyMakers"
             :key="moneyMaker.name"
             v-model="selectedTimeTab"
             :money-maker="moneyMaker"
+            class="shrink-0"
+            style="width: calc(33.3333% - calc(var(--spacing) * 4px) - (calc(2px / 3)))"
         ></card-money-maker>
     </TransitionGroup>
 </template>

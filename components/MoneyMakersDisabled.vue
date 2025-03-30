@@ -14,14 +14,19 @@
             No available money maker
         </div>
 
-        <div v-else class="grid grid-cols-3 gap-4">
+        <TransitionGroup
+            v-else
+            tag="div"
+            name="fade"
+            class="grid grid-cols-3 gap-4"
+        >
             <card-money-maker
                 v-for="moneyMaker in moneyMakers"
                 :key="moneyMaker.name"
-                v-model="moneyMaker.displayed"
+                v-model="selectedTimeTab"
                 :money-maker="moneyMaker"
             ></card-money-maker>
-        </div>
+        </TransitionGroup>
     </div>
 </template>
 
@@ -34,6 +39,8 @@ defineProps({
         required: true
     }
 });
+
+const selectedTimeTab = defineModel();
 </script>
 
 <style scoped>

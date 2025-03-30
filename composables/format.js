@@ -1,7 +1,7 @@
 export default function useFormat() {
     function formatPrice(number) {
         return new Intl.NumberFormat(
-            'fr-FR',
+            'en-CA',
             { style: 'currency', currency: 'EUR' }
         ).format(number);
     }

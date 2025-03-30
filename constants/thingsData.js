@@ -15,7 +15,7 @@ export default [
         name: 'lunch',
         slug: 'lunch',
         icon: 'i-lucide-utensils',
-        price: 15
+        price: 16
     },
     {
         name: 'Doc Martens',
@@ -42,22 +42,39 @@ export default [
         price: 350000
     },
     {
-        name: 'a private jet',
+        name: 'entry level private jet',
         slug: 'jet',
         icon: 'i-lucide-plane',
-        price: 5000000
+        price: 2500000,
+        source: {
+            name: 'BankRate',
+            text: 'The price for a brand-new private jet ranges from about $2.5 million to $660 million. The price is ' +
+                'determined by many factors, including the size, maker, range, customization and what the jet offers, ' +
+                'like the engines and avionics.',
+            date: '2024-11-09',
+            link: 'https://www.bankrate.com/loans/personal-loans/how-much-does-a-private-jet-cost/'
+        }
     },
     {
         name: 'a 65m long yacht',
         slug: 'yacht',
         icon: 'i-lucide-ship',
-        price: 35000000
+        price: 35000000,
+        source: {
+            name: 'Boat International',
+            date: '2024-10-28',
+            link: 'https://www.boatinternational.com/yachts-for-sale/eternity-codecasa-2010'
+        }
     },
     {
-        name: 'a private island',
+        name: 'a Caribbean private island',
         slug: 'island',
         icon: 'i-lucide-tree-palm',
-        price: 50000000
+        price: 9995000,
+        source: {
+            name: 'Private Islands Inc.',
+            link: 'https://www.privateislandsonline.com/caribbean/bahamas/the-abacos/coconut-palm-bay-the-ultimate-private-island-style-retreat'
+        }
     },
     {
         name: 'a Falcon Heavy launch',

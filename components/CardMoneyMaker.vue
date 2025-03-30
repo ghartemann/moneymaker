@@ -30,16 +30,25 @@
             </div>
 
             <div class="space-y-2">
-                <h2 class="text-center text-sm">
+                <h2 class="text-center text-xs">
                     Time it'll take to buy one of these (and <span class="underline font-semibold">nothing</span> else)
                 </h2>
 
+                <UTabs
+                    v-model="selectedTimeTab"
+                    :items="tabs"
+                    class="w-full"
+                    size="xs"
+                    disabled
+                ></UTabs>
+
                 <div class="flex flex-col gap-2">
                     <card-thing
-                        v-for="thing in thingsToBuy"
+                        v-for="thing in thingsData"
                         :key="thing.name"
-                        :moneyMaker="moneyMaker"
+                        :money-maker="moneyMaker"
                         :thing="thing"
+                        :selected-time-tab="selectedTimeTab"
                     ></card-thing>
                 </div>
             </div>
@@ -50,15 +59,30 @@
 <script setup>
 import useFormat from "~/composables/format";
 import CardThing from "~/components/CardThing.vue";
-import things from "~/constants/things.js";
-
-const thingsToBuy = ref(things);
+import thingsData from "~/constants/thingsData.js";
 
 defineProps({
     moneyMaker: {
         type: Object,
         required: true
     }
+});
+
+const selectedTimeTab = defineModel();
+
+const tabs = [
+    {
+        label: 'working 24/7',
+        value: 'fulltime'
+    },
+    {
+        label: 'working decent hours',
+        value: 'parttime'
+    }
+];
+
+watch(() => selectedTimeTab.value, () => {
+    selectedTimeTab.value = 'fulltime';
 });
 </script>
 

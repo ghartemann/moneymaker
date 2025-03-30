@@ -26,15 +26,18 @@
                             <UTooltip
                                 v-if="thing.source"
                                 :delay-duration="0"
-                                :ui="{content: 'h-full w-64'}"
+                                :ui="{content: 'h-full min-w-fit max-w-96'}"
                             >
                                 <UIcon name="i-lucide-info" class="size-4"/>
 
                                 <template #content>
-                                    <div>
-                                        <div v-html="thing.source.text" class="italic"></div>
+                                    <div class="space-y-4">
+                                        <div v-if="thing.source.text"
+                                             v-html="thing.source.text"
+                                             class="italic"
+                                        ></div>
 
-                                        <div class="mt-4 inline-block">
+                                        <div class="text-gray-500">
                                             Source <span v-if="thing.source.date">({{ thing.source.date }})</span>:
                                             <a :href="thing.source.link" target="_blank" class="underline">
                                                 {{ thing.source.name }}
@@ -51,15 +54,14 @@
                             :text="useFormat().formatHours(moneyMaker.things[thing.slug].timeItLlTake).join(' ')"
                         >
                             <div class="text-xs text-gray-500 select-none">
-                                {{ useFormat().formatHours(moneyMaker.things[thing.slug].timeItLlTake, true, true).join(' ')
-                                }}
+                                {{ useFormat().formatHours(moneyMaker.things[thing.slug].timeItLlTake, true, true).join(' ') }}
                             </div>
                         </UTooltip>
                     </div>
                 </div>
 
                 <UProgress
-                    v-model="value"
+                    v-model="progressValue"
                     :max="thing.price"
                     class="mt-2"
                 ></UProgress>
@@ -83,14 +85,18 @@ const props = defineProps({
     moneyMaker: {
         type: Object,
         required: true
+    },
+    selectedTimeTab: {
+        type: String,
+        required: true
     }
 });
 
-const value = ref(0);
+const progressValue = ref(0);
 const timeLeft = ref('');
 
 watch(() => props.moneyMaker.money, () => {
-    value.value = props.moneyMaker.money % props.thing.price;
+    progressValue.value = props.moneyMaker.money % props.thing.price;
 });
 </script>
 

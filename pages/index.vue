@@ -3,101 +3,70 @@
         <UContainer class="text-lg mb-16">
             <TopBar></TopBar>
 
-            <MoneyMakersEnabled :money-makers="moneyMakers.filter((mm) => mm.displayed)"></MoneyMakersEnabled>
+            <MoneyMakersEnabled
+                :money-makers="moneyMakers.filter((mm) => mm.displayed)"
+                v-model="selectedTimeTab"
+            ></MoneyMakersEnabled>
 
             <USeparator class="my-8"></USeparator>
 
-            <MoneyMakersDisabled :money-makers="moneyMakers.filter((mm) => !mm.displayed)"></MoneyMakersDisabled>
+            <MoneyMakersDisabled
+                :money-makers="moneyMakers.filter((mm) => !mm.displayed)"
+                v-model="selectedTimeTab"
+            ></MoneyMakersDisabled>
         </UContainer>
     </div>
 </template>
 
 <script setup>
-import things from "~/constants/things.js";
+import thingsData from "~/constants/thingsData.js";
 import TopBar from "~/components/TopBar.vue";
 import MoneyMakersEnabled from "~/components/MoneyMakersEnabled.vue";
 import MoneyMakersDisabled from "~/components/MoneyMakersDisabled.vue";
+import moneyMakersData from "~/constants/moneyMakersData.js";
 
 const rate = ref(20);
 
-const thingsToBuy = ref(things);
+const selectedTimeTab = ref('fulltime');
 
-const calculateTime = (price, rate) => price / rate;
-
-const moneyMakers = ref([
-    {
-        name: 'French SMIC',
-        money: 0,
-        hourlyWage: 9.4,
-        things: thingsToBuy.value.reduce((acc, thing) => {
-            acc[thing.slug] = { owned: 0, timeItLlTake: calculateTime(thing.price, 9.4) };
-            return acc;
-        }, {}),
-        displayed: true
-    },
-    {
-        name: 'Web developer starting salary',
-        money: 0,
-        hourlyWage: 32000 / 12 / 4 / 40,
-        things: thingsToBuy.value.reduce((acc, thing) => {
-            acc[thing.slug] = { owned: 0, timeItLlTake: calculateTime(thing.price, 32000 / 1607) };
-            return acc;
-        }, {}),
-        displayed: false
-    },
-    {
-        name: 'Average French CEO annual salary',
-        money: 0,
-        hourlyWage: 200000 / 12 / 4 / 40,
-        things: thingsToBuy.value.reduce((acc, thing) => {
-            acc[thing.slug] = { owned: 0, timeItLlTake: calculateTime(thing.price, 200000 / 1607) };
-            return acc;
-        }, {}),
-        displayed: true
-    },
-    {
-        name: 'Alexandre Bompard (Carrefour CEO)',
-        money: 0,
-        hourlyWage: 9000000 / 12 / 4 / 40,
-        things: thingsToBuy.value.reduce((acc, thing) => {
-            acc[thing.slug] = { owned: 0, timeItLlTake: calculateTime(thing.price, 9000000 / 1607) };
-            return acc;
-        }, {}),
-        displayed: false
-    },
-    {
-        name: 'Jeff Bezos',
-        money: 0,
-        hourlyWage: 7900000 * 0.92,
-        things: thingsToBuy.value.reduce((acc, thing) => {
-            acc[thing.slug] = { owned: 0, timeItLlTake: calculateTime(thing.price, 7900000 * 0.92) };
-            return acc;
-        }, {}),
-        displayed: false
-    },
-    {
-        name: 'Elon Musk',
-        money: 0,
-        hourlyWage: 23000000 * 0.92,
-        things: thingsToBuy.value.reduce((acc, thing) => {
-            acc[thing.slug] = { owned: 0, timeItLlTake: calculateTime(thing.price, 23000000 * 0.92) };
-            return acc;
-        }, {}),
-        displayed: true
-    }
-]);
+const moneyMakers = ref([]);
 
 onMounted(() => {
+    initMoneyMakers();
+
     setInterval(() => {
         update();
     }, rate.value);
 });
 
+function initMoneyMakers() {
+    const mm = [];
+
+    moneyMakersData.forEach(moneyMaker => {
+        mm.push({
+            name: moneyMaker.name,
+            money: 0,
+            hourlyWage: moneyMaker.hourlyWage,
+            things: thingsData.reduce((acc, thing) => {
+                acc[thing.slug] = {
+                    owned: 0,
+                    timeItLlTake: thing.price / moneyMaker.hourlyWage
+                };
+
+                return acc;
+            }, {}),
+            displayed: moneyMaker.displayed
+        });
+    });
+
+    moneyMakers.value = mm;
+}
+
 function update() {
     moneyMakers.value.forEach(moneyMaker => {
         moneyMaker.money += (moneyMaker.hourlyWage / 3600) * (rate.value / 1000);
 
-        thingsToBuy.value.forEach(thing => {
+        thingsData.forEach(thing => {
             moneyMaker.things[thing.slug].owned = moneyMaker.money / thing.price;
         });
     });

@@ -1,4 +1,6 @@
-version: '3.8'
+#ALLO ????
+
+version: '3.7'
 
 services:
     moneymakers:

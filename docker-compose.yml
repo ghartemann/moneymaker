@@ -9,6 +9,8 @@ services:
             - "3000:3000"
         environment:
             NODE_ENV: production
-        volumes:
-            - .:/app
-        command: yarn start
+
+networks:
+    default:
+        name: nginx_default
+        driver: bridge

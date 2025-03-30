@@ -1,85 +1,105 @@
 <template>
-    <div class="text-lg bg-green-400 min-h-screen">
-        <h1 class="p-8 pb-2 text-center text-5xl font-bold text-white drop-shadow-lg">Moneymaker</h1>
+    <div class="min-h-screen">
+        <UContainer class="text-lg mb-16">
+            <TopBar></TopBar>
 
-        <div class="grid grid-cols-3 gap-4 p-8">
-            <guy
-                v-for="guy in guys"
-                :key="guy.name"
-                :guy="guy"
-                :thingsToBuy="thingsToBuy"
-            ></guy>
-        </div>
+            <MoneyMakersEnabled :money-makers="moneyMakers.filter((mm) => mm.displayed)"></MoneyMakersEnabled>
+
+            <USeparator class="my-8"></USeparator>
+
+            <MoneyMakersDisabled :money-makers="moneyMakers.filter((mm) => !mm.displayed)"></MoneyMakersDisabled>
+        </UContainer>
     </div>
 </template>
 
 <script setup>
-import Guy from "~/components/Guy.vue";
 import things from "~/constants/things.js";
+import TopBar from "~/components/TopBar.vue";
+import MoneyMakersEnabled from "~/components/MoneyMakersEnabled.vue";
+import MoneyMakersDisabled from "~/components/MoneyMakersDisabled.vue";
 
-const rate = ref(10);
+const rate = ref(20);
 
 const thingsToBuy = ref(things);
 
 const calculateTime = (price, rate) => price / rate;
 
-const guys = ref([
+const moneyMakers = ref([
     {
-        name: 'SMIC',
+        name: 'French SMIC',
         money: 0,
-        moneyAnHour: 9.4,
+        hourlyWage: 9.4,
         things: thingsToBuy.value.reduce((acc, thing) => {
             acc[thing.slug] = { owned: 0, timeItLlTake: calculateTime(thing.price, 9.4) };
             return acc;
-        }, {})
+        }, {}),
+        displayed: true
     },
     {
         name: 'Web developer starting salary',
         money: 0,
-        moneyAnHour: 32000 / 12 / 4 / 40,
+        hourlyWage: 32000 / 12 / 4 / 40,
         things: thingsToBuy.value.reduce((acc, thing) => {
             acc[thing.slug] = { owned: 0, timeItLlTake: calculateTime(thing.price, 32000 / 1607) };
             return acc;
-        }, {})
+        }, {}),
+        displayed: false
+    },
+    {
+        name: 'Average French CEO annual salary',
+        money: 0,
+        hourlyWage: 200000 / 12 / 4 / 40,
+        things: thingsToBuy.value.reduce((acc, thing) => {
+            acc[thing.slug] = { owned: 0, timeItLlTake: calculateTime(thing.price, 200000 / 1607) };
+            return acc;
+        }, {}),
+        displayed: true
     },
     {
         name: 'Alexandre Bompard (Carrefour CEO)',
         money: 0,
-        moneyAnHour: 9000000 / 12 / 4 / 40,
+        hourlyWage: 9000000 / 12 / 4 / 40,
         things: thingsToBuy.value.reduce((acc, thing) => {
             acc[thing.slug] = { owned: 0, timeItLlTake: calculateTime(thing.price, 9000000 / 1607) };
             return acc;
-        }, {})
+        }, {}),
+        displayed: false
     },
     {
         name: 'Jeff Bezos',
         money: 0,
-        moneyAnHour: 7900000 * 0.92,
+        hourlyWage: 7900000 * 0.92,
         things: thingsToBuy.value.reduce((acc, thing) => {
             acc[thing.slug] = { owned: 0, timeItLlTake: calculateTime(thing.price, 7900000 * 0.92) };
             return acc;
-        }, {})
+        }, {}),
+        displayed: false
     },
     {
         name: 'Elon Musk',
         money: 0,
-        moneyAnHour: 23000000 * 0.92,
+        hourlyWage: 23000000 * 0.92,
         things: thingsToBuy.value.reduce((acc, thing) => {
             acc[thing.slug] = { owned: 0, timeItLlTake: calculateTime(thing.price, 23000000 * 0.92) };
             return acc;
-        }, {})
+        }, {}),
+        displayed: true
     }
 ]);
 
 onMounted(() => {
     setInterval(() => {
-        updateMoney();
+        update();
     }, rate.value);
 });
 
-function updateMoney() {
-    guys.value.forEach(guy => {
-        guy.money += (guy.moneyAnHour / 3600) * (rate.value / 1000);
+function update() {
+    moneyMakers.value.forEach(moneyMaker => {
+        moneyMaker.money += (moneyMaker.hourlyWage / 3600) * (rate.value / 1000);
+
+        thingsToBuy.value.forEach(thing => {
+            moneyMaker.things[thing.slug].owned = moneyMaker.money / thing.price;
+        });
     });
 }
 </script>

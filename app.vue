@@ -1,3 +1,9 @@
 <template>
-    <NuxtPage></NuxtPage>
+    <UApp>
+        <NuxtPage></NuxtPage>
+    </UApp>
 </template>
+
+<script setup>
+
+</script>

@@ -1,26 +1,28 @@
 {
-  "name": "nuxt-app",
-  "private": true,
-  "type": "module",
-  "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
-  },
-  "dependencies": {
-    "@tailwindcss/vite": "^4.0.17",
-    "@vesp/nuxt-fontawesome": "1.2.1",
-    "nuxt": "^3.16.1",
-    "tailwindcss": "^4.0.17",
-    "vue": "^3.5.13",
-    "vue-router": "^4.5.0"
-  },
-  "packageManager": "yarn@1.22.22+sha1.ac34549e6aa8e7ead463a7407e1c7390f61a6610",
-  "devDependencies": {
-    "@fortawesome/free-brands-svg-icons": "^6.7.2",
-    "@fortawesome/free-regular-svg-icons": "^6.7.2",
-    "@fortawesome/free-solid-svg-icons": "^6.7.2"
-  }
+    "name": "nuxt-app",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "build": "nuxt build",
+        "dev": "nuxt dev",
+        "generate": "nuxt generate",
+        "preview": "nuxt preview",
+        "postinstall": "nuxt prepare"
+    },
+    "dependencies": {
+        "@nuxt/ui": "^3.0.2",
+        "@nuxtjs/tailwindcss": "^6.13.2",
+        "@tailwindcss/vite": "^4.0.17",
+        "nuxt": "^3.16.1",
+        "tailwind-merge": "^3.0.2",
+        "tailwindcss": "^4.0.17",
+        "tailwindcss-animate": "^1.0.7",
+        "typescript": "^5.8.2",
+        "vue": "^3.5.13",
+        "vue-router": "^4.5.0"
+    },
+    "packageManager": "yarn@1.22.22+sha1.ac34549e6aa8e7ead463a7407e1c7390f61a6610",
+    "devDependencies": {
+        "sass-embedded": "^1.86.0"
+    }
 }

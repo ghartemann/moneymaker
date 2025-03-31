@@ -5,6 +5,7 @@
 
             <MoneyMakersEnabled
                 :money-makers="moneyMakers.filter((mm) => mm.displayed)"
+                :time-elapsed="timeElapsed"
                 v-model="selectedTimeTab"
             ></MoneyMakersEnabled>
 
@@ -26,6 +27,7 @@ import MoneyMakersDisabled from "~/components/MoneyMakersDisabled.vue";
 import moneyMakersData from "~/constants/moneyMakersData.js";
 
 const rate = ref(20);
+const timeElapsed = ref(0);
 
 const selectedTimeTab = ref('fulltime');
 
@@ -64,6 +66,8 @@ function initMoneyMakers() {
 }
 
 function update() {
+    timeElapsed.value += rate.value;
+
     moneyMakers.value.forEach(moneyMaker => {
         moneyMaker.money += (moneyMaker.hourlyWage / 3600) * (rate.value / 1000);
 

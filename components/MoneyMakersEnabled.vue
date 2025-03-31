@@ -5,6 +5,7 @@
             :key="moneyMaker.name"
             v-model="selectedTimeTab"
             :money-maker="moneyMaker"
+            :time-elapsed="timeElapsed"
             class="shrink-0"
             style="width: calc(33.3333% - calc(var(--spacing) * 4px) - (calc(2px / 3)))"
         ></card-money-maker>
@@ -17,6 +18,10 @@ import CardMoneyMaker from "~/components/CardMoneyMaker.vue";
 defineProps({
     moneyMakers: {
         type: Array,
+        required: true
+    },
+    timeElapsed: {
+        type: Number,
         required: true
     }
 });

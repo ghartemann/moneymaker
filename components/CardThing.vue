@@ -62,7 +62,7 @@
 
                 <UProgress
                     v-model="progressValue"
-                    :max="thing.price"
+                    :max="parseFloat(thing.price)"
                     class="mt-2"
                 ></UProgress>
 

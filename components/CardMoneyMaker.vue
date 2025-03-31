@@ -52,6 +52,10 @@
                 <div class="text-xs">
                     since this page was loaded
                 </div>
+
+                <div class="text-xs text-gray-500">
+                    about {{ useFormat().formatHours(timeElapsed / 1000000).join(' ') }} ago
+                </div>
             </div>
 
             <div class="space-y-2">
@@ -90,6 +94,9 @@ defineProps({
     moneyMaker: {
         type: Object,
         required: true
+    },
+    timeElapsed: {
+        type: Number
     }
 });
 

@@ -53,9 +53,8 @@ function initMoneyMakers() {
 
     moneyMakersData.forEach(moneyMaker => {
         mm.push({
-            name: moneyMaker.name,
+            ...moneyMaker,
             money: 0,
-            hourlyWage: moneyMaker.hourlyWage,
             things: thingsData.reduce((acc, thing) => {
                 acc[thing.slug] = {
                     owned: 0,
@@ -63,9 +62,7 @@ function initMoneyMakers() {
                 };
 
                 return acc;
-            }, {}),
-            source: moneyMaker.source,
-            displayed: moneyMaker.displayed
+            }, {})
         });
     });
 
@@ -79,7 +76,7 @@ function update() {
         moneyMaker.money += (moneyMaker.hourlyWage / 3600) * (rate.value / 1000);
 
         thingsData.forEach(thing => {
-            moneyMaker.things[thing.slug].owned = moneyMaker.money / thing.price;
+            moneyMaker.things[thing.slug].owned = Math.floor(moneyMaker.money / thing.price);
         });
     });
 }

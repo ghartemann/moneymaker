@@ -42,6 +42,12 @@ export default [
         price: 59800
     },
     {
+        name: 'Tesla Model S',
+        slug: 'tesla',
+        icon: 'i-lucide-car-front',
+        price: 112390,
+    },
+    {
         name: 'A house',
         slug: 'house',
         icon: 'i-lucide-house',

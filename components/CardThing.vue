@@ -62,7 +62,7 @@
 
                 <UProgress
                     v-model="progressValue"
-                    :max="parseFloat(thing.price)"
+                    :max="100"
                     class="mt-2"
                 ></UProgress>
 
@@ -92,11 +92,17 @@ const props = defineProps({
     }
 });
 
-const progressValue = ref(0);
 const timeLeft = ref('');
 
-watch(() => props.moneyMaker.money, () => {
-    progressValue.value = props.moneyMaker.money % props.thing.price;
+const progressValue = computed(() => {
+    const effectiveMoney = props.moneyMaker.money % props.thing.price;
+    const percentage = (effectiveMoney / props.thing.price) * 100;
+
+    if (props.thing.slug === 'rolex') {
+        console.log(percentage)
+    }
+
+    return percentage;
 });
 </script>
 

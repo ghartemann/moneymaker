@@ -16,23 +16,30 @@
             </div>
 
             <UTooltip
-                v-if="moneyMaker.source"
+                v-if="moneyMaker.sources.length > 0"
                 :delay-duration="0"
                 :ui="{content: 'h-full min-w-fit max-w-96'}"
             >
-                <UIcon name="i-lucide-info" class="size-4"/>
+                <UIcon class="size-4" name="i-lucide-info"/>
 
                 <template #content>
-                    <div class="space-y-4">
-                        <div v-if="moneyMaker.source.text"
-                             v-html="moneyMaker.source.text"
-                        ></div>
+                    <div>
+                        <div v-for="(source, index) in moneyMaker.sources"
+                             :key="index"
+                             class="space-y-2"
+                        >
+                            <div v-if="source.text"
+                                 v-html="source.text"
+                            ></div>
 
-                        <div class="text-gray-500">
-                            Source <span v-if="moneyMaker.source.date">({{ moneyMaker.source.date }})</span>:
-                            <a :href="moneyMaker.source.link" target="_blank" class="underline">
-                                {{ moneyMaker.source.name }}
-                            </a>
+                            <div class="text-gray-500">
+                                Source<span v-if="source.date"> ({{ source.date }})</span>:
+                                <a :href="source.link" class="underline" target="_blank">
+                                    {{ source.name }}
+                                </a>
+                            </div>
+
+                            <USeparator v-if="index < moneyMaker.sources.length - 1" class="mt-4 mb-3"></USeparator>
                         </div>
                     </div>
                 </template>
@@ -53,9 +60,9 @@
                     since this page was loaded
                 </div>
 
-<!--                <div class="text-xs text-gray-500">-->
-<!--                    about {{ useFormat().formatHours(timeElapsed / 1000000).join(' ') }} ago-->
-<!--                </div>-->
+                <!--                <div class="text-xs text-gray-500">-->
+                <!--                    about {{ useFormat().formatHours(timeElapsed / 1000000).join(' ') }} ago-->
+                <!--                </div>-->
             </div>
 
             <div class="space-y-2">
@@ -63,21 +70,21 @@
                     Time it'll take to buy one of these (and <span class="underline font-semibold">nothing</span> else)
                 </h2>
 
-<!--                <UTabs-->
-<!--                    v-model="selectedTimeTab"-->
-<!--                    :items="tabs"-->
-<!--                    class="w-full"-->
-<!--                    size="xs"-->
-<!--                    disabled-->
-<!--                ></UTabs>-->
+                <!--                <UTabs-->
+                <!--                    v-model="selectedTimeTab"-->
+                <!--                    :items="tabs"-->
+                <!--                    class="w-full"-->
+                <!--                    size="xs"-->
+                <!--                    disabled-->
+                <!--                ></UTabs>-->
 
                 <div class="flex flex-col gap-2">
                     <card-thing
                         v-for="thing in thingsData"
                         :key="thing.name"
                         :money-maker="moneyMaker"
-                        :thing="thing"
                         :selected-time-tab="selectedTimeTab"
+                        :thing="thing"
                     ></card-thing>
                 </div>
             </div>

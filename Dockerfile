@@ -19,4 +19,4 @@ RUN yarn build
 EXPOSE 3000
 
 # Start the application
-CMD ["yarn", "start"]
+CMD ["yarn", "build"]

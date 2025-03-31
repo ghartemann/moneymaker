@@ -4,9 +4,8 @@ version: '3.7'
 
 services:
     moneymakers:
-        build:
-            context: .
-            dockerfile: Dockerfile
+        container_name: moneymakers
+        build: .
         environment:
             NODE_ENV: production
 

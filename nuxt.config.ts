@@ -14,5 +14,17 @@ export default defineNuxtConfig({
 
     modules: [
         '@nuxt/ui'
-    ]
+    ],
+
+    app: {
+        head: {
+            title: 'MoneyMakers',
+            htmlAttrs: {
+                lang: 'en',
+            },
+            link: [
+                { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+            ]
+        }
+    }
 })

@@ -1,7 +1,7 @@
 <template>
     <div class="flex justify-between py-4 ">
         <h1 class="text-center text-2xl font-bold hover:text-primary-500 select-none cursor-pointer transition-colors" @click="goToHome">
-            Moneymakers
+            MoneyMakers
         </h1>
 
         <div>

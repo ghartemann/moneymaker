@@ -1,5 +1,8 @@
 <template>
     <TransitionGroup tag="div" name="fade" class="flex gap-4 overflow-x-auto p-[1px] pb-4 relative">
+<!--        <div v-if="loading">loading</div>-->
+<!--        <USkeleton v-if="loading" class="h-96"></USkeleton>-->
+
         <card-money-maker
             v-for="moneyMaker in moneyMakers"
             :key="moneyMaker.name"
@@ -23,6 +26,10 @@ defineProps({
     timeElapsed: {
         type: Number,
         required: true
+    },
+    loading: {
+        type: Boolean,
+        default: false
     }
 });
 

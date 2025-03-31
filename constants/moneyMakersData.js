@@ -2,6 +2,15 @@ import useFormat from "~/composables/format.js";
 
 export default [
     {
+        name: 'French RSA',
+        hourlyWage: 647.79 / 35 / 4,
+        displayed: true,
+        source: {
+            name: 'Mes Allocs.fr',
+            link: 'https://www.mes-allocs.fr/guides/rsa/montant-rsa/rsa-augmentation/'
+        }
+    },
+    {
         name: 'French SMIC',
         hourlyWage: 9.4,
         displayed: true,

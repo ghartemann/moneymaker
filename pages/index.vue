@@ -7,6 +7,7 @@
                 :money-makers="moneyMakers.filter((mm) => mm.displayed)"
                 :time-elapsed="timeElapsed"
                 v-model="selectedTimeTab"
+                :loading="loading"
             ></MoneyMakersEnabled>
 
             <USeparator class="my-8"></USeparator>
@@ -26,6 +27,8 @@ import MoneyMakersEnabled from "~/components/MoneyMakersEnabled.vue";
 import MoneyMakersDisabled from "~/components/MoneyMakersDisabled.vue";
 import moneyMakersData from "~/constants/moneyMakersData.js";
 
+const loading = ref(false);
+
 const rate = ref(20);
 const timeElapsed = ref(0);
 
@@ -34,11 +37,15 @@ const selectedTimeTab = ref('fulltime');
 const moneyMakers = ref([]);
 
 onMounted(() => {
+    loading.value = true;
+
     initMoneyMakers();
 
     setInterval(() => {
         update();
     }, rate.value);
+
+    loading.value = false;
 });
 
 function initMoneyMakers() {

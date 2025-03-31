@@ -53,9 +53,9 @@
                     since this page was loaded
                 </div>
 
-                <div class="text-xs text-gray-500">
-                    about {{ useFormat().formatHours(timeElapsed / 1000000).join(' ') }} ago
-                </div>
+<!--                <div class="text-xs text-gray-500">-->
+<!--                    about {{ useFormat().formatHours(timeElapsed / 1000000).join(' ') }} ago-->
+<!--                </div>-->
             </div>
 
             <div class="space-y-2">
@@ -63,13 +63,13 @@
                     Time it'll take to buy one of these (and <span class="underline font-semibold">nothing</span> else)
                 </h2>
 
-                <UTabs
-                    v-model="selectedTimeTab"
-                    :items="tabs"
-                    class="w-full"
-                    size="xs"
-                    disabled
-                ></UTabs>
+<!--                <UTabs-->
+<!--                    v-model="selectedTimeTab"-->
+<!--                    :items="tabs"-->
+<!--                    class="w-full"-->
+<!--                    size="xs"-->
+<!--                    disabled-->
+<!--                ></UTabs>-->
 
                 <div class="flex flex-col gap-2">
                     <card-thing

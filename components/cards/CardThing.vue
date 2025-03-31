@@ -1,5 +1,5 @@
 <template>
-    <UCard>
+    <UCard variant="soft">
         <div class="w-full flex gap-4 items-center">
             <UIcon :name="thing.icon" class="size-6"/>
 
@@ -66,8 +66,8 @@
                     class="mt-2"
                 ></UProgress>
 
-                <div class="text-xs text-center italic">
-                    {{ timeLeft }}
+                <div class="text-xxs text-center italic text-gray-500">
+                    {{ timeLeft }} remaining
                 </div>
             </div>
         </div>
@@ -75,7 +75,7 @@
 </template>
 
 <script setup>
-import useFormat from "../composables/format.js";
+import useFormat from "../../composables/format.js";
 
 const props = defineProps({
     thing: {
@@ -92,17 +92,16 @@ const props = defineProps({
     }
 });
 
-const timeLeft = ref('');
+const timeLeft = computed(() => {
+    const moneyNeeded = props.thing.price - (props.moneyMaker.money % props.thing.price);
+    const timeLeft = moneyNeeded / (props.moneyMaker.hourlyWage / 3600);
+
+    return useFormat().formatHours(timeLeft / 3600, true, true, true).join(' ');
+});
 
 const progressValue = computed(() => {
     const effectiveMoney = props.moneyMaker.money % props.thing.price;
-    const percentage = (effectiveMoney / props.thing.price) * 100;
-
-    if (props.thing.slug === 'rolex') {
-        console.log(percentage)
-    }
-
-    return percentage;
+    return (effectiveMoney / props.thing.price) * 100;
 });
 </script>
 

@@ -1,7 +1,16 @@
 <template>
-    <TransitionGroup tag="div" name="fade" class="flex gap-4 overflow-x-auto p-[1px] pb-4 relative">
-<!--        <div v-if="loading">loading</div>-->
-<!--        <USkeleton v-if="loading" class="h-96"></USkeleton>-->
+    <TransitionGroup tag="div" name="fade" class="flex gap-4 p-[1px] overflow-x-auto px-8 pb-4">
+        <div v-if="moneyMakers.length === 0">
+            <NuxtPlaceholder class="w-96">
+                <div class="text-center text-xs text-gray-500">
+                    Add at least one money maker
+                </div>
+
+                <div class="text-center text-xs text-gray-300">
+                    or whatever
+                </div>
+            </NuxtPlaceholder>
+        </div>
 
         <card-money-maker
             v-for="moneyMaker in moneyMakers"
@@ -16,7 +25,8 @@
 </template>
 
 <script setup>
-import CardMoneyMaker from "~/components/CardMoneyMaker.vue";
+import CardMoneyMaker from "~/components/cards/CardMoneyMaker.vue";
+import NuxtPlaceholder from "~/components/NuxtPlaceholder.vue";
 
 defineProps({
     moneyMakers: {
@@ -26,10 +36,6 @@ defineProps({
     timeElapsed: {
         type: Number,
         required: true
-    },
-    loading: {
-        type: Boolean,
-        default: false
     }
 });
 

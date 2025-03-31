@@ -1,15 +1,15 @@
 <template>
-    <div class="min-h-screen">
-        <UContainer class="text-lg mb-16">
-            <TopBar></TopBar>
+    <div class="w-full min-h-screen flex flex-col overflow-hidden">
+        <TopBar></TopBar>
 
-            <MoneyMakersEnabled
-                :money-makers="moneyMakers.filter((mm) => mm.displayed)"
-                :time-elapsed="timeElapsed"
-                v-model="selectedTimeTab"
-                :loading="loading"
-            ></MoneyMakersEnabled>
+        <MoneyMakersEnabled
+            :money-makers="moneyMakers.filter((mm) => mm.displayed)"
+            :time-elapsed="timeElapsed"
+            v-model="selectedTimeTab"
+            class="max-w-full mx-auto"
+        ></MoneyMakersEnabled>
 
+        <UContainer>
             <USeparator class="my-8"></USeparator>
 
             <MoneyMakersDisabled
@@ -17,6 +17,10 @@
                 v-model="selectedTimeTab"
             ></MoneyMakersDisabled>
         </UContainer>
+
+        <div class="mt-16 mb-8 text-center text-xs">
+            Created with 💔 by <ULink to="https://ghartemann.fr">ghartemann</ULink>
+        </div>
     </div>
 </template>
 
@@ -27,25 +31,20 @@ import MoneyMakersEnabled from "~/components/MoneyMakersEnabled.vue";
 import MoneyMakersDisabled from "~/components/MoneyMakersDisabled.vue";
 import moneyMakersData from "~/constants/moneyMakersData.js";
 
-const loading = ref(false);
-
 const rate = ref(20);
-const timeElapsed = ref(0);
+const timeElapsed = ref(0); // in seconds
+const lastUpdateTime = ref(Date.now());
 
 const selectedTimeTab = ref('fulltime');
 
 const moneyMakers = ref([]);
 
 onMounted(() => {
-    loading.value = true;
-
     initMoneyMakers();
 
     setInterval(() => {
         update();
     }, rate.value);
-
-    loading.value = false;
 });
 
 function initMoneyMakers() {
@@ -70,10 +69,14 @@ function initMoneyMakers() {
 }
 
 function update() {
-    timeElapsed.value += rate.value;
+    const now = Date.now();
+    const delta = (now - lastUpdateTime.value) / 1000; // delta en secondes
+    lastUpdateTime.value = now;
+
+    timeElapsed.value += delta;
 
     moneyMakers.value.forEach(moneyMaker => {
-        moneyMaker.money += (moneyMaker.hourlyWage / 3600) * (rate.value / 1000);
+        moneyMaker.money += (moneyMaker.hourlyWage / 3600) * delta;
 
         thingsData.forEach(thing => {
             moneyMaker.things[thing.slug].owned = Math.floor(moneyMaker.money / thing.price);

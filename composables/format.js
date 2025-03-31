@@ -6,7 +6,7 @@ export default function useFormat() {
         ).format(number);
     }
 
-    function formatHours(hours, short = false, roughly = false) {
+    function formatHours(hours, short = false, roughly = false, noPerSecond = false) {
         const parts = [];
         const formatNumberNice = useFormat().formatNumberNice;
 
@@ -84,8 +84,12 @@ export default function useFormat() {
 
         if (seconds > 0 || parts.length === 0) {
             if (seconds === 0) {
-                const perSecond = (1 / secondsUnrounded).toFixed(2);
-                parts.push(`${formatNumberNice(perSecond)} per second`);
+                if (noPerSecond === false) {
+                    const perSecond = (1 / secondsUnrounded).toFixed(2);
+                    parts.push(`${formatNumberNice(perSecond)} per second`);
+                } else {
+                    parts.push('0 s');
+                }
             } else {
                 const unit = short ? 's' : (seconds > 1 ? 'seconds' : 'second');
                 parts.push(`${seconds} ${unit}`);

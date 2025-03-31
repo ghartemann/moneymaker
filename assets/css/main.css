@@ -9,6 +9,12 @@
     }
 }
 
+/* custom tw classes to move, probably */
+.text-xxs {
+    font-size: 0.625rem;
+    line-height: calc(1 / 0.625);
+}
+
 /*TRANSITIONS*/
 /*.fade-move, !* apply transition to moving elements *!*/
 /*.fade-enter-active,*/

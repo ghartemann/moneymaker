@@ -1,12 +1,51 @@
 <template>
-    <div class="flex justify-between py-4 ">
-        <h1 class="text-center text-2xl font-bold hover:text-primary-500 select-none cursor-pointer transition-colors" @click="goToHome">
+    <UContainer class="flex justify-between py-4 ">
+        <h1 class="text-center text-2xl font-bold hover:text-primary-500 select-none cursor-pointer transition-colors"
+            @click="goToHome"
+        >
             MoneyMakers
         </h1>
 
-        <div>
+        <div class="space-x-2">
+<!--            <UModal>-->
+<!--                <UButton-->
+<!--                    icon="i-lucide-plus"-->
+<!--                    color="neutral"-->
+<!--                    variant="outline"-->
+<!--                ></UButton>-->
+
+<!--                <template #content>-->
+<!--                    <div class="p-4 space-y-2">-->
+<!--                        <div class="text-center text-lg font-bold">-->
+<!--                            Add a money maker-->
+<!--                        </div>-->
+
+<!--                        <div class="text-center text-xs text-gray-500">-->
+<!--                            Add a money maker to the list-->
+<!--                        </div>-->
+
+<!--                        <div>-->
+<!--                            <UInput-->
+<!--                                placeholder="Name"-->
+<!--                            ></UInput>-->
+
+<!--                            <UInput-->
+<!--                                placeholder="Hourly wage"-->
+<!--                            ></UInput>-->
+
+<!--                            <UButton-->
+<!--                                color="primary"-->
+<!--                                variant="solid"-->
+<!--                            >-->
+<!--                                Add-->
+<!--                            </UButton>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </template>-->
+<!--            </UModal>-->
+
             <UDropdownMenu
-                :items="dropDownItems"
+                :items="optionsItems"
                 :content="{align: 'end', side: 'bottom'}"
                 :ui="{content: 'w-48'}"
             >
@@ -17,13 +56,13 @@
                 ></UButton>
             </UDropdownMenu>
         </div>
-    </div>
+    </UContainer>
 </template>
 
 <script setup>
 const router = useRouter();
 
-const dropDownItems = computed(() => {
+const optionsItems = computed(() => {
     return [
         {
             label: 'Theme',
@@ -49,7 +88,7 @@ function toggleColorMode() {
 }
 
 function goToHome() {
-    router.push({name: 'home'});
+    router.push({ name: 'home' });
 }
 </script>
 

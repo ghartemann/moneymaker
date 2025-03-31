@@ -60,9 +60,9 @@
                     since this page was loaded
                 </div>
 
-                <!--                <div class="text-xs text-gray-500">-->
-                <!--                    about {{ useFormat().formatHours(timeElapsed / 1000000).join(' ') }} ago-->
-                <!--                </div>-->
+                <div class="text-xs text-gray-500">
+                    about {{ useFormat().formatHours(timeElapsed / 60 / 60, true).join(' ') }} ago
+                </div>
             </div>
 
             <div class="space-y-2">
@@ -93,8 +93,8 @@
 </template>
 
 <script setup>
-import useFormat from "~/composables/format";
-import CardThing from "~/components/CardThing.vue";
+import useFormat from "~/composables/format.js";
+import CardThing from "~/components/cards/CardThing.vue";
 import thingsData from "~/constants/thingsData.js";
 
 defineProps({

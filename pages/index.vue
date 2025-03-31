@@ -9,9 +9,7 @@
             class="max-w-full mx-auto"
         ></MoneyMakersEnabled>
 
-        <UContainer>
-            <USeparator class="my-8"></USeparator>
-
+        <UContainer class="mt-4">
             <MoneyMakersDisabled
                 :money-makers="moneyMakers.filter((mm) => !mm.displayed)"
                 v-model="selectedTimeTab"
@@ -19,7 +17,7 @@
         </UContainer>
 
         <div class="mt-16 mb-8 text-center text-xs">
-            Created with 💔 by <ULink to="https://ghartemann.fr">ghartemann</ULink>
+            Created with 💔 by <ULink to="https://ghartemann.fr" target="_blank">ghartemann</ULink>
         </div>
     </div>
 </template>

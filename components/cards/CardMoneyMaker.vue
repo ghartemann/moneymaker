@@ -15,35 +15,10 @@
                 {{ useFormat().formatNumber(moneyMaker.hourlyWage) }} per hour
             </div>
 
-            <UTooltip
+            <TooltipSources
                 v-if="moneyMaker.sources.length > 0"
-                :delay-duration="0"
-                :ui="{content: 'h-full min-w-fit max-w-96'}"
-            >
-                <UIcon class="size-4" name="i-lucide-info"/>
-
-                <template #content>
-                    <div>
-                        <div v-for="(source, index) in moneyMaker.sources"
-                             :key="index"
-                             class="space-y-2"
-                        >
-                            <div v-if="source.text"
-                                 v-html="source.text"
-                            ></div>
-
-                            <div class="text-gray-500">
-                                Source<span v-if="source.date"> ({{ source.date }})</span>:
-                                <a :href="source.link" class="underline" target="_blank">
-                                    {{ source.name }}
-                                </a>
-                            </div>
-
-                            <USeparator v-if="index < moneyMaker.sources.length - 1" class="mt-4 mb-3"></USeparator>
-                        </div>
-                    </div>
-                </template>
-            </UTooltip>
+                :sources="moneyMaker.sources"
+            ></TooltipSources>
         </div>
 
         <template v-if="moneyMaker.displayed">
@@ -96,6 +71,7 @@
 import useFormat from "~/composables/format.js";
 import CardThing from "~/components/cards/CardThing.vue";
 import thingsData from "~/constants/thingsData.js";
+import TooltipSources from "~/components/TooltipSources.vue";
 
 defineProps({
     moneyMaker: {
@@ -120,6 +96,7 @@ const tabs = [
     }
 ];
 
+// TODO: debug
 watch(() => selectedTimeTab.value, () => {
     selectedTimeTab.value = 'fulltime';
 });

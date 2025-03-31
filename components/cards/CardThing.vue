@@ -23,38 +23,19 @@
                                 {{ useFormat().formatNumber(thing.price) }}
                             </div>
 
-                            <UTooltip
-                                v-if="thing.source"
-                                :delay-duration="0"
-                                :ui="{content: 'h-full min-w-fit max-w-96'}"
-                            >
-                                <UIcon name="i-lucide-info" class="size-4"/>
-
-                                <template #content>
-                                    <div class="space-y-4">
-                                        <div v-if="thing.source.text"
-                                             v-html="thing.source.text"
-                                             class="italic"
-                                        ></div>
-
-                                        <div class="text-gray-500">
-                                            Source <span v-if="thing.source.date">({{ thing.source.date }})</span>:
-                                            <a :href="thing.source.link" target="_blank" class="underline">
-                                                {{ thing.source.name }}
-                                            </a>
-                                        </div>
-                                    </div>
-                                </template>
-                            </UTooltip>
+                            <TooltipSources
+                                v-if="thing.sources.length > 0"
+                                :sources="thing.sources"
+                            ></TooltipSources>
                         </div>
 
                         <UTooltip
-                            :disabled="useFormat().formatHours(moneyMaker.things[thing.slug].timeItLlTake, true, true)[0] !== '~'"
+                            :disabled="useFormat().formatHours(timeItllTake, true, true)[0] !== '~'"
                             :delay-duration="100"
-                            :text="useFormat().formatHours(moneyMaker.things[thing.slug].timeItLlTake).join(' ')"
+                            :text="useFormat().formatHours(timeItllTake).join(' ')"
                         >
                             <div class="text-xs text-gray-500 select-none">
-                                {{ useFormat().formatHours(moneyMaker.things[thing.slug].timeItLlTake, true, true).join(' ') }}
+                                {{ useFormat().formatHours(timeItllTake, true, true).join(' ') }}
                             </div>
                         </UTooltip>
                     </div>
@@ -76,6 +57,7 @@
 
 <script setup>
 import useFormat from "../../composables/format.js";
+import TooltipSources from "~/components/TooltipSources.vue";
 
 const props = defineProps({
     thing: {
@@ -102,6 +84,10 @@ const timeLeft = computed(() => {
 const progressValue = computed(() => {
     const effectiveMoney = props.moneyMaker.money % props.thing.price;
     return (effectiveMoney / props.thing.price) * 100;
+});
+
+const timeItllTake = computed(() => {
+    return props.moneyMaker.things[props.thing.slug].timeItLlTake;
 });
 </script>
 

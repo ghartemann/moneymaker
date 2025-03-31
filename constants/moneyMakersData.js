@@ -1,4 +1,5 @@
 import useFormat from "~/composables/format.js";
+import currencies from "~/constants/currencies.js";
 
 export default [
     {
@@ -6,6 +7,10 @@ export default [
         hourlyWage: 647.79 / 35 / 4,
         displayed: false,
         sources: [
+            {
+                text: 'To properly compare the RSA with the minimum wage, we emulate a 35-hour work week.<br>' +
+                    '647.79 / 35 / 4 = ' + useFormat().formatNumber(647.79 / 35 / 4) + ' per hour',
+            },
             {
                 name: 'Service-Public.fr',
                 text: '[French] active solidarity income (ASI/RSA) provides a minimum level of income for people without resources ' +
@@ -46,6 +51,29 @@ export default [
         ]
     },
     {
+        name: 'Asset manager',
+        hourlyWage: (43000 * 0.78) / 1820,
+        displayed: false,
+        sources: [
+            {
+                name: 'Indeed',
+                text: '€43,000 a year',
+                link: 'https://fr.indeed.com/conseils-carrieres/remuneration-salaire/salaire-gestionnaire-patrimoine',
+            }
+        ]
+    },{
+        name: 'Head of Human Resources',
+        hourlyWage: (85000 * 0.78) / 1820,
+        displayed: false,
+        sources: [
+            {
+                name: 'Jobteaser',
+                text: '€85,000 a year',
+                link: 'https://www.jobteaser.com/fr/job-roles/salary/drh',
+            }
+        ]
+    },
+    {
         name: 'Average French CEO annual salary',
         hourlyWage: 200000 / 1820,
         displayed: false,
@@ -71,7 +99,7 @@ export default [
     },
     {
         name: 'Jeff Bezos',
-        hourlyWage: 7900000 * 0.92,
+        hourlyWage: 7900000 * currencies.usdToEur,
         displayed: false,
         sources: [
             // {
@@ -83,13 +111,22 @@ export default [
     },
     {
         name: 'Elon Musk',
-        hourlyWage: 23000000 * 0.92,
+        hourlyWage: 23110000 * currencies.usdToEur,
         displayed: true,
         sources: [
-            // {
-            //     name: '',
-            //     link: ''
-            // }
+            {
+                name: 'Yahoo! Finance',
+                text: '<i>For a leap year like 2024, that breaks down to approximately $554.64 million a day, $23.11 ' +
+                    'million an hour or a jaw-dropping $6,420 per second. While these numbers make for great trivia, ' +
+                    'they\'re not reflective of an hourly wage – it\'s more about the rapid growth of his assets, ' +
+                    'primarily tied to Tesla and SpaceX stock.</i>',
+                link: 'https://finance.yahoo.com/news/elon-musk-richest-man-world-151517895.html'
+            },
+            {
+                text: 'As explained in the article, it is difficult to compare the growth of Musk\'s fortune with an ' +
+                    'income as such. However, it\s pretty clear that the purpose of this application is not so much ' +
+                    'to demonstrate great scientific skill as to highlight the great inequalities between rich and poor.'
+            }
         ]
     }
 ];

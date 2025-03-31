@@ -19,7 +19,7 @@
             :money-maker="moneyMaker"
             :time-elapsed="timeElapsed"
             class="shrink-0"
-            style="width: calc(33.3333% - calc(var(--spacing) * 4px) - (calc(2px / 3)))"
+            style="width: calc(33.3333% - var(--spacing) * 4px)"
         ></card-money-maker>
     </TransitionGroup>
 </template>

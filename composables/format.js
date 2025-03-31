@@ -6,6 +6,7 @@ export default function useFormat() {
         ).format(number);
     }
 
+    // la pire fonction que j'ai jamais écrite mdr
     function formatHours(hours, short = false, roughly = false, noPerSecond = false) {
         const parts = [];
         const formatNumberNice = useFormat().formatNumberNice;
@@ -55,6 +56,11 @@ export default function useFormat() {
         const days = Math.floor(hours / 24);
         if (days > 0) {
             if (roughly && years >= 1 && months === 0 && days > 0) {
+                parts.unshift('~');
+                return parts;
+            }
+
+            if (roughly && weeks > 0 && days > 0) {
                 parts.unshift('~');
                 return parts;
             }

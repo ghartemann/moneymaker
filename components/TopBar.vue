@@ -7,42 +7,42 @@
         </h1>
 
         <div class="space-x-2">
-<!--            <UModal>-->
-<!--                <UButton-->
-<!--                    icon="i-lucide-plus"-->
-<!--                    color="neutral"-->
-<!--                    variant="outline"-->
-<!--                ></UButton>-->
+            <!--            <UModal>-->
+            <!--                <UButton-->
+            <!--                    icon="i-lucide-plus"-->
+            <!--                    color="neutral"-->
+            <!--                    variant="outline"-->
+            <!--                ></UButton>-->
 
-<!--                <template #content>-->
-<!--                    <div class="p-4 space-y-2">-->
-<!--                        <div class="text-center text-lg font-bold">-->
-<!--                            Add a money maker-->
-<!--                        </div>-->
+            <!--                <template #content>-->
+            <!--                    <div class="p-4 space-y-2">-->
+            <!--                        <div class="text-center text-lg font-bold">-->
+            <!--                            Add a money maker-->
+            <!--                        </div>-->
 
-<!--                        <div class="text-center text-xs text-gray-500">-->
-<!--                            Add a money maker to the list-->
-<!--                        </div>-->
+            <!--                        <div class="text-center text-xs text-gray-500">-->
+            <!--                            Add a money maker to the list-->
+            <!--                        </div>-->
 
-<!--                        <div>-->
-<!--                            <UInput-->
-<!--                                placeholder="Name"-->
-<!--                            ></UInput>-->
+            <!--                        <div>-->
+            <!--                            <UInput-->
+            <!--                                placeholder="Name"-->
+            <!--                            ></UInput>-->
 
-<!--                            <UInput-->
-<!--                                placeholder="Hourly wage"-->
-<!--                            ></UInput>-->
+            <!--                            <UInput-->
+            <!--                                placeholder="Hourly wage"-->
+            <!--                            ></UInput>-->
 
-<!--                            <UButton-->
-<!--                                color="primary"-->
-<!--                                variant="solid"-->
-<!--                            >-->
-<!--                                Add-->
-<!--                            </UButton>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </template>-->
-<!--            </UModal>-->
+            <!--                            <UButton-->
+            <!--                                color="primary"-->
+            <!--                                variant="solid"-->
+            <!--                            >-->
+            <!--                                Add-->
+            <!--                            </UButton>-->
+            <!--                        </div>-->
+            <!--                    </div>-->
+            <!--                </template>-->
+            <!--            </UModal>-->
 
             <UDropdownMenu
                 :items="optionsItems"
@@ -56,6 +56,24 @@
                 ></UButton>
             </UDropdownMenu>
         </div>
+
+        <UModal
+            v-model:open="showAboutModal"
+            title="About MoneyMakers"
+            close-icon="i-lucide-x"
+        >
+            <template #body>
+                <div>
+                    <p>
+                        This app was created in a few days using <ULink to="https://ui.nuxt.com/" target="_blank">Nuxt UI</ULink> and <ULink to="https://nuxt.com/" target="_blank">Nuxt 3</ULink>.
+                    </p>
+
+                    <p>
+                        It is open source and can be found on <ULink to="https://github.com/ghartemann/moneymaker" target="_blank">Github</ULink>.
+                    </p>
+                </div>
+            </template>
+        </UModal>
     </UContainer>
 </template>
 
@@ -69,10 +87,16 @@ const optionsItems = computed(() => {
             icon: isDark.value ? 'i-lucide-moon' : 'i-lucide-sun',
             onSelect: toggleColorMode
         },
+        {
+            label: 'About',
+            icon: 'i-lucide-circle-help',
+            onSelect: showAbout
+        },
     ]
 });
 
 const colorMode = useColorMode();
+const showAboutModal = ref(false);
 
 const isDark = computed({
     get() {
@@ -89,6 +113,10 @@ function toggleColorMode() {
 
 function goToHome() {
     router.push({ name: 'home' });
+}
+
+function showAbout() {
+    showAboutModal.value = true;
 }
 </script>
 

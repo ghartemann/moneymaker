@@ -18,7 +18,7 @@ export default defineNuxtConfig({
 
     app: {
         head: {
-            title: 'MoneyMakers',
+            title: 'TrickleDown.js',
             htmlAttrs: {
                 lang: 'en',
             },

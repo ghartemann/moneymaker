@@ -3,7 +3,7 @@
         <div v-if="moneyMakers.length === 0">
             <NuxtPlaceholder class="w-96">
                 <div class="text-center text-xs text-gray-500">
-                    Add at least one money maker
+                    Add at least one type
                 </div>
 
                 <div class="text-center text-xs text-gray-300">

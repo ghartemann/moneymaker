@@ -3,7 +3,7 @@
         <h1 class="text-center text-2xl font-bold hover:text-primary-500 select-none cursor-pointer transition-colors"
             @click="goToHome"
         >
-            MoneyMakers
+            TrickleDown.js
         </h1>
 
         <div class="space-x-2">
@@ -59,7 +59,7 @@
 
         <UModal
             v-model:open="showAboutModal"
-            title="About MoneyMakers"
+            title="About TrickleDown.js"
             close-icon="i-lucide-x"
         >
             <template #body>

@@ -2,16 +2,16 @@
     <div>
         <div class="mb-8">
             <h2 class="text-center text-2xl font-bold mt-8">
-                Available money makers
+                Available types
             </h2>
 
             <div class="text-center text-xs text-gray-500">
-                Click on the switch to display/hide a money maker
+                Click on the switch to display/hide a type
             </div>
         </div>
 
         <div v-if="moneyMakers.length === 0" class="text-center text-xs text-gray-500 mt-4">
-            No available money maker
+            No available types
         </div>
 
         <TransitionGroup

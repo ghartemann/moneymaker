@@ -123,7 +123,7 @@ export default [
         name: 'A Caribbean private island',
         slug: 'island',
         icon: 'i-lucide-tree-palm',
-        price: 9995000,
+        price: 9995000 * currencies.usdToEur,
         sources: [{
             name: 'Private Islands Inc.',
             link: 'https://www.privateislandsonline.com/caribbean/bahamas/the-abacos/coconut-palm-bay-the-ultimate-private-island-style-retreat'
@@ -144,8 +144,14 @@ export default [
         name: 'A Falcon Heavy launch',
         slug: 'spacex',
         icon: 'i-lucide-rocket',
-        price: 97000000,
-        sources: []
+        price: 97000000 * currencies.usdToEur,
+        sources: [
+            {
+                name: 'Wikipedia',
+                text: 'In 2022, the published price for a reusable launch was $97 million.',
+                link: 'https://en.wikipedia.org/wiki/Falcon_Heavy#Launch_prices'
+            }
+        ]
     },
     {
         name: 'Trump\'s inauguration',
@@ -178,6 +184,30 @@ export default [
                 'Monaco. With an estimated market value of 335 million euros, it is the most expensive apartment in ' +
                 'the world, attracting the attention of wealthy investors in search of exceptional properties.',
             link: 'https://www.homesmontecarlo.com/the-secrets-of-the-worlds-most-expensive-apartment-in-monaco'
+        }]
+    },
+    {
+        name: 'Lyon\'s Groupama Stadium',
+        slug: 'stadium',
+        icon: 'i-lucide-trophy',
+        price: 480000000,
+        sources: [
+            {
+                name: 'Wikipedia',
+                link: 'https://fr.wikipedia.org/wiki/Parc_Olympique_lyonnais'
+            }
+        ]
+    },
+    {
+        name: 'Bulding 500k public housing units',
+        slug: 'housing',
+        icon: 'i-lucide-home',
+        price: 156000 * 500000,
+        sources: [{
+            name: 'Caisse des Dépôts',
+            text: '',
+            date: '2021-11-10',
+            link: 'https://www.caissedesdepots.fr/blog/article/couts-de-construction-des-logements-sociaux'
         }]
     },
     {

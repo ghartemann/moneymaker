@@ -42,6 +42,40 @@ import MoneyMakersDisabled from "~/components/MoneyMakersDisabled.vue";
 import moneyMakersData from "~/constants/moneyMakersData.js";
 import CreatedBy from "~/components/CreatedBy.vue";
 
+const route = useRoute();
+
+const meta = {
+    title: 'TrickleDown.js',
+    description: 'How long would it take you to buy a 65 m Yacht? What about Elon Musk?',
+    image: route.fullPath + '3d-money.jpg',
+    url: 'https://trickledown.ghartemann.fr'
+};
+
+useSeoMeta({
+    description: meta.description,
+    ogTitle: meta.title,
+    ogDescription: meta.description,
+    ogImage: meta.image,
+    ogUrl: meta.url,
+    twitterTitle: meta.title,
+    twitterDescription: meta.description,
+    twitterImage: meta.image,
+    twitterCard: 'summary'
+})
+
+useHead({
+    htmlAttrs: {
+        lang: 'en'
+    },
+    link: [
+        {
+            rel: 'icon',
+            type: 'image/png',
+            href: '/favicon.png'
+        }
+    ]
+})
+
 const rate = ref(20);
 const timeElapsed = ref(0); // in seconds
 const lastUpdateTime = ref(Date.now());

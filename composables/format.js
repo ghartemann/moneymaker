@@ -118,17 +118,17 @@ export default function useFormat() {
 
                 break;
             case number < 1000000000:
-                formattedNumber = new Intl.NumberFormat('fr-FR', {
-                    maximumFractionDigits: 0,
-                    minimumFractionDigits: 0
-                }).format(Math.floor(number) / 1000000) + 'M';
+                formattedNumber = new Intl.NumberFormat('en-US', {
+                    maximumFractionDigits: 1,
+                    minimumFractionDigits: 1
+                }).format(Math.floor(number) / 1000000) + ' M';
 
                 break;
             case number < 1000000000000:
-                formattedNumber = new Intl.NumberFormat('fr-FR', {
-                    maximumFractionDigits: 0,
-                    minimumFractionDigits: 0
-                }).format(Math.floor(number) / 1000000000) + 'B';
+                formattedNumber = new Intl.NumberFormat('en-US', {
+                    maximumFractionDigits: 1,
+                    minimumFractionDigits: 1
+                }).format(Math.floor(number) / 1000000000) + ' B';
 
                 break;
             default:

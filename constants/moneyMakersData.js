@@ -51,7 +51,7 @@ export default [
         ]
     },
     {
-        name: 'Asset manager',
+        name: 'Real estate asset manager',
         hourlyWage: (43000 * 0.78) / 1820,
         displayed: false,
         sources: [
@@ -90,11 +90,25 @@ export default [
         hourlyWage: 9000000 / 1820,
         displayed: false,
         sources: [
-            // {
-            //     name: '',
-            //     text: '',
-            //     link: ''
-            // }
+            {
+                name: 'Capital',
+                text: 'For 2023, Alexandre Bompard will receive more than €9 million in total: at least €4.5 million in salary and up to €5.3 million in shares.',
+                link: 'https://www.capital.fr/entreprises-marches/carrefour-les-9-millions-d-euros-du-pdg-exasperent-les-salaries-mais-pas-les-actionnaires-1497240',
+                date: '2024-05-25'
+            }
+        ]
+    },
+    {
+        name: 'Mark Zuckerberg',
+        hourlyWage: 2700000 * currencies.usdToEur,
+        displayed: false,
+        sources: [
+            {
+                name: 'Quora',
+                text: '<i>Mark Zuckerberg\'s estimated hourly earnings fluctuate based on Meta’s stock performance, but ' +
+                    'using an annual increase of $24 billion as an example, he could earn about $2.7 million per hour on average.</i>',
+                link: 'https://www.quora.com/How-much-does-Mark-Zuckerberg-earn-per-hour'
+            }
         ]
     },
     {
@@ -125,7 +139,8 @@ export default [
             {
                 text: 'As explained in the article, it is difficult to compare the growth of Musk\'s fortune with an ' +
                     'income as such. However, it\s pretty clear that the purpose of this application is not so much ' +
-                    'to demonstrate great scientific skill as to highlight the great inequalities between rich and poor.'
+                    'to demonstrate great scientific skill as to highlight the great inequalities between rich and poor.' +
+                    'Therefore, the comparison stands.'
             }
         ]
     }

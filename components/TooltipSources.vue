@@ -17,9 +17,9 @@
 
                     <div v-if="source.link" class="text-gray-500">
                         Source<span v-if="source.date"> ({{ source.date }})</span>:
-                        <a :href="source.link" class="underline" target="_blank">
+                        <ULink :to="source.link" class="underline" target="_blank">
                             {{ source.name }}
-                        </a>
+                        </ULink>
                     </div>
 
                     <USeparator v-if="index < sources.length - 1" class="mt-4 mb-3"></USeparator>

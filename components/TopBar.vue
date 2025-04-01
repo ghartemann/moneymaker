@@ -57,28 +57,16 @@
             </UDropdownMenu>
         </div>
 
-        <UModal
-            v-model:open="showAboutModal"
-            title="About TrickleDown.js"
-            close-icon="i-lucide-x"
-        >
-            <template #body>
-                <div>
-                    <p>
-                        This app was created in a few days using <ULink to="https://ui.nuxt.com/" target="_blank">Nuxt UI</ULink> and <ULink to="https://nuxt.com/" target="_blank">Nuxt 3</ULink>.
-                    </p>
-
-                    <p>
-                        It is open source and can be found on <ULink to="https://github.com/ghartemann/moneymaker" target="_blank">Github</ULink>.
-                    </p>
-                </div>
-            </template>
-        </UModal>
+        <AboutModal v-model="showAboutModal"></AboutModal>
     </UContainer>
 </template>
 
 <script setup>
+import AboutModal from "~/components/modals/AboutModal.vue";
+
 const router = useRouter();
+
+const showAboutModal = ref(false);
 
 const optionsItems = computed(() => {
     return [
@@ -94,9 +82,7 @@ const optionsItems = computed(() => {
         },
     ]
 });
-
 const colorMode = useColorMode();
-const showAboutModal = ref(false);
 
 const isDark = computed({
     get() {

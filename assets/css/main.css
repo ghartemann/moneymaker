@@ -9,6 +9,10 @@
     }
 }
 
+html, body {
+    overscroll-behavior-x: none;
+}
+
 /* custom tw classes to move, probably */
 .text-xxs {
     font-size: 0.625rem;
@@ -16,20 +20,30 @@
 }
 
 /*TRANSITIONS*/
-/*.fade-move, !* apply transition to moving elements *!*/
-/*.fade-enter-active,*/
-/*.fade-leave-active {*/
-/*    transition: all 0.5s ease;*/
-/*}*/
+.fade-up-move,
+.fade-up-enter-active,
+.fade-up-leave-active,
+.fade-down-enter-active,
+.fade-down-leave-active {
+    transition: all 0.5s ease;
+}
 
-/*.fade-enter-from,*/
-/*.fade-leave-to {*/
-/*    opacity: 0;*/
-/*    transform: translateX(30px);*/
-/*}*/
+.fade-up-enter-from,
+.fade-up-leave-to
+{
+    opacity: 0;
+    /*transform: translateY(-30px);*/
+}
 
-/*!* ensure leaving items are taken out of layout flow so that moving*/
-/*   animations can be calculated correctly. *!*/
-/*.fade-leave-active {*/
-/*    position: absolute;*/
-/*}*/
+.fade-down-enter-from,
+.fade-down-leave-to
+{
+    opacity: 0;
+    /*transform: translateY(30px);*/
+}
+
+/* ensure leaving items are taken out of layout flow so that moving
+   animations can be calculated correctly. */
+.fade-up-leave-active, .fade-down-leave-active {
+    display: none;
+}

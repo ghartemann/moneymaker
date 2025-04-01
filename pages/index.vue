@@ -1,24 +1,36 @@
 <template>
-    <div class="w-full min-h-screen flex flex-col overflow-hidden">
+    <div class="w-full min-h-screen flex flex-col overflow-hidden relative pb-16">
         <TopBar></TopBar>
 
-        <MoneyMakersEnabled
-            :money-makers="moneyMakers.filter((mm) => mm.displayed)"
-            :time-elapsed="timeElapsed"
-            v-model="selectedTimeTab"
-            class="max-w-full mx-auto"
-        ></MoneyMakersEnabled>
+        <div v-if="loading" class="w-96 m-auto h-96">
+            <UProgress v-model="loadingModel"></UProgress>
 
-        <UContainer class="mt-4">
-            <MoneyMakersDisabled
-                :money-makers="moneyMakers.filter((mm) => !mm.displayed)"
-                v-model="selectedTimeTab"
-            ></MoneyMakersDisabled>
-        </UContainer>
+            <div class="text-center text-xs text-gray-500 mt-2">
+                Loading...
+            </div>
 
-        <div class="mt-16 mb-8 text-center text-xs">
-            Created with 💔 by <ULink to="https://ghartemann.fr" target="_blank">ghartemann</ULink>
+            <div class="text-center text-xs text-gray-300">
+                Please wait
+            </div>
         </div>
+
+        <template v-else>
+            <MoneyMakersEnabled
+                :money-makers="moneyMakers.filter((mm) => mm.displayed)"
+                :time-elapsed="timeElapsed"
+                v-model="selectedTimeTab"
+                class="max-w-full mx-auto"
+            ></MoneyMakersEnabled>
+
+            <UContainer class="mt-4 mb-8">
+                <MoneyMakersDisabled
+                    :money-makers="moneyMakers.filter((mm) => !mm.displayed)"
+                    v-model="selectedTimeTab"
+                ></MoneyMakersDisabled>
+            </UContainer>
+        </template>
+
+        <CreatedBy class="absolute bottom-0"></CreatedBy>
     </div>
 </template>
 
@@ -28,6 +40,7 @@ import TopBar from "~/components/TopBar.vue";
 import MoneyMakersEnabled from "~/components/MoneyMakersEnabled.vue";
 import MoneyMakersDisabled from "~/components/MoneyMakersDisabled.vue";
 import moneyMakersData from "~/constants/moneyMakersData.js";
+import CreatedBy from "~/components/CreatedBy.vue";
 
 const rate = ref(20);
 const timeElapsed = ref(0); // in seconds
@@ -36,6 +49,9 @@ const lastUpdateTime = ref(Date.now());
 const selectedTimeTab = ref('fulltime');
 
 const moneyMakers = ref([]);
+
+const loading = computed(() => moneyMakers.value.length === 0);
+const loadingModel = ref(null);
 
 onMounted(() => {
     initMoneyMakers();
@@ -46,6 +62,8 @@ onMounted(() => {
 });
 
 function initMoneyMakers() {
+    loading.value = true;
+
     const mm = [];
 
     moneyMakersData.forEach(moneyMaker => {
@@ -64,6 +82,7 @@ function initMoneyMakers() {
     });
 
     moneyMakers.value = mm;
+    loading.value = false;
 }
 
 function update() {

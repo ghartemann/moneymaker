@@ -3,6 +3,7 @@
         <div class="flex justify-between items-center">
             <div>
                 {{ moneyMaker.name }}
+                <span v-if="moneyMaker.subName" class="text-xs text-gray-500"> {{ moneyMaker.subName }}</span>
             </div>
 
             <USwitch
@@ -45,13 +46,24 @@
                     Time it'll take to buy one of these (and <span class="underline font-semibold">nothing</span> else)
                 </h2>
 
-                <!--                <UTabs-->
-                <!--                    v-model="selectedTimeTab"-->
-                <!--                    :items="tabs"-->
-                <!--                    class="w-full"-->
-                <!--                    size="xs"-->
-                <!--                    disabled-->
-                <!--                ></UTabs>-->
+                <UTooltip
+                    v-model:open="tooltipDisabled"
+                    :delay-duration="0"
+                    :ui="{content: 'h-full min-w-fit max-w-96'}"
+                >
+                    <UTabs
+                        @click="tooltipDisabled = true"
+                        v-model="selectedTimeTab"
+                        :items="tabs"
+                        class="w-full opacity-40"
+                        size="xs"
+                        disabled
+                    ></UTabs>
+
+                    <template #content>
+                        Disabled for now, sorry!
+                    </template>
+                </UTooltip>
 
                 <div class="flex flex-col gap-2">
                     <card-thing
@@ -82,6 +94,8 @@ defineProps({
         type: Number
     }
 });
+
+const tooltipDisabled = ref(false);
 
 const selectedTimeTab = defineModel();
 

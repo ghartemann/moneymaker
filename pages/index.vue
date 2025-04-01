@@ -2,7 +2,7 @@
     <div class="w-full min-h-screen flex flex-col overflow-hidden relative pb-16">
         <TopBar></TopBar>
 
-        <div v-if="loading" class="w-96 m-auto h-96">
+        <div v-if="loading" class="w-72 md:w-96 m-auto h-96">
             <UProgress v-model="loadingModel"></UProgress>
 
             <div class="text-center text-xs text-gray-500 mt-2">

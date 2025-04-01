@@ -2,7 +2,7 @@
     <TransitionGroup
         tag="div"
         name="fade-down"
-        class="flex p-[1px] overflow-x-auto pb-4 px-2 snap-x"
+        class="flex overflow-x-auto pb-4 px-2 snap-x"
     >
         <div v-if="moneyMakers.length === 0">
             <NuxtPlaceholder class="w-96">
@@ -17,7 +17,6 @@
         </div>
 
         <div class="p-2 snap-center shrink-0 grow-0"
-             style="width: calc(33.3333% - var(--spacing) * 4px)"
              v-for="moneyMaker in moneyMakers"
              :key="moneyMaker.name"
         >
@@ -25,8 +24,7 @@
                 v-model="selectedTimeTab"
                 :money-maker="moneyMaker"
                 :time-elapsed="timeElapsed"
-                class="shrink-0 grow-0"
-                style="width: calc(33.3333% - var(--spacing) * 4px)"
+                class="!w-full grow-0 shrink-0"
             ></card-money-maker>
         </div>
     </TransitionGroup>

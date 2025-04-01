@@ -30,11 +30,15 @@
                         </div>
 
                         <UTooltip
-                            :disabled="useFormat().formatHours(timeItllTake, true, true)[0] !== '~'"
+                            v-model:open="tooltipTime"
+                            :disabled="timeTruncated"
                             :delay-duration="100"
                             :text="useFormat().formatHours(timeItllTake).join(' ')"
                         >
-                            <div class="text-xs text-gray-500 select-none">
+                            <!-- cet homme emmerde ses collègues avec ça toute la sainte journée et pourtant quand il est seul...-->
+                            <div @click="() => {if (!timeTruncated) tooltipTime = false}"
+                                 class="text-xs text-gray-500 select-none"
+                            >
                                 {{ useFormat().formatHours(timeItllTake, true, true).join(' ') }}
                             </div>
                         </UTooltip>
@@ -74,6 +78,8 @@ const props = defineProps({
     }
 });
 
+const tooltipTime = ref(false);
+
 const timeLeft = computed(() => {
     const moneyNeeded = props.thing.price - (props.moneyMaker.money % props.thing.price);
     const timeLeft = moneyNeeded / (props.moneyMaker.hourlyWage / 3600);
@@ -88,6 +94,10 @@ const progressValue = computed(() => {
 
 const timeItllTake = computed(() => {
     return props.moneyMaker.things[props.thing.slug].timeItLlTake;
+});
+
+const timeTruncated = computed(() => {
+    return useFormat().formatHours(timeItllTake.value, true, true)[0] !== '~';
 });
 </script>
 

@@ -67,8 +67,6 @@ export default function useFormat() {
 
             const unit = days > 1 ? 'days' : 'day';
             parts.push(`${days} ${unit}`);
-
-
         }
 
         hours %= 24;
@@ -81,6 +79,11 @@ export default function useFormat() {
 
         const minutes = Math.floor((hours % 1) * 60);
         if (minutes > 0) {
+            if (roughly && days > 0 && h > 0) {
+                parts.unshift('~');
+                return parts;
+            }
+
             const unit = short ? 'min' : (minutes > 1 ? 'minutes' : 'minute');
             parts.push(`${minutes} ${unit}`);
         }
@@ -97,6 +100,11 @@ export default function useFormat() {
                     parts.push('0 s');
                 }
             } else {
+                if (roughly && h > 0 && minutes > 0) {
+                    parts.unshift('~');
+                    return parts;
+                }
+
                 const unit = short ? 's' : (seconds > 1 ? 'seconds' : 'second');
                 parts.push(`${seconds} ${unit}`);
             }

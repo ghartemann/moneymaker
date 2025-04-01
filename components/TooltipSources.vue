@@ -1,9 +1,14 @@
 <template>
     <UTooltip
+        v-model:open="model"
         :delay-duration="0"
         :ui="{content: 'h-full min-w-fit max-w-96'}"
     >
-        <UIcon class="size-4" name="i-lucide-info"/>
+        <UIcon
+            class="size-4"
+            name="i-lucide-info"
+            @click="model = true"
+        ></UIcon>
 
         <template #content>
             <div>
@@ -30,6 +35,11 @@
 </template>
 
 <script setup>
+const model = defineModel({
+    type: Boolean,
+    default: false
+});
+
 defineProps({
     sources: {
         type: Array,

@@ -86,20 +86,36 @@ export default [
         ]
     },
     {
-        name: 'Alexandre Bompard (Carrefour CEO)',
+        name: 'Alexandre Bompard',
+        subName: 'Carrefour CEO',
         hourlyWage: 9000000 / 1820,
         displayed: false,
         sources: [
             {
                 name: 'Capital',
-                text: 'For 2023, Alexandre Bompard will receive more than €9 million in total: at least €4.5 million in salary and up to €5.3 million in shares.',
+                text: '<i>For 2023, Alexandre Bompard will receive more than €9 million in total: at least €4.5 million ' +
+                    'in salary and up to €5.3 million in shares.</i>',
                 link: 'https://www.capital.fr/entreprises-marches/carrefour-les-9-millions-d-euros-du-pdg-exasperent-les-salaries-mais-pas-les-actionnaires-1497240',
                 date: '2024-05-25'
             }
         ]
     },
     {
+        name: 'Bernard Charlès',
+        subName: 'Dassault CEO',
+        hourlyWage: 46791047 / 1820,
+        displayed: false,
+        sources: [
+            {
+                name: 'Oxfam France',
+                link: 'https://www.oxfamfrance.org/communiques-de-presse/le-6-janvier-a-16h49-les-pdg-du-cac-40-ont-deja-gagne-le-salaire-moyen-de-leurs-entreprises/',
+                date: '2025-01-06'
+            }
+        ]
+    },
+    {
         name: 'Mark Zuckerberg',
+        subName: 'Meta CEO, reptilian',
         hourlyWage: 2700000 * currencies.usdToEur,
         displayed: false,
         sources: [
@@ -113,18 +129,22 @@ export default [
     },
     {
         name: 'Jeff Bezos',
-        hourlyWage: 7900000 * currencies.usdToEur,
+        subName: 'Amazon CEO',
+        hourlyWage: 7990000 * currencies.usdToEur,
         displayed: false,
         sources: [
-            // {
-            //     name: '',
-            //     text: '',
-            //     link: ''
-            // }
+            {
+                name: 'Yahoo! Finance',
+                text: '<i>In 2023 alone, Bezos’s net worth increased by $70 billion, from $107 billion to $177 billion. ' +
+                    'This means he earned around $191.78 million per day or an incredible $7.99 million per hour. ' +
+                    'His wealth growth was largely driven by the value of Amazon stock, in which he owns around 9%.</i>',
+                link: 'https://finance.yahoo.com/news/jeff-bezos-earns-7-9-211032368.html'
+            }
         ]
     },
     {
         name: 'Elon Musk',
+        subName: 'Tesla, Twitter, SpaceX CEO',
         hourlyWage: 23110000 * currencies.usdToEur,
         displayed: true,
         sources: [

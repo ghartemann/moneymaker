@@ -20,7 +20,7 @@
                     <div class="flex justify-between items-baseline">
                         <div class="flex gap-1">
                             <div class="text-xs select-none">
-                                {{ useFormat().formatNumber(thing.price) }}
+                                {{ useFormat().formatNumber(thing.price[selectedCurrency]) }}
                             </div>
 
                             <TooltipSources
@@ -60,8 +60,11 @@
 </template>
 
 <script setup>
-import useFormat from "../../composables/format.js";
+import useFormat from "~/composables/format.js";
 import TooltipSources from "~/components/TooltipSources.vue";
+import { useCurrencyStore } from "~/store/CurrencyStore.js";
+
+const { selectedCurrency } = storeToRefs(useCurrencyStore());
 
 const props = defineProps({
     thing: {
@@ -81,15 +84,15 @@ const props = defineProps({
 const tooltipTime = ref(false);
 
 const timeLeft = computed(() => {
-    const moneyNeeded = props.thing.price - (props.moneyMaker.money % props.thing.price);
+    const moneyNeeded = props.thing.price[selectedCurrency] - (props.moneyMaker.money % props.thing.price[selectedCurrency]);
     const timeLeft = moneyNeeded / (props.moneyMaker.hourlyWage / 3600);
 
     return useFormat().formatHours(timeLeft / 3600, true, true, true).join(' ');
 });
 
 const progressValue = computed(() => {
-    const effectiveMoney = props.moneyMaker.money % props.thing.price;
-    return (effectiveMoney / props.thing.price) * 100;
+    const effectiveMoney = props.moneyMaker.money % props.thing.price[selectedCurrency];
+    return (effectiveMoney / props.thing.price[selectedCurrency]) * 100;
 });
 
 const timeItllTake = computed(() => {

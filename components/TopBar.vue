@@ -57,16 +57,20 @@
             </UDropdownMenu>
         </div>
 
+        <SettingsPanel v-model="showSettingsPanel"></SettingsPanel>
+
         <AboutModal v-model="showAboutModal"></AboutModal>
     </UContainer>
 </template>
 
 <script setup>
 import AboutModal from "~/components/modals/AboutModal.vue";
+import SettingsPanel from "~/components/modals/SettingsPanel.vue";
 
 const router = useRouter();
 
 const showAboutModal = ref(false);
+const showSettingsPanel = ref(false);
 
 const optionsItems = computed(() => {
     return [
@@ -74,6 +78,11 @@ const optionsItems = computed(() => {
             label: 'Theme',
             icon: isDark.value ? 'i-lucide-moon' : 'i-lucide-sun',
             onSelect: toggleColorMode
+        },
+        {
+            label: 'Settings',
+            icon: 'i-lucide-settings',
+            onSelect: showSettings
         },
         {
             label: 'About',
@@ -103,6 +112,10 @@ function goToHome() {
 
 function showAbout() {
     showAboutModal.value = true;
+}
+
+function showSettings() {
+    showSettingsPanel.value = true;
 }
 </script>
 

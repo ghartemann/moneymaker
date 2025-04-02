@@ -16,16 +16,16 @@
 
         <template v-else>
             <MoneyMakersEnabled
+                v-model="selectedTimeTab"
                 :money-makers="moneyMakers.filter((mm) => mm.displayed)"
                 :time-elapsed="timeElapsed"
-                v-model="selectedTimeTab"
                 class="max-w-full mx-auto"
             ></MoneyMakersEnabled>
 
             <UContainer class="mt-4 mb-8">
                 <MoneyMakersDisabled
-                    :money-makers="moneyMakers.filter((mm) => !mm.displayed)"
                     v-model="selectedTimeTab"
+                    :money-makers="moneyMakers.filter((mm) => !mm.displayed)"
                 ></MoneyMakersDisabled>
             </UContainer>
         </template>
@@ -39,7 +39,7 @@ import thingsData from "~/constants/thingsData.js";
 import TopBar from "~/components/TopBar.vue";
 import MoneyMakersEnabled from "~/components/MoneyMakersEnabled.vue";
 import MoneyMakersDisabled from "~/components/MoneyMakersDisabled.vue";
-import moneyMakersData from "~/constants/wagesData.js";
+import wagesData from "~/constants/wagesData.ts";
 import CreatedBy from "~/components/CreatedBy.vue";
 
 const route = useRoute();
@@ -61,7 +61,7 @@ useSeoMeta({
     twitterDescription: meta.description,
     twitterImage: meta.image,
     twitterCard: 'summary'
-})
+});
 
 useHead({
     htmlAttrs: {
@@ -74,7 +74,7 @@ useHead({
             href: '/favicon.png'
         }
     ]
-})
+});
 
 const rate = ref(20);
 const timeElapsed = ref(0); // in seconds
@@ -100,7 +100,7 @@ function initMoneyMakers() {
 
     const mm = [];
 
-    moneyMakersData.forEach(moneyMaker => {
+    wagesData.forEach(moneyMaker => {
         mm.push({
             ...moneyMaker,
             money: 0,

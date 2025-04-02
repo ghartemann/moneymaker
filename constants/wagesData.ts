@@ -1,7 +1,8 @@
 import useFormat from "~/composables/format.js";
 import currencies from "~/constants/currencies.js";
+import type { Wage } from "~/constants/interfaces/Wage";
 
-export default [
+const wagesData: Wage[] = [
     {
         name: 'American minimum wage',
         hourlyWage: 7.25 * currencies.usdToEur,
@@ -73,7 +74,8 @@ export default [
                 link: 'https://fr.indeed.com/conseils-carrieres/remuneration-salaire/salaire-gestionnaire-patrimoine',
             }
         ]
-    },{
+    },
+    {
         name: 'Head of Human Resources',
         hourlyWage: (85000 * 0.78) / 1820,
         displayed: false,
@@ -177,3 +179,5 @@ export default [
         ]
     }
 ];
+
+export default wagesData;

@@ -1,5 +1,5 @@
 <template>
-    <UCard>
+    <UCard class="!w-96">
         <div class="flex justify-between items-center">
             <div>
                 {{ moneyMaker.name }}
@@ -82,7 +82,7 @@
 <script setup>
 import useFormat from "~/composables/format.js";
 import CardThing from "~/components/cards/CardThing.vue";
-import thingsData from "~/constants/thingsData.js";
+import thingsData from "~/constants/thingsData.ts";
 import TooltipSources from "~/components/TooltipSources.vue";
 
 defineProps({

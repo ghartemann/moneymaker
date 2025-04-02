@@ -1,6 +1,7 @@
 import currencies from "~/constants/currencies.js";
+import type { Thing } from "~/constants/interfaces/Thing";
 
-export default [
+const thingsData: Thing[] = [
     {
         name: 'A baguette',
         slug: 'baguette',
@@ -130,7 +131,7 @@ export default [
         name: 'Trump\'s gold toilet',
         slug: 'toilet',
         icon: 'i-lucide-toilet',
-        price: (4800000 * currencies.gbpToEur).toFixed(), // 4.8 million
+        price: (4800000 * currencies.gbpToEur), // 4.8 million
         sources: [
             {
                 name: 'CNN Style',
@@ -369,3 +370,5 @@ export default [
         ]
     }
 ];
+
+export default thingsData;

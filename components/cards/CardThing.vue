@@ -13,7 +13,7 @@
                         </div>
 
                         <div class="text-xs text-gray-500 select-none">
-                            x {{ useFormat().formatNumberNice(moneyMaker.things[thing.slug].owned) }}
+                            {{ useFormat().formatNumberNice(moneyMaker.things[thing.slug].owned) }}
                         </div>
                     </div>
 

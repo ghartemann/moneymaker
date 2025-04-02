@@ -25,7 +25,7 @@
 
                         <p class="text-sm">
                             Let me get this straight: the point is definitely not to be perfectly accurate. The arguments
-                            saying that Musk's decadent fortune shouldn't be compared to a wage, that only tethered to the
+                            saying that Musk's indecent fortune shouldn't be compared to a wage, that only tethered to the
                             value of his companies or whatever, <u>are misleading and empty</u>. What matters is that these people
                             have access to infinitely more than the rest of us, and that we will never, ever catch up.
                         </p>

@@ -13,7 +13,8 @@ export default defineNuxtConfig({
     },
 
     modules: [
-        '@nuxt/ui'
+        '@nuxt/ui',
+        '@sentry/nuxt/module'
     ],
 
     app: {
@@ -30,5 +31,16 @@ export default defineNuxtConfig({
                 },
             ]
         }
+    },
+
+    sentry: {
+        sourceMapsUploadOptions: {
+            org: 'ghartemann',
+            project: 'trickledown-nuxt'
+        }
+    },
+
+    sourcemap: {
+        client: 'hidden'
     }
 })

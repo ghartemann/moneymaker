@@ -196,6 +196,22 @@ const thingsData: Thing[] = [
         ]
     },
     {
+        name: 'Losing the Wisconsin election',
+        slug: 'wisconsin',
+        icon: 'i-lucide-scale',
+        price: 100000000, // 100 million
+        sources: [
+            {
+                name: 'PBS Wisconsin',
+                text: '<i>Money is pouring into this swing state election so fast and so many ads have been reserved ' +
+                    'that political observers now believe the current race is likely to reach $100 million by April 1, ' +
+                    'which is election day.</i>',
+                date: '2025-03-31',
+                link: 'https://pbswisconsin.org/news-item/how-a-2025-election-in-wisconsin-became-the-most-expensive-race-for-a-court-seat-in-us-history/'
+            }
+        ]
+    },
+    {
         name: 'Trump\'s inauguration',
         slug: 'trump',
         icon: 'i-lucide-angry',

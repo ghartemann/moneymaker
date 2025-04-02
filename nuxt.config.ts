@@ -12,7 +12,10 @@ export default defineNuxtConfig({
         ],
     },
 
-    modules: ['@nuxt/ui', '@sentry/nuxt/module'],
+    modules: [
+        '@nuxt/ui',
+        '@sentry/nuxt/module'
+    ],
 
     app: {
         head: {
@@ -21,7 +24,11 @@ export default defineNuxtConfig({
                 lang: 'en',
             },
             link: [
-                {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'},
+                {
+                    rel: 'icon',
+                    type: 'image/png',
+                    href: '/icon.png'
+                },
             ]
         }
     },

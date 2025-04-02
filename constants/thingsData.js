@@ -30,7 +30,7 @@ export default [
         sources: []
     },
     {
-        name: 'iPhone 16 Pro',
+        name: 'An iPhone 16 Pro',
         slug: 'iphone',
         icon: 'i-lucide-smartphone',
         price: 1229,
@@ -69,7 +69,7 @@ export default [
         sources: []
     },
     {
-        name: 'Tesla Model S',
+        name: 'A Tesla Model S',
         slug: 'tesla',
         icon: 'i-lucide-car-front',
         price: 112390,
@@ -83,14 +83,14 @@ export default [
         sources: []
     },
     {
-        name: 'Titan Zeus 370-Inch 4K TV',
+        name: 'A Titan Zeus 370-Inch 4K TV',
         slug: 'tv',
         icon: 'i-lucide-tv-minimal',
         price: 1700000,
         sources: []
     },
     {
-        name: 'Entry level private jet',
+        name: 'An entry level private jet',
         slug: 'jet',
         icon: 'i-lucide-plane',
         price: 2500000,

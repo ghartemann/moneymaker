@@ -12,9 +12,7 @@ export default defineNuxtConfig({
         ],
     },
 
-    modules: [
-        '@nuxt/ui'
-    ],
+    modules: ['@nuxt/ui', '@sentry/nuxt/module'],
 
     app: {
         head: {
@@ -23,8 +21,19 @@ export default defineNuxtConfig({
                 lang: 'en',
             },
             link: [
-                { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+                {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'},
             ]
         }
+    },
+
+    sentry: {
+        sourceMapsUploadOptions: {
+            org: 'ghartemann',
+            project: 'trickledown-nuxt'
+        }
+    },
+
+    sourcemap: {
+        client: 'hidden'
     }
 })

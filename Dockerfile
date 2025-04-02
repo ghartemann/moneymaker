@@ -12,9 +12,6 @@ RUN yarn install --production && yarn cache clean
 # Copy the rest of the application code
 COPY . .
 
-# Set version number
-RUN yarn get-git-tag
-
 # Build the application
 RUN yarn build
 

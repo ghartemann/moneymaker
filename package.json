@@ -8,8 +8,7 @@
         "generate": "nuxt generate",
         "preview": "nuxt preview",
         "postinstall": "nuxt prepare",
-        "start": "nuxt start",
-        "get-git-tag": "node getGitTag.js"
+        "start": "nuxt start"
     },
     "dependencies": {
         "@nuxt/ui": "^3.0.2",

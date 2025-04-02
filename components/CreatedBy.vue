@@ -10,20 +10,9 @@
 </template>
 
 <script setup>
-const version = ref('unknown');
+import v from "~/version.json";
 
-onMounted(async () => {
-    try {
-        const response = await fetch('/version.txt');
-        if (response.ok) {
-            version.value = await response.text();
-        } else {
-            console.error('Error fetching version:', response.statusText);
-        }
-    } catch (error) {
-        console.error('Error fetching version:', error);
-    }
-});
+const version = ref(v.version);
 </script>
 
 <style scoped>

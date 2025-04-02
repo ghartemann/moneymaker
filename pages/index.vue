@@ -39,7 +39,7 @@ import thingsData from "~/constants/thingsData.js";
 import TopBar from "~/components/TopBar.vue";
 import MoneyMakersEnabled from "~/components/MoneyMakersEnabled.vue";
 import MoneyMakersDisabled from "~/components/MoneyMakersDisabled.vue";
-import moneyMakersData from "~/constants/moneyMakersData.js";
+import moneyMakersData from "~/constants/wagesData.js";
 import CreatedBy from "~/components/CreatedBy.vue";
 
 const route = useRoute();

@@ -13,20 +13,20 @@
                 >
                     <div class="space-y-4">
                         <p class="text-sm">
-                            The point of this app is to show, in a fun, visual way, how long it would take you to buy things.
+                            The point of this app is to show in a fun, visual way, how long it would take you to buy things.
                             And to compare that time to, say, <i>how long it would take Elon Musk or whoever rich folk to buy the same thing</i>.
                         </p>
 
                         <p class="text-sm">
                             While not always accurate, this demonstration usually leads to important questions like <i>"How
-                            the fuck can these guys have that much money?"</i>, <i>"Will I ever be able to buy that house?"</i>
+                            the fuck can these guys have this much money?"</i>, <i>"Will I ever be able to buy a house?"</i>
                             or even <i>"Who should I contact to buy a 65 m Yacht right now?"</i>.
                         </p>
 
                         <p class="text-sm">
-                            Let me get this straight: the point is definitely not to be perfectly accurante. The arguments
-                            saying that Musk's decadent fortune can't be compared to a wage, that he's defined by the
-                            price of his companies or whatever <u>are misleading and empty</u>. What matters is that these people
+                            Let me get this straight: the point is definitely not to be perfectly accurate. The arguments
+                            saying that Musk's decadent fortune shouldn't be compared to a wage, that only tethered to the
+                            value of his companies or whatever, <u>are misleading and empty</u>. What matters is that these people
                             have access to infinitely more than the rest of us, and that we will never, ever catch up.
                         </p>
 
@@ -89,7 +89,7 @@
                 >
                     <div class="space-y-4">
                         <p class="text-sm">
-                            This app was created in a few days using
+                            All this was created in a few days using
                             <ULink to="https://nuxt.com/" target="_blank">Nuxt 3</ULink>,
                             <ULink to="https://ui.nuxt.com/" target="_blank">Nuxt UI</ULink> and
                             <ULink to="https://tailwindcss.com/" target="_blank">TailwindCSS</ULink>.
@@ -98,7 +98,7 @@
                         </p>
 
                         <p class="text-sm">
-                            The app is not perfect and there are many things to improve. If you have any suggestions or encounter any bugs, please
+                            It is not perfect and there are many things to improve. If you have any suggestions or encounter any bugs, please
                             feel free to <ULink to="https://github.com/ghartemann/moneymaker/issues/new" target="_blank">open an issue on the Github repository</ULink>.
                         </p>
                     </div>
@@ -120,16 +120,16 @@ const roadmap = [
         description: 'Buying an iPhone sure takes 5 days working 24/7, but it takes a month working decent hours'
     },
     {
-        title: 'Add more types',
-        description: 'Representing more people and their jobs'
+        title: 'Add more wages and things to buy',
+        description: 'I\'ll eventually have to order them somehow'
     },
     {
-        title: 'Add more things to buy',
-        description: 'But I\'ll eventually have to order them somehow'
+        title: 'Add your own!',
+        description: 'Minimalistic interface to create wages or things to buy, saved locally'
     },
     {
         title: 'Localization',
-        description: 'At least support French???'
+        description: 'At least support French idk???'
     },
     {
         title: 'New currencies',
@@ -137,7 +137,7 @@ const roadmap = [
     },
     {
         title: 'Code optimizations',
-        description: 'This interval thing will probably break at some point — or it already has'
+        description: 'This interval thing will probably break at some point — or it already has... ?'
     }
 ];
 </script>

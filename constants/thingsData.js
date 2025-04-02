@@ -232,11 +232,11 @@ export default [
         name: '€1 per person alive',
         slug: 'people',
         icon: 'i-lucide-person-standing',
-        price: 8214702127,
+        price: 8214773127,
         sources: [
             {
                 name: 'Worldometer',
-                date: '2025-04-01',
+                date: '2025-04-02',
                 link: 'https://www.worldometers.info/world-population'
             }
         ]

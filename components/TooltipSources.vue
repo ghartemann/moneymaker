@@ -5,7 +5,7 @@
         :ui="{content: 'h-full min-w-fit max-w-96'}"
     >
         <UIcon
-            class="size-4"
+            class="size-4 text-gray-500"
             name="i-lucide-info"
             @click="model = true"
         ></UIcon>

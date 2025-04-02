@@ -63,19 +63,6 @@ useSeoMeta({
     twitterCard: 'summary'
 });
 
-useHead({
-    htmlAttrs: {
-        lang: 'en'
-    },
-    link: [
-        {
-            rel: 'icon',
-            type: 'image/png',
-            href: '/favicon.png'
-        }
-    ]
-});
-
 const rate = ref(20);
 const timeElapsed = ref(0); // in seconds
 const lastUpdateTime = ref(Date.now());

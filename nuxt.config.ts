@@ -37,6 +37,9 @@ export default defineNuxtConfig({
         sourceMapsUploadOptions: {
             org: 'ghartemann',
             project: 'trickledown-nuxt'
+        },
+        options: {
+            telemetry: false
         }
     },
 

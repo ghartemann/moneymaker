@@ -281,6 +281,21 @@ const thingsData: Thing[] = [
         ]
     },
     {
+        name: 'Trump\'s Truth Social stake',
+        slug: 'truth-social',
+        icon: 'i-lucide-trending-down',
+        price: 2300000000 * currencies.usdToEur, // 2 billion
+        sources: [
+            {
+                name: 'Financial Times',
+                text: '<i>The filing with the Securities and Exchange Commission late on Tuesday showed that Trump’s ' +
+                    '114mn shares are included in the sale, which will take place “from time to time in one or more ' +
+                    'offerings”. The stake is worth about $2.3bn and held in a trust controlled by his son Donald Trump Jr.</i>',
+                link: 'https://www.ft.com/content/1b41e7c2-c835-4aa0-b874-6f8a8add107e'
+            }
+        ]
+    },
+    {
         name: '€1 per person alive',
         slug: 'people',
         icon: 'i-lucide-person-standing',

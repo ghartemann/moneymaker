@@ -41,6 +41,7 @@ import MoneyMakersEnabled from "~/components/MoneyMakersEnabled.vue";
 import MoneyMakersDisabled from "~/components/MoneyMakersDisabled.vue";
 import wagesData from "~/constants/wagesData.ts";
 import CreatedBy from "~/components/CreatedBy.vue";
+import { useCurrencyStore } from "~/store/CurrencyStore.js";
 
 const route = useRoute();
 
@@ -62,6 +63,8 @@ useSeoMeta({
     twitterImage: meta.image,
     twitterCard: 'summary'
 });
+
+const { selectedCurrency } = storeToRefs(useCurrencyStore());
 
 const rate = ref(20);
 const timeElapsed = ref(0); // in seconds
@@ -94,7 +97,7 @@ function initMoneyMakers() {
             things: thingsData.reduce((acc, thing) => {
                 acc[thing.slug] = {
                     owned: 0,
-                    timeItLlTake: thing.price / moneyMaker.hourlyWage
+                    timeItLlTake: thing.price[selectedCurrency] / moneyMaker.hourlyWage
                 };
 
                 return acc;
@@ -117,7 +120,7 @@ function update() {
         moneyMaker.money += (moneyMaker.hourlyWage / 3600) * delta;
 
         thingsData.forEach(thing => {
-            moneyMaker.things[thing.slug].owned = Math.floor(moneyMaker.money / thing.price);
+            moneyMaker.things[thing.slug].owned = Math.floor(moneyMaker.money / thing.price[selectedCurrency]);
         });
     });
 }

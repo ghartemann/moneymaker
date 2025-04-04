@@ -14,6 +14,7 @@ export default defineNuxtConfig({
 
     modules: [
         '@nuxt/ui',
+        '@pinia/nuxt',
         '@sentry/nuxt/module'
     ],
 
@@ -46,4 +47,4 @@ export default defineNuxtConfig({
     sourcemap: {
         client: 'hidden'
     }
-})
+});

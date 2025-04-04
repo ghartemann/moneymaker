@@ -4,18 +4,6 @@ import type { Wage } from "~/constants/interfaces/Wage";
 
 const wagesData: Wage[] = [
     {
-        name: 'American minimum wage',
-        hourlyWage: 7.25 * currencies.usdToEur,
-        displayed: false,
-        sources: [
-            {
-                name: 'Wikipedia',
-                text: '<i>In 2009, Congress increased it to $7.25 per hour with the Fair Minimum Wage Act of 2007.</i>',
-                link: 'https://en.wikipedia.org/wiki/Minimum_wage_in_the_United_States'
-            }
-        ]
-    },
-    {
         name: 'French RSA',
         hourlyWage: 647.79 / 35 / 4,
         displayed: false,
@@ -33,6 +21,18 @@ const wagesData: Wage[] = [
             {
                 name: 'Mes Allocs.fr',
                 link: 'https://www.mes-allocs.fr/guides/rsa/montant-rsa/rsa-augmentation/'
+            }
+        ]
+    },
+    {
+        name: 'American minimum wage',
+        hourlyWage: 7.25 * currencies.usdToEur,
+        displayed: false,
+        sources: [
+            {
+                name: 'Wikipedia',
+                text: '<i>In 2009, Congress increased it to $7.25 per hour with the Fair Minimum Wage Act of 2007.</i>',
+                link: 'https://en.wikipedia.org/wiki/Minimum_wage_in_the_United_States'
             }
         ]
     },

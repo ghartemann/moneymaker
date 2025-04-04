@@ -64,19 +64,6 @@ useSeoMeta({
     twitterCard: 'summary'
 });
 
-useHead({
-    htmlAttrs: {
-        lang: 'en'
-    },
-    link: [
-        {
-            rel: 'icon',
-            type: 'image/png',
-            href: '/favicon.png'
-        }
-    ]
-});
-
 const { selectedCurrency } = storeToRefs(useCurrencyStore());
 
 const rate = ref(20);

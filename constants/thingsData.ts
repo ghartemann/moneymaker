@@ -291,6 +291,22 @@ const thingsData: Thing[] = [
         ]
     },
     {
+        name: 'Losing the Wisconsin election',
+        slug: 'wisconsin',
+        icon: 'i-lucide-scale',
+        price: 100000000, // 100 million
+        sources: [
+            {
+                name: 'PBS Wisconsin',
+                text: '<i>Money is pouring into this swing state election so fast and so many ads have been reserved ' +
+                    'that political observers now believe the current race is likely to reach $100 million by April 1, ' +
+                    'which is election day.</i>',
+                date: '2025-03-31',
+                link: 'https://pbswisconsin.org/news-item/how-a-2025-election-in-wisconsin-became-the-most-expensive-race-for-a-court-seat-in-us-history/'
+            }
+        ]
+    },
+    {
         name: 'Trump\'s inauguration',
         slug: 'trump',
         icon: 'i-lucide-angry',
@@ -381,6 +397,21 @@ const thingsData: Thing[] = [
                     'estimated value of two billion U.S. dollars. Meanwhile, Legoland Windsor ranked second with an ' +
                     'estimated value of 671 million U.S. dollars.</i>',
                 link: 'https://www.statista.com/statistics/922212/leading-theme-parks-based-on-value-in-europe'
+            }
+        ]
+    },
+    {
+        name: 'Trump\'s Truth Social stake',
+        slug: 'truth-social',
+        icon: 'i-lucide-trending-down',
+        price: 2300000000 * currencies.usdToEur, // 2 billion
+        sources: [
+            {
+                name: 'Financial Times',
+                text: '<i>The filing with the Securities and Exchange Commission late on Tuesday showed that Trump’s ' +
+                    '114mn shares are included in the sale, which will take place “from time to time in one or more ' +
+                    'offerings”. The stake is worth about $2.3bn and held in a trust controlled by his son Donald Trump Jr.</i>',
+                link: 'https://www.ft.com/content/1b41e7c2-c835-4aa0-b874-6f8a8add107e'
             }
         ]
     },

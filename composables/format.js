@@ -9,14 +9,16 @@ export default function useFormat() {
     // la pire fonction que j'ai jamais écrite mdr
     function formatHours(hours, short = false, roughly = false, noPerSecond = false) {
         const parts = [];
-        const formatNumberNice = useFormat().formatNumberNice;
 
         const years = Math.floor(hours / 8760);
-        const yearsNice = formatNumberNice(years, true);
+        const yearsNice = useFormat().formatNumberNice(years, true);
 
         if (years > 0) {
             if (roughly && years > 1) {
-                parts.unshift('~');
+                if (isFinite(years)) {
+                    parts.unshift('~');
+                }
+
                 parts.push(`${yearsNice} years`);
                 return parts;
             }

@@ -7,64 +7,52 @@ export default function useFormat() {
     }
 
     // la pire fonction que j'ai jamais écrite mdr
-    function formatHours(hours, short = false, roughly = false, noPerSecond = false) {
+    function formatHours(
+        hours,
+        short = false,
+        roughly = false,
+        noPerSecond = false
+    ) {
         const parts = [];
-        const formatNumberNice = useFormat().formatNumberNice;
 
-        const years = Math.floor(hours / 8760);
-        const yearsNice = formatNumberNice(years, true);
-
-        if (years > 0) {
-            if (roughly && years > 1) {
-                parts.unshift('~');
-                parts.push(`${yearsNice} years`);
-                return parts;
-            }
-
-            const unit = years > 1 ? 'years' : 'year';
-            parts.push(`${yearsNice} ${unit}`);
+        if (roughly) {
+            parts.unshift('~');
         }
 
-        hours %= 8760;
+        const nbHoursInYear = 365.25 * 24;
+        const years = Math.floor(hours / nbHoursInYear);
 
-        const months = Math.floor(hours / 730);
+        if (years > 0) {
+            const unit = years > 1 ? 'years' : 'year';
+            parts.push(`${formatNumberNice(years, true)} ${unit}`);
+
+            if (roughly && years >= 10) {
+                return parts;
+            }
+        }
+
+        hours %= nbHoursInYear;
+
+        const nbHoursInMonth = (365.25 / 12) * 24;
+        const months = Math.floor(hours / nbHoursInMonth);
         if (months > 0) {
             const unit = months > 1 ? 'months' : 'month';
             parts.push(`${months} ${unit}`);
-
-            if (roughly && months > 0 ) {
-                parts.unshift('~');
-                return parts;
-            }
         }
 
         hours %= 730;
 
-        const weeks = Math.floor(hours / 168);
+        const nbHoursInWeek = 7 * 24;
+        const weeks = Math.floor(hours / nbHoursInWeek);
         if (weeks > 0) {
             const unit = weeks > 1 ? 'weeks' : 'week';
             parts.push(`${weeks} ${unit}`);
-
-            if (roughly && months > 0 && weeks > 0) {
-                parts.unshift('~');
-                return parts;
-            }
         }
 
         hours %= 168;
 
         const days = Math.floor(hours / 24);
         if (days > 0) {
-            if (roughly && years >= 1 && months === 0 && days > 0) {
-                parts.unshift('~');
-                return parts;
-            }
-
-            if (roughly && weeks > 0 && days > 0) {
-                parts.unshift('~');
-                return parts;
-            }
-
             const unit = days > 1 ? 'days' : 'day';
             parts.push(`${days} ${unit}`);
         }
@@ -79,11 +67,6 @@ export default function useFormat() {
 
         const minutes = Math.floor((hours % 1) * 60);
         if (minutes > 0) {
-            if (roughly && days > 0 && h > 0) {
-                parts.unshift('~');
-                return parts;
-            }
-
             const unit = short ? 'min' : (minutes > 1 ? 'minutes' : 'minute');
             parts.push(`${minutes} ${unit}`);
         }
@@ -91,23 +74,22 @@ export default function useFormat() {
         const seconds = Math.floor(((hours % 1) * 60 % 1) * 60);
         const secondsUnrounded = ((hours % 1) * 60 % 1) * 60;
 
-        if (seconds > 0 || parts.length === 0) {
-            if (seconds === 0) {
-                if (noPerSecond === false) {
-                    const perSecond = (1 / secondsUnrounded).toFixed(2);
-                    parts.push(`${formatNumberNice(perSecond)} per second`);
-                } else {
-                    parts.push('0 s');
-                }
-            } else {
-                if (roughly && h > 0 && minutes > 0) {
-                    parts.unshift('~');
-                    return parts;
-                }
+        if (seconds > 0) {
+            const unit = short ? 's' : (seconds > 1 ? 'seconds' : 'second');
+            parts.push(`${seconds} ${unit}`);
+        }
 
-                const unit = short ? 's' : (seconds > 1 ? 'seconds' : 'second');
-                parts.push(`${seconds} ${unit}`);
+        if (seconds === 0 && parts.length === 0) {
+            if (noPerSecond === false) {
+                const perSecond = (1 / secondsUnrounded).toFixed(2);
+                return [`${formatNumberNice(perSecond)} per second`];
+            } else {
+                return ['0 s'];
             }
+        }
+
+        if (roughly) {
+            parts.splice(3);
         }
 
         return parts;

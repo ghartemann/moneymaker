@@ -35,24 +35,33 @@ export default function useFormat() {
 
         const nbHoursInMonth = (365.25 / 12) * 24;
         const months = Math.floor(hours / nbHoursInMonth);
-        if (months > 0) {
+
+        if (roughly && months === 0 && parts.length > 1) {
+            return parts;
+        } else if (months > 0) {
             const unit = months > 1 ? 'months' : 'month';
             parts.push(`${months} ${unit}`);
         }
 
-        hours %= 730;
+        hours %= nbHoursInMonth;
 
         const nbHoursInWeek = 7 * 24;
         const weeks = Math.floor(hours / nbHoursInWeek);
-        if (weeks > 0) {
+
+        if (roughly && weeks === 0 && parts.length > 1) {
+            return parts;
+        } else if (weeks > 0) {
             const unit = weeks > 1 ? 'weeks' : 'week';
             parts.push(`${weeks} ${unit}`);
         }
 
-        hours %= 168;
+        hours %= nbHoursInWeek;
 
         const days = Math.floor(hours / 24);
-        if (days > 0) {
+
+        if (roughly && days === 0 && parts.length > 1) {
+            return parts;
+        } else if (days > 0) {
             const unit = days > 1 ? 'days' : 'day';
             parts.push(`${days} ${unit}`);
         }
@@ -60,13 +69,19 @@ export default function useFormat() {
         hours %= 24;
 
         const h = Math.floor(hours);
-        if (h > 0) {
+
+        if (roughly && h === 0 && parts.length > 1) {
+            return parts;
+        } else if (h > 0) {
             const unit = short ? 'h' : (h > 1 ? 'hours' : 'hour');
             parts.push(`${h} ${unit}`);
         }
 
         const minutes = Math.floor((hours % 1) * 60);
-        if (minutes > 0) {
+
+        if (roughly && minutes === 0 && parts.length > 1) {
+            return parts;
+        } else if (minutes > 0) {
             const unit = short ? 'min' : (minutes > 1 ? 'minutes' : 'minute');
             parts.push(`${minutes} ${unit}`);
         }
@@ -74,7 +89,9 @@ export default function useFormat() {
         const seconds = Math.floor(((hours % 1) * 60 % 1) * 60);
         const secondsUnrounded = ((hours % 1) * 60 % 1) * 60;
 
-        if (seconds > 0) {
+        if (roughly && seconds === 0 && parts.length > 1) {
+            return parts;
+        } else if (seconds > 0) {
             const unit = short ? 's' : (seconds > 1 ? 'seconds' : 'second');
             parts.push(`${seconds} ${unit}`);
         }

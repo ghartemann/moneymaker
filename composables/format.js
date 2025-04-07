@@ -149,7 +149,7 @@ export default function useFormat() {
 
 
     return {
-        formatNumber: formatPrice,
+        formatPrice,
         formatNumberNice,
         formatHours
     };

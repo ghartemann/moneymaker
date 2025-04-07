@@ -20,7 +20,7 @@
                     <div class="flex justify-between items-baseline">
                         <div class="flex gap-1">
                             <div class="text-xs select-none">
-                                {{ useFormat().formatNumber(thing.price) }}
+                                {{ useFormat().formatPrice(thing.price) }}
                             </div>
 
                             <TooltipSources

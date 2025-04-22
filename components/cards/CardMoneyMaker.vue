@@ -13,7 +13,7 @@
 
         <div class="flex gap-1">
             <div class="text-xs text-gray-500">
-                {{ useFormat().formatNumber(moneyMaker.hourlyWage) }} per hour
+                {{ useFormat().formatPrice(moneyMaker.hourlyWage) }} per hour
             </div>
 
             <TooltipSources
@@ -29,7 +29,7 @@
                 </div>
 
                 <div class="text-3xl font-bold">
-                    {{ useFormat().formatNumber(moneyMaker.money) }}
+                    {{ useFormat().formatPrice(moneyMaker.money) }}
                 </div>
 
                 <div class="text-xs">

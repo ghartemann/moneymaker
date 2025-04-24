@@ -64,6 +64,8 @@
 <script setup>
 import AboutModal from "~/components/modals/AboutModal.vue";
 
+const { t, locales, setLocale, locale } = useI18n();
+
 const router = useRouter();
 
 const showAboutModal = ref(false);
@@ -71,15 +73,27 @@ const showAboutModal = ref(false);
 const optionsItems = computed(() => {
     return [
         {
-            label: 'Theme',
+            label: t('options.theme'),
             icon: isDark.value ? 'i-lucide-moon' : 'i-lucide-sun',
             onSelect: toggleColorMode
         },
         {
-            label: 'About',
+            label: t('options.language'),
+            icon: 'i-lucide-languages',
+            children: [
+                ...locales.value.map(l => ({
+                    label: l.name,
+                    type: 'checkbox',
+                    checked: l.code === locale.value,
+                    onSelect: () => setLocale(l.code)
+                }))
+            ]
+        },
+        {
+            label: t('options.about'),
             icon: 'i-lucide-circle-help',
             onSelect: showAbout
-        },
+        }
     ]
 });
 const colorMode = useColorMode();

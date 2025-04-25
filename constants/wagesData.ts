@@ -1,10 +1,10 @@
 import useFormat from "~/composables/format.js";
 import currencies from "~/constants/currencies.js";
-import type { Wage } from "~/constants/interfaces/Wage";
+import type { Wage } from "~/interfaces/Wage";
 
 const wagesData: Wage[] = [
     {
-        name: 'French RSA',
+        slug: 'rsa',
         hourlyWage: 647.79 / 35 / 4,
         displayed: false,
         sources: [
@@ -25,7 +25,7 @@ const wagesData: Wage[] = [
         ]
     },
     {
-        name: 'American minimum wage',
+        slug: 'us-min-wage',
         hourlyWage: 7.25 * currencies.usdToEur,
         displayed: false,
         sources: [
@@ -37,7 +37,7 @@ const wagesData: Wage[] = [
         ]
     },
     {
-        name: 'French minimum wage',
+        slug: 'smic',
         hourlyWage: 9.4,
         displayed: true,
         sources: [
@@ -49,7 +49,7 @@ const wagesData: Wage[] = [
         ]
     },
     {
-        name: 'Junior web developer',
+        slug: 'junior-web-dev',
         hourlyWage: (32000 * 0.78) / 1820,
         displayed: true,
         sources: [
@@ -64,7 +64,7 @@ const wagesData: Wage[] = [
         ]
     },
     {
-        name: 'Real estate asset manager',
+        slug: 'conseiller',
         hourlyWage: (43000 * 0.78) / 1820,
         displayed: false,
         sources: [
@@ -76,7 +76,7 @@ const wagesData: Wage[] = [
         ]
     },
     {
-        name: 'Head of Human Resources',
+        slug: 'drh',
         hourlyWage: (85000 * 0.78) / 1820,
         displayed: false,
         sources: [
@@ -88,7 +88,7 @@ const wagesData: Wage[] = [
         ]
     },
     {
-        name: 'Average French CEO annual salary',
+        slug: 'ceo',
         hourlyWage: 200000 / 1820,
         displayed: false,
         sources: [
@@ -100,7 +100,7 @@ const wagesData: Wage[] = [
         ]
     },
     {
-        name: 'Alexandre Bompard',
+        slug: 'bompard',
         subName: 'Carrefour CEO',
         hourlyWage: 9000000 / 1820,
         displayed: false,
@@ -115,7 +115,7 @@ const wagesData: Wage[] = [
         ]
     },
     {
-        name: 'Bernard Charlès',
+        slug: 'charles',
         subName: 'Dassault CEO',
         hourlyWage: 46791047 / 1820,
         displayed: false,
@@ -128,7 +128,7 @@ const wagesData: Wage[] = [
         ]
     },
     {
-        name: 'Mark Zuckerberg',
+        slug: 'lizard',
         subName: 'Meta CEO, reptilian',
         hourlyWage: 2700000 * currencies.usdToEur,
         displayed: false,
@@ -142,7 +142,7 @@ const wagesData: Wage[] = [
         ]
     },
     {
-        name: 'Jeff Bezos',
+        slug: 'cringeman',
         subName: 'Amazon CEO',
         hourlyWage: 7990000 * currencies.usdToEur,
         displayed: false,
@@ -157,7 +157,7 @@ const wagesData: Wage[] = [
         ]
     },
     {
-        name: 'Elon Musk',
+        slug: 'trash',
         subName: 'Tesla, Twitter, SpaceX CEO',
         hourlyWage: 23110000 * currencies.usdToEur,
         displayed: true,

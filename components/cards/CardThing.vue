@@ -52,7 +52,7 @@
                 ></UProgress>
 
                 <div class="text-xxs text-center italic text-gray-500">
-                    {{ timeLeft }} remaining
+                    {{ timeLeft }} {{ t('cardThing.remaining') }}
                 </div>
             </div>
         </div>
@@ -62,6 +62,8 @@
 <script setup>
 import useFormat from "../../composables/format.js";
 import TooltipSources from "~/components/TooltipSources.vue";
+
+const { t } = useI18n();
 
 const props = defineProps({
     thing: {

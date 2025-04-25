@@ -13,7 +13,8 @@
 
         <div class="flex gap-1">
             <div class="text-xs text-gray-500">
-                {{ useFormat().formatNumber(moneyMaker.hourlyWage) }} per hour
+                {{ useFormat().formatNumber(moneyMaker.hourlyWage) }}
+                {{ t('cardWage.perHour') }}
             </div>
 
             <TooltipSources
@@ -25,7 +26,7 @@
         <template v-if="moneyMaker.displayed">
             <div class="text-center my-6">
                 <div class="text-xs">
-                    Made
+                    {{ t('cardWage.made') }}
                 </div>
 
                 <div class="text-3xl font-bold">
@@ -33,7 +34,7 @@
                 </div>
 
                 <div class="text-xs">
-                    since this page was loaded
+                    {{ t('cardWage.sinceLoaded') }}
                 </div>
 
                 <div class="text-xs text-gray-500">
@@ -82,8 +83,12 @@
 <script setup>
 import useFormat from "~/composables/format.js";
 import CardThing from "~/components/cards/CardThing.vue";
-import thingsData from "~/constants/thingsData.ts";
 import TooltipSources from "~/components/TooltipSources.vue";
+
+import { useThingsCollection } from "~/composables/thingsCollection.ts";
+const { things: thingsData } = useThingsCollection();
+
+const { t } = useI18n();
 
 defineProps({
     moneyMaker: {

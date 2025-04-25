@@ -20,18 +20,18 @@
             name="fade-up"
             class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
         >
-            <card-money-maker
+            <card-wage
                 v-for="moneyMaker in moneyMakers"
                 :key="moneyMaker.name"
                 v-model="selectedTimeTab"
                 :money-maker="moneyMaker"
-            ></card-money-maker>
+            ></card-wage>
         </TransitionGroup>
     </div>
 </template>
 
 <script setup>
-import CardMoneyMaker from "~/components/cards/CardMoneyMaker.vue";
+import CardWage from "~/components/cards/CardWage.vue";
 
 defineProps({
     moneyMakers: {

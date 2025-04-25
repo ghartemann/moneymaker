@@ -48,6 +48,72 @@
     "things": {
         "baguette": "Une baguette",
         "busFare": "Un ticket de bus",
-        "pint": "Une pinte (50 cL) de bière"
+        "beer": "Une pinte de bière",
+        "lunch": "Le déjeuner",
+        "docs": "Une paire de Doc Martens",
+        "iphone": "Un iPhone 16 Pro",
+        "gaming-pc": "Un PC gaming (cher))",
+        "car": "Une (belle) voiture",
+        "rolex": "Une Rolex décente",
+        "tesla": "Une Tesla Model S",
+        "house": "Une maison pas si grande",
+        "space-tour": "Un tour de 90 min dans l'espace",
+        "tv": "Une TV 4K Titan Zeus de 370'",
+        "jet": "Un jet privé d'entrée de gamme",
+        "toilet": "Les toilettes en or de Trump",
+        "island": "Une île privée des Caraïbes",
+        "tgv": "Un TGV Duplex",
+        "yacht": "Un yacht de 65 m de long",
+        "spacex": "Un lancement Falcon Heavy",
+        "wisconsin": "Perdre l'élection du Wisconsin",
+        "trump": "L'inauguration de Trump",
+        "boeing": "Un Boeing 747 flambant neuf",
+        "penthouse": "Un penthouse à Monaco",
+        "stadium": "Le Groupama Stadium de Lyon",
+        "disneyland": "Disneyland Paris",
+        "truth-social": "La part de Trump dans Truth Social",
+        "people": "1 € par personne vivante",
+        "central-park": "Central Park, NYC",
+        "twitter": "Twitter",
+        "housing": "Construire 500k logements sociaux",
+        "tax-fraud": "La fraude fiscale en France",
+        "hunger": "Mettre fin à la faim dans le monde",
+        "muskrat": "Elon Musk"
+    },
+    "wages": {
+        "rsa": { "name": "RSA français"},
+        "us-min-wage": { "name": "Salaire minimum américain"},
+        "smic": { "name": "SMIC français"},
+        "junior-web-dev": { "name": "Développeur web junior"},
+        "conseiller": { "name": "Gestionnaire de patrimoine"},
+        "drh": { "name": "DRH"},
+        "ceo": { "name": "Salaire annuel moyen d'un PDG français"},
+        "bompard": { "name": "Alexandre Bompard", "subName": "PDG de Carrefour" },
+        "charles": { "name": "Bernard Charlès", "subName": "PDG de Dassault" },
+        "lizard": { "name": "Mark Zuckerberg", "subName": "PDG de Meta, reptilien" },
+        "cringeman": { "name": "Jeff Bezos", "subName": "PDG d'Amazon" },
+        "trash": { "name": "Elon Musk", "subName": "PDG de Tesla, Twitter, SpaceX" }
+    },
+    "general": {
+        "loading": "Chargement...",
+        "wait": "Veuillez patienter...",
+        "error": "Une erreur s'est produite",
+        "not-found": "Page non trouvée",
+        "back-home": "Retour à l'accueil",
+        "not-found-description": "Cette page n'existe pas ou a été supprimée.",
+        "not-found-404": "Erreur 404",
+        "not-found-403": "Erreur 403",
+        "not-found-500": "Erreur 500"
+    },
+    "footer": {
+        "madeBy": "Créé par"
+    },
+    "cardThing": {
+        "remaining": "restant"
+    },
+    "cardWage": {
+        "perHour": "par heure",
+        "made": "s'est fait",
+        "sinceLoaded": "depuis que cette page a été chargée"
     }
 }

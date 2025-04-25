@@ -44,5 +44,10 @@
                 }
             ]
         }
+    },
+    "things": {
+        "baguette": "A baguette",
+        "busFare": "Bus fare",
+        "pint": "A pint (50 cL) of beer"
     }
 }

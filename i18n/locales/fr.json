@@ -27,7 +27,7 @@
                     "description": "Il va falloir que je les classe d'une manière ou d'une autre"
                 },
                 {
-                    "title": "Ajouter le vôtre !",
+                    "title": "Ajoutera le vôtre !",
                     "description": "Interface minimaliste pour créer des salaires ou des choses à acheter, sauvegardée localement"
                 },
                 {
@@ -44,5 +44,10 @@
                 }
             ]
         }
+    },
+    "things": {
+        "baguette": "Une baguette",
+        "busFare": "Un ticket de bus",
+        "pint": "Une pinte (50 cL) de bière"
     }
 }

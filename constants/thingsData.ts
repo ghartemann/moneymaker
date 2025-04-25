@@ -1,9 +1,10 @@
 import currencies from "~/constants/currencies.js";
 import type { Thing } from "~/constants/interfaces/Thing";
+import { t } from "~/utils/i18n";
 
 const thingsData: Thing[] = [
     {
-        name: 'A baguette',
+        name: t('things.baguette'),
         slug: 'baguette',
         icon: 'i-lucide-ruler',
         price: 1.2,

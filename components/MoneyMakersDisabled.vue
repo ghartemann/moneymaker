@@ -22,7 +22,7 @@
         >
             <card-wage
                 v-for="moneyMaker in moneyMakers"
-                :key="moneyMaker.name"
+                :key="moneyMaker.slug"
                 v-model="selectedTimeTab"
                 :money-maker="moneyMaker"
             ></card-wage>

@@ -101,7 +101,6 @@ const wagesData: Wage[] = [
     },
     {
         slug: 'bompard',
-        subName: 'Carrefour CEO',
         hourlyWage: 9000000 / 1820,
         displayed: false,
         sources: [
@@ -116,7 +115,6 @@ const wagesData: Wage[] = [
     },
     {
         slug: 'charles',
-        subName: 'Dassault CEO',
         hourlyWage: 46791047 / 1820,
         displayed: false,
         sources: [
@@ -129,7 +127,6 @@ const wagesData: Wage[] = [
     },
     {
         slug: 'lizard',
-        subName: 'Meta CEO, reptilian',
         hourlyWage: 2700000 * currencies.usdToEur,
         displayed: false,
         sources: [
@@ -143,7 +140,6 @@ const wagesData: Wage[] = [
     },
     {
         slug: 'cringeman',
-        subName: 'Amazon CEO',
         hourlyWage: 7990000 * currencies.usdToEur,
         displayed: false,
         sources: [

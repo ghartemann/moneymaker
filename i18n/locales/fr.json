@@ -114,6 +114,12 @@
     "cardWage": {
         "perHour": "par heure",
         "made": "s'est fait",
-        "sinceLoaded": "depuis que cette page a été chargée"
+        "sinceLoaded": "depuis que cette page a été chargée",
+        "aboutAgo": "il y a environ {time}"
+    },
+    "currency": {
+        "style": "currency",
+        "currency": "EUR",
+        "currencyDisplay": "symbol"
     }
 }

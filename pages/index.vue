@@ -2,7 +2,7 @@
     <div class="w-full min-h-screen flex flex-col overflow-hidden relative pb-16">
         <TopBar></TopBar>
 
-        <div v-if="loading" class="w-72 md:w-96 m-auto h-96">
+        <div v-if="loading || i18nLoading" class="w-72 md:w-96 m-auto h-96">
             <UProgress v-model="loadingModel"></UProgress>
 
             <div class="text-center text-xs text-gray-500 mt-2">
@@ -39,14 +39,10 @@ import TopBar from "~/components/TopBar.vue";
 import MoneyMakersEnabled from "~/components/MoneyMakersEnabled.vue";
 import MoneyMakersDisabled from "~/components/MoneyMakersDisabled.vue";
 import CreatedBy from "~/components/CreatedBy.vue";
+import thingsData from "~/constants/thingsData.js";
+import wagesData from "~/constants/wagesData.js";
 
 const { t } = useI18n();
-
-import { useWagesCollection } from "~/composables/wagesCollection.js";
-const { wages: wagesData } = useWagesCollection();
-
-import { useThingsCollection } from "~/composables/thingsCollection.ts";
-const { things: thingsData } = useThingsCollection();
 
 const route = useRoute();
 
@@ -79,6 +75,12 @@ const moneyMakers = ref([]);
 
 const loading = computed(() => moneyMakers.value.length === 0);
 const loadingModel = ref(null);
+
+const i18nLoading = computed(async () => {
+    await useNuxtApp().$i18n.waitForPendingLocaleChange();
+
+    return false;
+});
 
 onMounted(() => {
     initMoneyMakers();

@@ -9,7 +9,7 @@
                 <div>
                     <div class="flex justify-between items-baseline">
                         <div class="text-sm font-semibold select-none">
-                            {{ thing.name }}
+                            {{ t(`things.${thing.slug}`) }}
                         </div>
 
                         <div class="text-xs text-gray-500 select-none">

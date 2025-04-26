@@ -108,9 +108,18 @@
     "footer": {
         "madeBy": "Created by"
     },
+    "cardThing": {
+        "remaining": "restant"
+    },
     "cardWage": {
         "perHour": "per hour",
         "made": "made",
-        "sinceLoaded": "since this page was loaded"
+        "sinceLoaded": "since this page was loaded",
+        "aboutAgo": "about {time} ago"
+    },
+    "currency": {
+        "style": "currency",
+        "currency": "USD",
+        "currencyDisplay": "symbol"
     }
 }

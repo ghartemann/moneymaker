@@ -18,7 +18,7 @@
 
         <div class="p-2 snap-center shrink-0 grow-0"
              v-for="moneyMaker in moneyMakers"
-             :key="moneyMaker.name"
+             :key="moneyMaker.slug"
         >
             <card-wage
                 v-model="selectedTimeTab"

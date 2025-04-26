@@ -52,8 +52,10 @@ export default defineNuxtConfig({
             escapeHtml: false
         },
         locales: [
-            { code: 'en', name: 'English', file: 'en.json' },
-            { code: 'fr', name: 'French', file: 'fr.json' }
-        ]
+            {code: 'en', name: 'English', file: 'en.json'},
+            {code: 'fr', name: 'French', file: 'fr.json'}
+        ],
+        lazy: true,
+        skipSettingLocaleOnNavigate: true
     }
 });

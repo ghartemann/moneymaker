@@ -1,0 +1,125 @@
+{
+    "options": {
+        "about": "About",
+        "theme": "Theme",
+        "language": "Language"
+    },
+    "about": {
+        "title": "About TrickleDown.js",
+        "content": {
+            "description": [
+                "The point of this app is to show in a fun, visual way, how long it would take you to buy things. And to compare that time to, say, <i>how long it would take Elon Musk or whoever rich folk to buy the same thing</i>.",
+                "While not always accurate, this demonstration usually leads to important questions like <i>\"Howthe fuck can these guys have this much money?\"</i>, <i>\"Will I ever be able to buy a house?\"</i>or even <i>\"Who should I contact to buy a 65 m Yacht right now?\"</i>.",
+                "Let me get this straight: the point is definitely not to be perfectly accurate. The arguments saying that Musk's indecent fortune shouldn't be compared to a wage, that it is only dependant on the value of his companies or whatever, <u>are misleading and empty</u>. What matters is that these people have access to infinitely more than the rest of us, and that we will never, ever catch up.",
+                "If the numbers in this app were to be balanced, it would be up not down."
+            ],
+            "madeInFrance": [
+                "This app was made in \uD83C\uDDEB\uD83C\uDDF7 France!",
+                "Hence the very <i>french</i> context, wage types, currency and so on."
+            ],
+            "roadmap": [
+                {
+                    "title": "Add a toggle [ 24/7 / 8 hours a day ]",
+                    "description": "Buying an iPhone sure takes 5 days working 24/7, but it takes a month working decent hours"
+                },
+                {
+                    "title": "Add more wages and things to buy",
+                    "description": "I'll eventually have to order them somehow"
+                },
+                {
+                    "title": "Add your own!",
+                    "description": "Minimalistic interface to create wages or things to buy, saved locally"
+                },
+                {
+                    "title": "Localization",
+                    "description": "Add more languages"
+                },
+                {
+                    "title": "New currencies",
+                    "description": "USD and CAD are on the menu"
+                },
+                {
+                    "title": "Code optimizations",
+                    "description": "This interval thing will probably break at some point — or it already has... ?"
+                }
+            ]
+        }
+    },
+    "things": {
+        "baguette": "A baguette",
+        "busFare": "Bus fare",
+        "beer": "A pint of beer",
+        "lunch": "Lunch",
+        "docs": "A pair of Doc Martens",
+        "iphone": "An iPhone 16 Pro",
+        "gaming-pc": "An overpriced gaming PC",
+        "car": "A (nice) car",
+        "rolex": "A decent Rolex",
+        "tesla": "A Tesla Model S",
+        "house": "A not so big house",
+        "space-tour": "A 90 min tour to space",
+        "tv": "A Titan Zeus 370-Inch 4K TV",
+        "jet": "An entry level private jet",
+        "toilet": "Trump's gold toilet",
+        "island": "A Caribbean private island",
+        "tgv": "A TGV Duplex train",
+        "yacht": "A 65m long yacht",
+        "spacex": "A Falcon Heavy launch",
+        "wisconsin": "Losing the Wisconsin election",
+        "trump": "Trump's inauguration",
+        "boeing": "A brand new Boeing 747",
+        "penthouse": "A penthouse in Monaco",
+        "stadium": "Lyon's Groupama Stadium",
+        "disneyland": "Disneyland Paris",
+        "truth-social": "Trump's Truth Social stake",
+        "people": "€1 per person alive",
+        "central-park": "Central Park, NYC",
+        "twitter": "Twitter",
+        "housing": "Building 500k soc. housing units",
+        "tax-fraud": "Tax fraud in France",
+        "hunger": "Ending world hunger",
+        "muskrat": "Elon Musk"
+    },
+    "wages": {
+        "rsa": { "name": "French RSA" },
+        "us-min-wage": { "name": "American minimum wage" },
+        "smic": { "name": "French minimum wage" },
+        "junior-web-dev": { "name": "Junior web developer" },
+        "conseiller": { "name": "Real estate asset manager" },
+        "drh": { "name": "Head of Human Resources" },
+        "ceo": { "name": "Average French CEO annual salary" },
+        "bompard": { "name": "Alexandre Bompard", "subName": "Carrefour CEO" },
+        "charles": { "name": "Bernard Charlès", "subName": "Dassault CEO" },
+        "lizard": { "name": "Mark Zuckerberg", "subName": "Meta CEO, reptilian" },
+        "cringeman": { "name": "Jeff Bezos", "subName": "Amazon CEO" },
+        "trash": { "name": "Elon Musk", "subName": "Tesla, Twitter, SpaceX CEO" }
+    },
+    "general": {
+        "loading": "Loading...",
+        "wait": "Please wait...",
+        "error": "An error occurred",
+        "not-found": "Page not found",
+        "back-home": "Back to home",
+        "not-found-description": "This page does not exist or has been removed.",
+        "not-found-404": "404 error",
+        "not-found-403": "403 error",
+        "not-found-500": "500 error"
+    },
+    "footer": {
+        "madeBy": "Created by"
+    },
+    "cardThing": {
+        "remaining": "restant"
+    },
+    "cardWage": {
+        "perHour": "per hour",
+        "made": "made",
+        "sinceLoaded": "since this page was loaded",
+        "aboutAgo": "about {time} ago"
+    },
+    "currency": {
+        "style": "currency",
+        "currency": "USD",
+        "currencyDisplay": "symbol"
+    }
+}

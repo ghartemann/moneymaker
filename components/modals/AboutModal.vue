@@ -1,7 +1,7 @@
 <template>
     <UModal
         v-model:open="model"
-        title="About TrickleDown.js"
+        :title="t('about.title')"
         close-icon="i-lucide-x"
         :ui="{content: 'max-w-6xl'}"
     >
@@ -12,27 +12,11 @@
                     class="md:order-1"
                 >
                     <div class="space-y-4">
-                        <p class="text-sm">
-                            The point of this app is to show in a fun, visual way, how long it would take you to buy things.
-                            And to compare that time to, say, <i>how long it would take Elon Musk or whoever rich folk to buy the same thing</i>.
-                        </p>
-
-                        <p class="text-sm">
-                            While not always accurate, this demonstration usually leads to important questions like <i>"How
-                            the fuck can these guys have this much money?"</i>, <i>"Will I ever be able to buy a house?"</i>
-                            or even <i>"Who should I contact to buy a 65 m Yacht right now?"</i>.
-                        </p>
-
-                        <p class="text-sm">
-                            Let me get this straight: the point is definitely not to be perfectly accurate. The arguments
-                            saying that Musk's indecent fortune shouldn't be compared to a wage, that only tethered to the
-                            value of his companies or whatever, <u>are misleading and empty</u>. What matters is that these people
-                            have access to infinitely more than the rest of us, and that we will never, ever catch up.
-                        </p>
-
-                        <p class="text-sm">
-                            If the numbers in this app were to be balanced, it would be up not down.
-                        </p>
+                        <p v-for="(paragraph, index) in tm('about.content.description')"
+                           :key="index"
+                           v-html="rt(paragraph)"
+                           class="text-sm"
+                        ></p>
                     </div>
                 </UCard>
 
@@ -41,13 +25,11 @@
                     class="md:order-3"
                 >
                     <div class="space-y-4">
-                        <p class="text-sm">
-                            This app was made in 🇫🇷 France!
-                        </p>
-
-                        <p class="text-sm">
-                            Hence the very <i>french</i> context, wage types, currency and so on.
-                        </p>
+                        <p v-for="(paragraph, index) in tm('about.content.madeInFrance')"
+                           :key="index"
+                           v-html="rt(paragraph)"
+                           class="text-sm"
+                        ></p>
                     </div>
                 </UCard>
 
@@ -61,7 +43,7 @@
 
                     <div class="flex flex-col space-y-2">
                         <UCard
-                            v-for="(item, index) in roadmap"
+                            v-for="(item, index) in tm('about.content.roadmap')"
                             :key="index"
                         >
                             <div class="flex items-center gap-4">
@@ -71,11 +53,11 @@
 
                                 <div>
                                     <div class="font-bold mb-1">
-                                        {{ item.title }}
+                                        {{ rt(item.title) }}
                                     </div>
 
                                     <div v-if="item.description" class="text-xs text-gray-500">
-                                        {{ item.description }}
+                                        {{ rt(item.description) }}
                                     </div>
                                 </div>
                             </div>
@@ -109,37 +91,12 @@
 </template>
 
 <script setup>
+const { t, rt, tm } = useI18n();
+
 const model = defineModel({
     type: Boolean,
     default: false
 });
-
-const roadmap = [
-    {
-        title: 'Add a toggle [ 24/7 / 8 hours a day ]',
-        description: 'Buying an iPhone sure takes 5 days working 24/7, but it takes a month working decent hours'
-    },
-    {
-        title: 'Add more wages and things to buy',
-        description: 'I\'ll eventually have to order them somehow'
-    },
-    {
-        title: 'Add your own!',
-        description: 'Minimalistic interface to create wages or things to buy, saved locally'
-    },
-    {
-        title: 'Localization',
-        description: 'At least support French idk???'
-    },
-    {
-        title: 'New currencies',
-        description: 'USD and CAD are on the menu'
-    },
-    {
-        title: 'Code optimizations',
-        description: 'This interval thing will probably break at some point — or it already has... ?'
-    }
-];
 </script>
 
 <style scoped>

@@ -1,7 +1,7 @@
-import type { Source } from "~/constants/interfaces/Source";
+import type { Source } from "~/interfaces/Source";
 
 export interface Thing {
-    name: string;
+    name?: string;
     slug: string;
     icon: string;
     price: number;

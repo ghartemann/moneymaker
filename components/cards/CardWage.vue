@@ -2,8 +2,8 @@
     <UCard class="!w-96">
         <div class="flex justify-between items-center">
             <div>
-                {{ moneyMaker.name }}
-                <span v-if="moneyMaker.subName" class="text-xs text-gray-500"> {{ moneyMaker.subName }}</span>
+                {{ t(`wages.${moneyMaker.slug}.name`) }}
+                <span v-if="moneyMaker.subName" class="text-xs text-gray-500"> {{ t(`wages.${moneyMaker.slug}.subName`) }}</span>
             </div>
 
             <USwitch
@@ -13,7 +13,8 @@
 
         <div class="flex gap-1">
             <div class="text-xs text-gray-500">
-                {{ useFormat().formatNumber(moneyMaker.hourlyWage) }} per hour
+<!--                {{ n(moneyMaker.hourlyWage, 'currency') }}-->
+                {{ t('cardWage.perHour') }}
             </div>
 
             <TooltipSources
@@ -25,7 +26,7 @@
         <template v-if="moneyMaker.displayed">
             <div class="text-center my-6">
                 <div class="text-xs">
-                    Made
+                    {{ t('cardWage.made') }}
                 </div>
 
                 <div class="text-3xl font-bold">
@@ -33,11 +34,11 @@
                 </div>
 
                 <div class="text-xs">
-                    since this page was loaded
+                    {{ t('cardWage.sinceLoaded') }}
                 </div>
 
                 <div class="text-xs text-gray-500">
-                    about {{ useFormat().formatHours(timeElapsed / 60 / 60, true).join(' ') }} ago
+                    {{ t('cardWage.aboutAgo', { time: useFormat().formatHours(timeElapsed / 60 / 60, true).join(' ')}) }}
                 </div>
             </div>
 
@@ -68,7 +69,7 @@
                 <div class="flex flex-col gap-2">
                     <card-thing
                         v-for="thing in thingsData"
-                        :key="thing.name"
+                        :key="thing.slug"
                         :money-maker="moneyMaker"
                         :selected-time-tab="selectedTimeTab"
                         :thing="thing"
@@ -82,8 +83,27 @@
 <script setup>
 import useFormat from "~/composables/format.js";
 import CardThing from "~/components/cards/CardThing.vue";
-import thingsData from "~/constants/thingsData.ts";
 import TooltipSources from "~/components/TooltipSources.vue";
+import thingsData from "~/constants/thingsData.js";
+
+const { t, n } = useI18n(
+    // {numberFormats: {
+    //     en: {
+    //         currency: {
+    //             style: 'currency',
+    //             currency: 'USD',
+    //             currencyDisplay: 'symbol'
+    //         }
+    //     },
+    //     fr: {
+    //         currency: {
+    //             style: 'currency',
+    //             currency: 'EUR',
+    //             currencyDisplay: 'symbol'
+    //         }
+    //     }
+    // }}
+);
 
 defineProps({
     moneyMaker: {

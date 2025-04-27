@@ -1,8 +1,9 @@
-import type {Source} from "~/constants/interfaces/Source";
+import type {Source} from "~/interfaces/Source";
 
 export interface Wage {
-    name: string;
+    name?: string;
     subName?: string;
+    slug: string;
     hourlyWage: number;
     displayed: boolean;
     sources: Source[];

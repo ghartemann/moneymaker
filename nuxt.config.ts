@@ -14,7 +14,8 @@ export default defineNuxtConfig({
 
     modules: [
         '@nuxt/ui',
-        '@sentry/nuxt/module'
+        '@sentry/nuxt/module',
+        '@nuxtjs/i18n'
     ],
 
     app: {
@@ -37,13 +38,22 @@ export default defineNuxtConfig({
         sourceMapsUploadOptions: {
             org: 'ghartemann',
             project: 'trickledown-nuxt'
-        },
-        options: {
-            telemetry: false
         }
     },
 
     sourcemap: {
         client: 'hidden'
+    },
+
+    i18n: {
+        defaultLocale: 'en',
+        compilation: {
+            strictMessage: false,
+            escapeHtml: false
+        },
+        locales: [
+            {code: 'en', name: 'English', file: 'en.json'},
+            {code: 'fr', name: 'French', file: 'fr.json'}
+        ],
     }
-})
+});

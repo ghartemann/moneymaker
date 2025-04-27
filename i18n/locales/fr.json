@@ -1,0 +1,125 @@
+{
+    "options": {
+        "about": "À propos",
+        "theme": "Thème",
+        "language": "Langue"
+    },
+    "about": {
+        "title": "À propos de TrickleDown.js",
+        "content": {
+            "description": [
+                "Le but de cette application est de montrer de manière ludique et visuelle combien de temps il vous faudrait pour acheter certaines choses. Et de comparer ce temps à celui qu'il faudrait à, disons, <i>Elon Musk ou d'autres riches pour acheter la même chose</i>.",
+                "Bien que pas toujours parfaitement précise, cette démonstration soulève des questions importantes telles que <i>\"Comment es-tce qu'ils peuvent avoir autant d'argent ?\"</i>, <i>\"Vais-je un jour pouvoir acheter une maison ?\"</i> ou même <i>\"Qui dois-je contacter pour acheter un yacht de 65 m maintenant tout de suite ?\"</i>.",
+                "Laissez-moi être clair : le but n'est pas d'être parfaitement précis. Les arguments disant que la fortune indécente de Musk ne devrait pas être comparée à un salaire, qu'elle dépend uniquement de la valeur de ses entreprises en actions ou autre, <u>sont trompeurs et vides</u>. Ce qui compte, c'est que ces gens ont accès à infiniment plus que le reste d'entre nous et que nous ne serons jamais capables de les rattraper.",
+                "Si les chiffres de cette application devaient être équilibrés, ce serait vers le haut et non vers le bas."
+            ],
+            "madeInFrance": [
+                "Cette application a été faite en \uD83C\uDDEB\uD83C\uDDF7 France !",
+                "D'où le contexte très <i>français</i>, les types de salaires, la monnaie, etc."
+            ],
+            "roadmap": [
+                {
+                    "title": "Ajouter un toggle [ 24/7 / 8 heures par jour ]",
+                    "description": "Acheter un iPhone prend bien 5 jours en travaillant 24/7, mais ça prend un mois en travaillant des heures décentes"
+                },
+                {
+                    "title": "Ajouter plus de salaires et de choses à acheter",
+                    "description": "Il va falloir que je les classe d'une manière ou d'une autre"
+                },
+                {
+                    "title": "Ajoutera le vôtre !",
+                    "description": "Interface minimaliste pour créer des salaires ou des choses à acheter, sauvegardée localement"
+                },
+                {
+                    "title": "Internationalisation",
+                    "description": "Ajouter d'autres langues"
+                },
+                {
+                    "title": "Nouvelles devises",
+                    "description": "L'USD et le CAD sont au menu"
+                },
+                {
+                    "title": "Optimisations de code",
+                    "description": "Ce truc d'intervalle va probablement casser à un moment donné — ou ça l'a déjà fait ?"
+                }
+            ]
+        }
+    },
+    "things": {
+        "baguette": "Une baguette",
+        "busFare": "Un ticket de bus",
+        "beer": "Une pinte de bière",
+        "lunch": "Le déjeuner",
+        "docs": "Une paire de Doc Martens",
+        "iphone": "Un iPhone 16 Pro",
+        "gaming-pc": "Un PC gaming (cher))",
+        "car": "Une (belle) voiture",
+        "rolex": "Une Rolex décente",
+        "tesla": "Une Tesla Model S",
+        "house": "Une maison pas si grande",
+        "space-tour": "Un tour de 90 min dans l'espace",
+        "tv": "Une TV 4K Titan Zeus de 370'",
+        "jet": "Un jet privé d'entrée de gamme",
+        "toilet": "Les toilettes en or de Trump",
+        "island": "Une île privée des Caraïbes",
+        "tgv": "Un TGV Duplex",
+        "yacht": "Un yacht de 65 m de long",
+        "spacex": "Un lancement Falcon Heavy",
+        "wisconsin": "Perdre l'élection du Wisconsin",
+        "trump": "L'inauguration de Trump",
+        "boeing": "Un Boeing 747 flambant neuf",
+        "penthouse": "Un penthouse à Monaco",
+        "stadium": "Le Groupama Stadium de Lyon",
+        "disneyland": "Disneyland Paris",
+        "truth-social": "La part de Trump dans Truth Social",
+        "people": "1 € par personne vivante",
+        "central-park": "Central Park, NYC",
+        "twitter": "Twitter",
+        "housing": "Construire 500k logements sociaux",
+        "tax-fraud": "La fraude fiscale en France",
+        "hunger": "Mettre fin à la faim dans le monde",
+        "muskrat": "Elon Musk"
+    },
+    "wages": {
+        "rsa": { "name": "RSA français"},
+        "us-min-wage": { "name": "Salaire minimum américain"},
+        "smic": { "name": "SMIC français"},
+        "junior-web-dev": { "name": "Développeur web junior"},
+        "conseiller": { "name": "Gestionnaire de patrimoine"},
+        "drh": { "name": "DRH"},
+        "ceo": { "name": "Salaire annuel moyen d'un PDG français"},
+        "bompard": { "name": "Alexandre Bompard", "subName": "PDG de Carrefour" },
+        "charles": { "name": "Bernard Charlès", "subName": "PDG de Dassault" },
+        "lizard": { "name": "Mark Zuckerberg", "subName": "PDG de Meta, reptilien" },
+        "cringeman": { "name": "Jeff Bezos", "subName": "PDG d'Amazon" },
+        "trash": { "name": "Elon Musk", "subName": "PDG de Tesla, Twitter, SpaceX" }
+    },
+    "general": {
+        "loading": "Chargement...",
+        "wait": "Veuillez patienter...",
+        "error": "Une erreur s'est produite",
+        "not-found": "Page non trouvée",
+        "back-home": "Retour à l'accueil",
+        "not-found-description": "Cette page n'existe pas ou a été supprimée.",
+        "not-found-404": "Erreur 404",
+        "not-found-403": "Erreur 403",
+        "not-found-500": "Erreur 500"
+    },
+    "footer": {
+        "madeBy": "Créé par"
+    },
+    "cardThing": {
+        "remaining": "restant"
+    },
+    "cardWage": {
+        "perHour": "par heure",
+        "made": "s'est fait",
+        "sinceLoaded": "depuis que cette page a été chargée",
+        "aboutAgo": "il y a environ {time}"
+    },
+    "currency": {
+        "style": "currency",
+        "currency": "EUR",
+        "currencyDisplay": "symbol"
+    }
+}

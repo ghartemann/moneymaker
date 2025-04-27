@@ -6,11 +6,11 @@
             <UProgress v-model="loadingModel"></UProgress>
 
             <div class="text-center text-xs text-gray-500 mt-2">
-                Loading...
+                {{ t('general.loading') }}
             </div>
 
             <div class="text-center text-xs text-gray-300">
-                Please wait
+                {{ t('general.wait') }}
             </div>
         </div>
 
@@ -35,12 +35,14 @@
 </template>
 
 <script setup>
-import thingsData from "~/constants/thingsData.js";
 import TopBar from "~/components/TopBar.vue";
 import MoneyMakersEnabled from "~/components/MoneyMakersEnabled.vue";
 import MoneyMakersDisabled from "~/components/MoneyMakersDisabled.vue";
-import wagesData from "~/constants/wagesData.ts";
 import CreatedBy from "~/components/CreatedBy.vue";
+import thingsData from "~/constants/thingsData.js";
+import wagesData from "~/constants/wagesData.js";
+
+const { t } = useI18n();
 
 const route = useRoute();
 
@@ -74,12 +76,20 @@ const moneyMakers = ref([]);
 const loading = computed(() => moneyMakers.value.length === 0);
 const loadingModel = ref(null);
 
+let intervalId = null;
+
 onMounted(() => {
     initMoneyMakers();
 
-    setInterval(() => {
+    intervalId = setInterval(() => {
         update();
     }, rate.value);
+});
+
+onUnmounted(() => {
+    if (intervalId) {
+        clearInterval(intervalId);
+    }
 });
 
 function initMoneyMakers() {

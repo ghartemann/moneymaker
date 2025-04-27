@@ -18,20 +18,20 @@
 
         <div class="p-2 snap-center shrink-0 grow-0"
              v-for="moneyMaker in moneyMakers"
-             :key="moneyMaker.name"
+             :key="moneyMaker.slug"
         >
-            <card-money-maker
+            <card-wage
                 v-model="selectedTimeTab"
                 :money-maker="moneyMaker"
                 :time-elapsed="timeElapsed"
                 class="!w-full grow-0 shrink-0"
-            ></card-money-maker>
+            ></card-wage>
         </div>
     </TransitionGroup>
 </template>
 
 <script setup>
-import CardMoneyMaker from "~/components/cards/CardMoneyMaker.vue";
+import CardWage from "~/components/cards/CardWage.vue";
 import NuxtPlaceholder from "~/components/NuxtPlaceholder.vue";
 
 defineProps({

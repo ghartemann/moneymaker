@@ -71,31 +71,34 @@ const router = useRouter();
 const showAboutModal = ref(false);
 
 const optionsItems = computed(() => {
+    const _ = t('options.language');
+    const currentLocale = locale.value;
+    const currentTheme = isDark.value;
+
     return [
         {
             label: t('options.theme'),
-            icon: isDark.value ? 'i-lucide-moon' : 'i-lucide-sun',
+            icon: currentTheme ? 'i-lucide-moon' : 'i-lucide-sun',
             onSelect: toggleColorMode
         },
         {
             label: t('options.language'),
             icon: 'i-lucide-languages',
-            children: [
-                ...locales.value.map(l => ({
-                    label: l.name,
-                    type: 'checkbox',
-                    checked: l.code === locale.value,
-                    onSelect: () => setLocale(l.code)
-                }))
-            ]
+            children: locales.value.map(l => ({
+                label: l.name,
+                type: 'checkbox',
+                checked: l.code === currentLocale,
+                onSelect: () => setLocale(l.code)
+            }))
         },
         {
             label: t('options.about'),
             icon: 'i-lucide-circle-help',
             onSelect: showAbout
         }
-    ]
+    ];
 });
+
 const colorMode = useColorMode();
 
 const isDark = computed({

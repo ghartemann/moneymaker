@@ -25,6 +25,8 @@
     },
     "packageManager": "yarn@1.22.22+sha1.ac34549e6aa8e7ead463a7407e1c7390f61a6610",
     "devDependencies": {
-        "sass-embedded": "^1.86.0"
+        "sass-embedded": "^1.86.0",
+        "vite": "^6.3.3",
+        "vite-plugin-entry-shaking": "^0.5.1"
     }
 }

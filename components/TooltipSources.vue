@@ -2,7 +2,7 @@
     <UTooltip
         v-model:open="model"
         :delay-duration="0"
-        :ui="{content: 'h-full min-w-fit max-w-96'}"
+        :ui="{content: 'h-full max-w-96'}"
     >
         <UIcon
             class="size-4 text-gray-500"

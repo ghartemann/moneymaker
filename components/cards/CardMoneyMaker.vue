@@ -12,7 +12,12 @@
         </div>
 
         <div class="flex gap-1">
-            <div class="text-xs text-gray-500">
+            <YouField
+                v-if="moneyMaker.slug === 'you'"
+                v-model="moneyMaker.hourlyWage"
+            ></YouField>
+
+            <div v-else class="text-xs text-gray-500">
                 {{ useFormat().formatNumber(moneyMaker.hourlyWage) }} per hour
             </div>
 
@@ -84,6 +89,7 @@ import useFormat from "~/composables/format.js";
 import CardThing from "~/components/cards/CardThing.vue";
 import thingsData from "~/constants/thingsData.ts";
 import TooltipSources from "~/components/TooltipSources.vue";
+import YouField from "~/components/YouField.vue";
 
 defineProps({
     moneyMaker: {

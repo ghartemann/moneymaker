@@ -1,5 +1,5 @@
 import currencies from "~/constants/currencies.js";
-import type { Thing } from "~/constants/interfaces/Thing";
+import type { Thing } from "~/interfaces/Thing";
 
 const thingsData: Thing[] = [
     {

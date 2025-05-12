@@ -1,8 +1,13 @@
 export default function useFormat() {
-    function formatPrice(number) {
+    function formatPrice(number, minimumFractionDigits = 0, maximumFractionDigits = 2) {
         return new Intl.NumberFormat(
             'en-CA',
-            { style: 'currency', currency: 'EUR' }
+            {
+                style: 'currency',
+                currency: 'EUR',
+                minimumFractionDigits: !Number.isFinite(number) || !Number.isInteger(number) ? 2 : minimumFractionDigits,
+                maximumFractionDigits
+            }
         ).format(number);
     }
 

@@ -1,5 +1,5 @@
 import currencies from "~/constants/currencies.js";
-import type { Thing } from "~/constants/interfaces/Thing";
+import type {Thing} from "~/constants/interfaces/Thing";
 
 const thingsData: Thing[] = [
     {
@@ -344,6 +344,22 @@ const thingsData: Thing[] = [
         ]
     },
     {
+        name: 'Rebuilding Gaza',
+        slug: 'gaza',
+        icon: 'i-lucide-hospital',
+        price: 53200000000 * currencies.usdToEur, // 47.7 billion
+        sources: [
+            {
+                name: 'France 24',
+                date: '2025-02-11',
+                text: '<i>More than $53 billion will be required to rebuild Gaza and end the "humanitarian catastrophe" ' +
+                    'that has gripped the war-ravaged territory, including $20 billion in the first three years alone, ' +
+                    'the United Nations said Tuesday</i>',
+                link: 'https://www.france24.com/en/live-news/20250211-at-least-53-billion-needed-to-rebuild-gaza-un-estimates'
+            }
+        ]
+    },
+    {
         name: 'Building 500k soc. housing units',
         slug: 'housing',
         icon: 'i-lucide-home',
@@ -397,6 +413,18 @@ const thingsData: Thing[] = [
             {
                 name: 'Bloomberg',
                 link: 'https://www.bloomberg.com/billionaires/profiles/elon-r-musk/'
+            }
+        ]
+    },
+    {
+        name: 'Pharmaceutical industry',
+        slug: 'big-pharma',
+        icon: 'i-lucide-cross',
+        price: 1300000000000, // 1300 billion
+        sources: [
+            {
+                name: 'Statista',
+                link: 'https://www.statista.com/topics/1764/global-pharmaceutical-industry/#topicOverview'
             }
         ]
     }

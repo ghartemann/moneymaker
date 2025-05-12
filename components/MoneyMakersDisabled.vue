@@ -14,10 +14,8 @@
             No available types
         </div>
 
-        <TransitionGroup
+        <div
             v-else
-            tag="div"
-            name="fade-up"
             class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
         >
             <card-money-maker
@@ -26,7 +24,7 @@
                 v-model="selectedTimeTab"
                 :money-maker="moneyMaker"
             ></card-money-maker>
-        </TransitionGroup>
+        </div>
     </div>
 </template>
 

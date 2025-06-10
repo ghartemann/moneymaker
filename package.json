@@ -11,6 +11,10 @@
         "start": "nuxt start"
     },
     "dependencies": {
+        "@capacitor/android": "^5.5.0",
+        "@capacitor/cli": "^5.5.0",
+        "@capacitor/core": "^5.5.0",
+        "@capacitor/ios": "^5.5.0",
         "@nuxt/ui": "^3.0.2",
         "@nuxtjs/tailwindcss": "^6.13.2",
         "@sentry/nuxt": "^9",

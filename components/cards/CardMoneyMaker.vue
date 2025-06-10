@@ -6,9 +6,7 @@
                 <span v-if="moneyMaker.subName" class="text-xs text-gray-500"> {{ moneyMaker.subName }}</span>
             </div>
 
-            <USwitch
-                v-model="moneyMaker.displayed"
-            ></USwitch>
+            <USwitch v-model="moneyMaker.displayed"></USwitch>
         </div>
 
         <div class="flex gap-1">
@@ -67,7 +65,7 @@
 
                 <div class="flex flex-col gap-2">
                     <card-thing
-                        v-for="thing in thingsData"
+                        v-for="thing in thingsData.sort((a, b) => a.price - b.price)"
                         :key="thing.name"
                         :money-maker="moneyMaker"
                         :selected-time-tab="selectedTimeTab"

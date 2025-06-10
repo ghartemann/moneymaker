@@ -1,3 +1,5 @@
+import currencies from "~/constants/currencies.js";
+
 export default function useFormat() {
     function formatPrice(number, minimumFractionDigits = 0, maximumFractionDigits = 2) {
         return new Intl.NumberFormat(
@@ -153,10 +155,25 @@ export default function useFormat() {
         return formattedNumber;
     }
 
+    function convertCurrency(value, currency) {
+        if (!value || !currency || currency === 'EUR') {
+            return value;
+        }
+
+        const conversionRate = currencies[`${currency.toLowerCase()}ToEur`];
+
+        if (!conversionRate) {
+            console.warn(`No conversion rate found for currency: ${currency}`);
+            return value;
+        }
+
+        return value * conversionRate;
+    }
 
     return {
         formatNumber: formatPrice,
         formatNumberNice,
-        formatHours
+        formatHours,
+        convertCurrency
     };
 }

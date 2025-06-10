@@ -1,75 +1,105 @@
-import currencies from "~/constants/currencies.js";
 import type {Thing} from "~/interfaces/Thing";
+import useFormat from "~/composables/format";
 
 const thingsData: Thing[] = [
     {
         name: 'A baguette',
         slug: 'baguette',
-        icon: 'i-lucide-ruler',
-        price: 1.2,
+        icon: 'ruler',
+        price: {
+            value: 1.2,
+            currency: 'EUR'
+        },
         sources: []
     },
     {
         name: 'Bus fare',
         slug: 'bus',
-        icon: 'i-lucide-bus',
-        price: 2.5,
+        icon: 'bus',
+        price: {
+            value: 2.5,
+            currency: 'EUR'
+        },
         sources: []
     },
     {
         name: 'Vampire Survivors',
         slug: 'vampire-survivors',
-        icon: 'i-lucide-ghost',
-        price: 4.99,
+        icon: 'ghost',
+        price: {
+            value: 4.99,
+            currency: 'EUR'
+        },
         sources: []
     },
     {
         name: 'A pint (50 cL) of beer',
         slug: 'beer',
-        icon: 'i-lucide-beer',
-        price: 6.5,
+        icon: 'beer',
+        price: {
+            value: 6.5,
+            currency: 'EUR'
+        },
         sources: []
     },
     {
         name: 'Lunch',
         slug: 'lunch',
-        icon: 'i-lucide-utensils',
-        price: 16,
+        icon: 'utensils',
+        price: {
+            value: 16,
+            currency: 'EUR'
+        },
         sources: []
     },
     {
         name: 'Montreal transit monthly pass',
         slug: 'metro',
-        icon: 'i-lucide-credit-card',
-        price: 100 * currencies.cadToEur, // 100 CAD
+        icon: 'credit-card',
+        price: {
+            value: 100,
+            currency: 'CAD'
+        },
         sources: []
     },
     {
         name: 'A pair of Doc Martens',
         slug: 'docs',
-        icon: 'i-lucide-footprints',
-        price: 230,
+        icon: 'footprints',
+        price: {
+            value: 230,
+            currency: 'EUR'
+        },
         sources: []
     },
     {
         name: 'A standard PS5',
         slug: 'ps5',
-        icon: 'i-lucide-gamepad-2',
-        price: 529.99,
+        icon: 'gamepad-2',
+        price: {
+            value: 529.99,
+            currency: 'EUR'
+        },
         sources: []
     },
     {
         name: 'An iPhone 16 Pro',
         slug: 'iphone',
-        icon: 'i-lucide-smartphone',
-        price: 1229,
+        icon: 'smartphone',
+        price: {
+            value: 1229,
+            currency: 'EUR'
+        },
         sources: []
     },
     {
         name: 'French driver license',
         slug: 'driving-license',
-        icon: 'i-lucide-car-front',
-        price: 1800,
+        icon: 'car-front',
+        price: {
+            value: 1800,
+            currency: 'EUR'
+        },
         sources: [
             {
                 name: 'Banque Française Mutualiste',
@@ -82,8 +112,11 @@ const thingsData: Thing[] = [
     {
         name: 'Montreal Plateau 2B rent',
         slug: 'rent',
-        icon: 'i-lucide-squirrel',
-        price: 2028 * currencies.cadToEur, // 2028 CAD
+        icon: 'squirrel',
+        price: {
+            value: 2028,
+            currency: 'CAD'
+        },
         sources: [
             {
                 name: 'Centris.ca',
@@ -94,8 +127,11 @@ const thingsData: Thing[] = [
     {
         name: 'An overpriced gaming PC',
         slug: 'gaming-pc',
-        icon: 'i-lucide-pc-case',
-        price: 5999.95, // 6k
+        icon: 'pc-case',
+        price: {
+            value: 5999.95,
+            currency: 'EUR'
+        },
         sources: [
             {
                 name: 'LDLC',
@@ -112,29 +148,41 @@ const thingsData: Thing[] = [
     {
         name: 'A (nice) car',
         slug: 'car',
-        icon: 'i-lucide-car',
-        price: 40000, // 40k
+        icon: 'car',
+        price: {
+            value: 40000, // 40k
+            currency: 'EUR'
+        },
         sources: []
     },
     {
         name: 'A decent Rolex',
         slug: 'rolex',
-        icon: 'i-lucide-watch',
-        price: 59800, // 59.8k
+        icon: 'watch',
+        price: {
+            value: 59800, // 59k
+            currency: 'EUR'
+        },
         sources: []
     },
     {
         name: 'A Tesla Model S',
         slug: 'tesla',
-        icon: 'i-lucide-truck-electric',
-        price: 112390, // 112k
+        icon: 'truck-electric',
+        price: {
+            value: 112390, // 112k
+            currency: 'EUR'
+        },
         sources: []
     },
     {
         name: 'Raising a kid from 1 to 25',
         slug: 'kid',
-        icon: 'i-lucide-baby',
-        price: 264310, // 264.3k
+        icon: 'baby',
+        price: {
+            value: 264310, // 264k
+            currency: 'EUR'
+        },
         sources: [
             {
                 name: 'Le Parisien',
@@ -149,15 +197,21 @@ const thingsData: Thing[] = [
     {
         name: 'A not so big house',
         slug: 'house',
-        icon: 'i-lucide-house',
-        price: 350000, // 350k
+        icon: 'house',
+        price: {
+            value: 350000, // 350k
+            currency: 'EUR'
+        },
         sources: []
     },
     {
         name: 'A 90 min tour to space',
         slug: 'space-tour',
-        icon: 'i-lucide-orbit',
-        price: 450000 * currencies.usdToEur, // 450k
+        icon: 'orbit',
+        price: {
+            value: 450000, // 450k
+            currency: 'EUR'
+        },
         sources: [
             {
                 name: 'Sky News',
@@ -172,8 +226,11 @@ const thingsData: Thing[] = [
     {
         name: 'A Titan Zeus 370-Inch 4K TV',
         slug: 'tv',
-        icon: 'i-lucide-tv-minimal',
-        price: 1600000 * currencies.usdToEur, // 1.6 million
+        icon: 'tv-minimal',
+        price: {
+            value: 1600000, // 1.6M
+            currency: 'USD'
+        },
         sources: [
             {
                 name: 'Luxury Retail',
@@ -186,8 +243,11 @@ const thingsData: Thing[] = [
     {
         name: 'An entry level private jet',
         slug: 'jet',
-        icon: 'i-lucide-plane',
-        price: 2500000 * currencies.usdToEur, // 2.5 million
+        icon: 'plane',
+        price: {
+            value: 2500000, // 2.5M
+            currency: 'USD'
+        },
         sources: [{
             name: 'BankRate',
             text: '<i>The price for a brand-new private jet ranges from about $2.5 million to $660 million. The price is ' +
@@ -200,8 +260,11 @@ const thingsData: Thing[] = [
     {
         name: 'Trump\'s gold toilet',
         slug: 'toilet',
-        icon: 'i-lucide-toilet',
-        price: 4800000 * currencies.gbpToEur, // 4.8 million
+        icon: 'toilet',
+        price: {
+            value: 4800000, // 4.8M
+            currency: 'GBP'
+        },
         sources: [
             {
                 name: 'CNN Style',
@@ -218,8 +281,11 @@ const thingsData: Thing[] = [
     {
         name: 'A Caribbean private island',
         slug: 'island',
-        icon: 'i-lucide-tree-palm',
-        price: 9995000 * currencies.usdToEur, // 9.995 million
+        icon: 'tree-palm',
+        price: {
+            value: 9995000, // 9.995M
+            currency: 'USD'
+        },
         sources: [
             {
                 name: 'Private Islands Inc.',
@@ -230,8 +296,11 @@ const thingsData: Thing[] = [
     {
         name: 'A TGV Duplex train',
         slug: 'tgv',
-        icon: 'i-lucide-train-front',
-        price: 32400000, // 32.4 million
+        icon: 'train-front',
+        price: {
+            value: 32400000, // 32.4M
+            currency: 'EUR'
+        },
         sources: [
             {
                 name: 'Wikipedia',
@@ -242,8 +311,11 @@ const thingsData: Thing[] = [
     {
         name: 'A 65m long yacht',
         slug: 'yacht',
-        icon: 'i-lucide-ship',
-        price: 35000000, // 35 million
+        icon: 'ship',
+        price: {
+            value: 35000000, // 35M
+            currency: 'EUR'
+        },
         sources: [
             {
                 name: 'Boat International',
@@ -253,29 +325,13 @@ const thingsData: Thing[] = [
         ]
     },
     {
-        name: 'Quebec-Toronto high-speed train',
-        slug: 'high-speed-train',
-        icon: 'i-lucide-train',
-        price: 75000000000 * currencies.cadToEur, // 75 billion
-        sources: [
-            {
-                name: 'Montreal Gazette',
-                text: '<i>Assuming high-speed rail ambitions stay on track, the line would connect an area of about 24 ' +
-                    'million people, 60 per cent of Canada’s population. [...] Planning is based on costs between $60 ' +
-                    'billion and $90 billion, Imbleau said, but those numbers are subject to change.</i>',
-                date: '2025-02-21',
-                link: 'https://www.montrealgazette.com/news/article767502.html'
-            },
-            {
-                text: 'Aiming for the middle of that range, we get 75 billion CAD, which is about 50 billion EUR.'
-            }
-        ]
-    },
-    {
         name: 'A Falcon Heavy launch',
         slug: 'spacex',
-        icon: 'i-lucide-rocket',
-        price: 97000000 * currencies.usdToEur, // 97 million
+        icon: 'rocket',
+        price: {
+            value: 97000000, // 97M
+            currency: 'USD'
+        },
         sources: [
             {
                 name: 'Wikipedia',
@@ -287,8 +343,11 @@ const thingsData: Thing[] = [
     {
         name: 'Losing the Wisconsin election',
         slug: 'wisconsin',
-        icon: 'i-lucide-scale',
-        price: 100000000 * currencies.usdToEur, // 100 million
+        icon: 'scale',
+        price: {
+            value: 100000000, // 100 million
+            currency: 'USD'
+        },
         sources: [
             {
                 name: 'PBS Wisconsin',
@@ -303,8 +362,11 @@ const thingsData: Thing[] = [
     {
         name: 'Trump\'s inauguration',
         slug: 'trump',
-        icon: 'i-lucide-angry',
-        price: 170000000 * currencies.usdToEur, // 170 million
+        icon: 'angry',
+        price: {
+            value: 170000000, // 170 million
+            currency: 'USD'
+        },
         sources: [
             {
                 name: 'CBC',
@@ -317,8 +379,11 @@ const thingsData: Thing[] = [
     {
         name: 'A brand new Boeing 747',
         slug: 'boeing',
-        icon: 'i-lucide-plane-takeoff',
-        price: 220000000, // 220 million
+        icon: 'plane-takeoff',
+        price: {
+            value: 220000000, // 220 million
+            currency: 'EUR'
+        },
         sources: [
             {
                 name: 'EM Airplane',
@@ -329,8 +394,11 @@ const thingsData: Thing[] = [
     {
         name: 'GTA V dev + marketing',
         slug: 'gta-v',
-        icon: 'i-lucide-siren',
-        price: 352000000 * currencies.usdToEur, // 352 million
+        icon: 'siren',
+        price: {
+            value: 352000000, // 352 million
+            currency: 'USD'
+        },
         sources: [
             {
                 name: 'Wikipedia',
@@ -348,8 +416,11 @@ const thingsData: Thing[] = [
     {
         name: 'A penthouse in Monaco',
         slug: 'penthouse',
-        icon: 'i-lucide-building-2',
-        price: 335000000, // 335 million
+        icon: 'building-2',
+        price: {
+            value: 335000000, // 335 million
+            currency: 'EUR'
+        },
         sources: [
             {
                 name: 'Homesmontecarlo.com',
@@ -364,8 +435,11 @@ const thingsData: Thing[] = [
     {
         name: 'Lyon\'s Groupama Stadium',
         slug: 'stadium',
-        icon: 'i-lucide-trophy',
-        price: 480000000, // 480 million
+        icon: 'trophy',
+        price: {
+            value: 480000000, // 480 million
+            currency: 'EUR'
+        },
         sources: [
             {
                 name: 'Wikipedia',
@@ -374,10 +448,31 @@ const thingsData: Thing[] = [
         ]
     },
     {
+        name: 'EU\'s 2025-2028 AI budget',
+        slug: 'eu-ai-budget',
+        icon: 'euro',
+        price: {
+            value: 900000000, // 900 million
+            currency: 'EUR'
+        },
+        sources: [
+            {
+                name: 'Politico',
+                text: 'A new scale-up scheme is set to get the green light early this week, with a budget of €300 ' +
+                    'million for next year, according to a draft plan seen by POLITICO. The total budget for the next ' +
+                    'three years — until the end of the EU\'s current budget — amounts to €900 million.',
+                link: 'https://www.politico.eu/article/eu-900-million-critical-technology-microchip-quantum/'
+            }
+        ]
+    },
+    {
         name: 'Disneyland Paris',
         slug: 'disneyland',
-        icon: 'i-lucide-roller-coaster',
-        price: 2000000000 * currencies.usdToEur, // 2 billion
+        icon: 'roller-coaster',
+        price: {
+            value: 2000000000, // 2 billion
+            currency: 'USD'
+        },
         sources: [
             {
                 name: 'Statista',
@@ -391,8 +486,11 @@ const thingsData: Thing[] = [
     {
         name: 'Trump\'s Truth Social stake',
         slug: 'truth-social',
-        icon: 'i-lucide-trending-down',
-        price: 2300000000 * currencies.usdToEur, // 2 billion
+        icon: 'trending-down',
+        price: {
+            value: 2300000000, // 2.3 billion
+            currency: 'USD'
+        },
         sources: [
             {
                 name: 'Financial Times',
@@ -406,8 +504,11 @@ const thingsData: Thing[] = [
     {
         name: '€1 per person alive',
         slug: 'people',
-        icon: 'i-lucide-person-standing',
-        price: 8228063040, // 8.2 billion
+        icon: 'person-standing',
+        price: {
+            value: 8228063040, // 8.2 billion
+            currency: 'EUR'
+        },
         sources: [
             {
                 name: 'Worldometer',
@@ -419,8 +520,11 @@ const thingsData: Thing[] = [
     {
         name: 'Central Park, NYC',
         slug: 'central-park',
-        icon: 'i-lucide-trees',
-        price: 36000000000 * currencies.usdToEur, // 36 billion
+        icon: 'trees',
+        price: {
+            value: 36000000000, // 36 billion
+            currency: 'USD'
+        },
         sources: [
             {
                 name: 'Quora',
@@ -439,8 +543,11 @@ const thingsData: Thing[] = [
     {
         name: 'Twitter',
         slug: 'twitter',
-        icon: 'i-lucide-twitter',
-        price: 44000000000 * currencies.usdToEur, // 44 billion
+        icon: 'twitter',
+        price: {
+            value: 440000000000, // 44 billion
+            currency: 'USD'
+        },
         sources: [
             {
                 name: 'Wikipedia',
@@ -454,8 +561,11 @@ const thingsData: Thing[] = [
     {
         name: 'Rebuilding Gaza',
         slug: 'gaza',
-        icon: 'i-lucide-hospital',
-        price: 53200000000 * currencies.usdToEur, // 47.7 billion
+        icon: 'hospital',
+        price: {
+            value: 53200000000, // 53.2 billion
+            currency: 'USD'
+        },
         sources: [
             {
                 name: 'France 24',
@@ -468,10 +578,35 @@ const thingsData: Thing[] = [
         ]
     },
     {
-        name: 'Israel\'s illegal war',
+        name: 'Quebec-Toronto high-speed train',
+        slug: 'high-speed-train',
+        icon: 'train',
+        price: {
+            value: 75000000000, // 75 billion
+            currency: 'CAD'
+        },
+        sources: [
+            {
+                name: 'Montreal Gazette',
+                text: '<i>Assuming high-speed rail ambitions stay on track, the line would connect an area of about 24 ' +
+                    'million people, 60 per cent of Canada’s population. [...] Planning is based on costs between $60 ' +
+                    'billion and $90 billion, Imbleau said, but those numbers are subject to change.</i>',
+                date: '2025-02-21',
+                link: 'https://www.montrealgazette.com/news/article767502.html'
+            },
+            {
+                text: 'Aiming for the middle of that range, we get 75 billion CAD, which is about 50 billion EUR.'
+            }
+        ]
+    },
+    {
+        name: 'Israel\'s war on Gaza',
         slug: 'israel',
-        icon: 'i-lucide-bomb',
-        price: 55600000000 * currencies.usdToEur, // 55.6 billion
+        icon: 'bomb',
+        price: {
+            value: 55600000000, // 55.6 billion
+            currency: 'USD'
+        },
         sources: [
             {
                 name: 'Wikipedia',
@@ -484,8 +619,11 @@ const thingsData: Thing[] = [
     {
         name: 'Building 500k soc. housing units',
         slug: 'housing',
-        icon: 'i-lucide-home',
-        price: 156000 * 500000, // 78 billion
+        icon: 'home',
+        price: {
+            value: 156000 * 500000, // 78 billion
+            currency: 'EUR'
+        },
         sources: [
             {
                 name: 'Caisse des Dépôts',
@@ -497,8 +635,11 @@ const thingsData: Thing[] = [
     {
         name: 'Tax fraud in France',
         slug: 'tax-fraud',
-        icon: 'i-lucide-hand-coins',
-        price: 80000000000, // 80 billion
+        icon: 'hand-coins',
+        price: {
+            value: 80000000000, // 80 billion
+            currency: 'EUR'
+        },
         sources: [
             {
                 name: 'Le Monde',
@@ -514,8 +655,11 @@ const thingsData: Thing[] = [
     {
         name: 'The Channel Tunnel',
         slug: 'channel-tunnel',
-        icon: 'i-lucide-train-front-tunnel',
-        price: 87900000000, // 87.9 billion,
+        icon: 'train-front-tunnel',
+        price: {
+            value: 87900000000, // 87.9 billion
+            currency: 'EUR'
+        },
         sources: [
             {
                 name: 'Wikipedia',
@@ -530,8 +674,11 @@ const thingsData: Thing[] = [
     {
         name: 'Ending world hunger',
         slug: 'hunger',
-        icon: 'i-lucide-shield-plus',
-        price: 333000000000 * currencies.usdToEur, // 333 billion
+        icon: 'shield-plus',
+        price: {
+            value: 333000000000, // 333 billion
+            currency: 'USD'
+        },
         sources: [
             {
                 name: 'Oxfam America',
@@ -548,8 +695,11 @@ const thingsData: Thing[] = [
     {
         name: 'Elon Musk',
         slug: 'muskrat',
-        icon: 'i-lucide-trash-2',
-        price: 450000000000 * currencies.usdToEur, // 450 billion
+        icon: 'trash-2',
+        price: {
+            value: 450000000000, // 450 billion
+            currency: 'USD'
+        },
         sources: [
             {
                 name: 'Bloomberg',
@@ -561,8 +711,11 @@ const thingsData: Thing[] = [
     {
         name: 'US military budget',
         slug: 'us-military',
-        icon: 'i-lucide-swords',
-        price: 849800000000 * currencies.usdToEur, // 849.8 billion
+        icon: 'swords',
+        price: {
+            value: 849800000000, // 849.8 billion
+            currency: 'USD'
+        },
         sources: [
             {
                 name: 'Wikipedia',
@@ -576,8 +729,11 @@ const thingsData: Thing[] = [
     {
         name: 'Pharmaceutical industry',
         slug: 'big-pharma',
-        icon: 'i-lucide-cross',
-        price: 1700000000000 * currencies.usdToEur, // 1.7 trillion
+        icon: 'cross',
+        price: {
+            value: 1700000000000, // 1.7 trillion
+            currency: 'USD'
+        },
         sources: [
             {
                 name: 'BioSpace',
@@ -587,7 +743,25 @@ const thingsData: Thing[] = [
                     'USD 1.7 trillion in 2024 [...]</i>'
             }
         ]
+    },
+    {
+        name: 'Trickledown.js (this app)',
+        slug: 'trickledown',
+        icon: 'cloud-rain',
+        price: {
+            value: ((35000 * 0.78) / 1820) * 30,
+            currency: 'EUR'
+        },
+        sources: [
+            {
+                text: 'I\'d say approximately 30 hours of work?'
+            }
+        ]
     }
 ];
 
-export default thingsData;
+export default thingsData.map(thing => ({
+    ...thing,
+    icon: 'i-lucide-' + thing.icon,
+    price: useFormat().convertCurrency(thing.price.value, thing.price.currency)
+}));

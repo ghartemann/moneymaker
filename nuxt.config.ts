@@ -2,6 +2,7 @@
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineNuxtConfig({
+    ssr: false, // Disable SSR for mobile app
     compatibilityDate: '2024-11-01',
     devtools: {enabled: true},
     css: ['~/assets/css/main.css'],
@@ -29,6 +30,9 @@ export default defineNuxtConfig({
                     type: 'image/png',
                     href: '/icon.png'
                 },
+            ],
+            meta: [
+                { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover' }
             ]
         }
     },

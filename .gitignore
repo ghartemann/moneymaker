@@ -25,3 +25,32 @@ logs
 
 # Sentry Config File
 .env.sentry-build-plugin
+
+# Android
+android/.gradle
+android/build/
+android/app/build/
+android/captures/
+android/local.properties
+android/.idea/
+android/*.iml
+android/.settings
+android/app/release/
+android/app/debug/
+android/app/*.aab
+android/app/*.apk
+android/app/src/main/assets/public
+android/capacitor-cordova-android-plugins/build/
+
+# iOS
+ios/App/Pods/
+ios/App/App/public/
+ios/App/build/
+ios/App/DerivedData/
+ios/App/App.xcarchive/
+ios/App/App.xcworkspace/xcuserdata/
+ios/App/App.xcodeproj/xcuserdata/
+ios/App/App.xcodeproj/project.xcworkspace/xcuserdata/
+ios/App/*.ipa
+ios/App/*.zip
+ios/App/*.mobileprovision

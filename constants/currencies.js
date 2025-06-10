@@ -1,4 +1,5 @@
 export default {
-    usdToEur: 0.92,
-    gbpToEur: 1.2
+    usdToEur: 0.87,
+    gbpToEur: 1.18,
+    cadToEur: 0.64,
 };

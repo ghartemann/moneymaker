@@ -38,11 +38,30 @@ const thingsData: Thing[] = [
         sources: []
     },
     {
+        name: 'A standard PS5',
+        slug: 'ps5',
+        icon: 'i-lucide-gamepad-2',
+        price: 529.99,
+        sources: []
+    },
+    {
         name: 'An iPhone 16 Pro',
         slug: 'iphone',
         icon: 'i-lucide-smartphone',
         price: 1229,
         sources: []
+    },
+    {
+        name: 'Montreal Plateau 2B rent',
+        slug: 'rent',
+        icon: 'i-lucide-squirrel',
+        price: 2028 * currencies.cadToEur, // 2028 CAD
+        sources: [
+            {
+                name: 'Centris.ca',
+                link: 'https://www.centris.ca/en/blog/real-estate/average-rent-for-montreal-apartments-in-2024'
+            }
+        ]
     },
     {
         name: 'An overpriced gaming PC',
@@ -110,14 +129,21 @@ const thingsData: Thing[] = [
         name: 'A Titan Zeus 370-Inch 4K TV',
         slug: 'tv',
         icon: 'i-lucide-tv-minimal',
-        price: 1700000, // 1.7 million
-        sources: []
+        price: 1600000 * currencies.usdToEur, // 1.6 million
+        sources: [
+            {
+                name: 'Luxury Retail',
+                text: '<i>370-INCH, 4K, Tv Titan Zeus which is bigger than an elephant and cost $1.6million</i>',
+                date: '2013',
+                link: 'https://luxuryretail.co.uk/titan-zeus/'
+            }
+        ]
     },
     {
         name: 'An entry level private jet',
         slug: 'jet',
         icon: 'i-lucide-plane',
-        price: 2500000, // 2.5 million
+        price: 2500000 * currencies.usdToEur, // 2.5 million
         sources: [{
             name: 'BankRate',
             text: '<i>The price for a brand-new private jet ranges from about $2.5 million to $660 million. The price is ' +
@@ -131,7 +157,7 @@ const thingsData: Thing[] = [
         name: 'Trump\'s gold toilet',
         slug: 'toilet',
         icon: 'i-lucide-toilet',
-        price: (4800000 * currencies.gbpToEur), // 4.8 million
+        price: 4800000 * currencies.gbpToEur, // 4.8 million
         sources: [
             {
                 name: 'CNN Style',
@@ -199,7 +225,7 @@ const thingsData: Thing[] = [
         name: 'Losing the Wisconsin election',
         slug: 'wisconsin',
         icon: 'i-lucide-scale',
-        price: 100000000, // 100 million
+        price: 100000000 * currencies.usdToEur, // 100 million
         sources: [
             {
                 name: 'PBS Wisconsin',
@@ -215,7 +241,7 @@ const thingsData: Thing[] = [
         name: 'Trump\'s inauguration',
         slug: 'trump',
         icon: 'i-lucide-angry',
-        price: 170000000, // 170 million
+        price: 170000000 * currencies.usdToEur, // 170 million
         sources: [
             {
                 name: 'CBC',
@@ -299,7 +325,7 @@ const thingsData: Thing[] = [
         name: '€1 per person alive',
         slug: 'people',
         icon: 'i-lucide-person-standing',
-        price: 8214773127, // 8.2 billion
+        price: 8228063040, // 8.2 billion
         sources: [
             {
                 name: 'Worldometer',
@@ -332,7 +358,7 @@ const thingsData: Thing[] = [
         name: 'Twitter',
         slug: 'twitter',
         icon: 'i-lucide-twitter',
-        price: 44000000000, // 44 billion
+        price: 44000000000 * currencies.usdToEur, // 44 billion
         sources: [
             {
                 name: 'Wikipedia',
@@ -393,7 +419,7 @@ const thingsData: Thing[] = [
         name: 'Ending world hunger',
         slug: 'hunger',
         icon: 'i-lucide-shield-plus',
-        price: 296000000000, // 296 billion
+        price: 333000000000 * currencies.usdToEur, // 333 billion
         sources: [
             {
                 name: 'Oxfam America',
@@ -401,6 +427,9 @@ const thingsData: Thing[] = [
                     'billion every year until 2030 to tackle both extreme and chronic hunger.</i>',
                 date: '2022',
                 link: 'https://www.oxfamamerica.org/explore/stories/how-much-money-would-it-take-to-end-world-hunger/'
+            },
+            {
+                text: '2030 - 2022 = 8 years, so 37 billion * 8 = 333 billion $US'
             }
         ]
     },
@@ -408,11 +437,12 @@ const thingsData: Thing[] = [
         name: 'Elon Musk',
         slug: 'muskrat',
         icon: 'i-lucide-trash-2',
-        price: 450000000000, // 400 billion
+        price: 450000000000 * currencies.usdToEur, // 450 billion
         sources: [
             {
                 name: 'Bloomberg',
-                link: 'https://www.bloomberg.com/billionaires/profiles/elon-r-musk/'
+                link: 'https://www.bloomberg.com/billionaires/profiles/elon-r-musk/',
+                date: '2025-04-10',
             }
         ]
     },
@@ -420,11 +450,14 @@ const thingsData: Thing[] = [
         name: 'Pharmaceutical industry',
         slug: 'big-pharma',
         icon: 'i-lucide-cross',
-        price: 1300000000000, // 1300 billion
+        price: 1700000000000 * currencies.usdToEur, // 1700 billion
         sources: [
             {
-                name: 'Statista',
-                link: 'https://www.statista.com/topics/1764/global-pharmaceutical-industry/#topicOverview'
+                name: 'BioSpace',
+                link: 'https://www.biospace.com/press-releases/pharmaceutical-market-size-to-surpass-usd-2-82-trillion-by-2033',
+                date: '2025-01-29',
+                text: '<i>The pharmaceutical market has witnessed significant growth, reaching a valuation of over ' +
+                    'USD 1.7 trillion in 2024, with a steady CAGR of 5.79%.</i>'
             }
         ]
     }

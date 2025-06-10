@@ -13,41 +13,37 @@
                 >
                     <div class="space-y-4">
                         <p class="text-sm">
-                            The point of this app is to show in a fun, visual way, how long it would take you to buy things.
-                            And to compare that time to, say, <i>how long it would take Elon Musk or whoever rich folk to buy the same thing</i>.
+                            The purpose of this app is to show in a visual and engaging way the stark contrast in
+                            purchasing power between the average person and the ultra-rich, such as, say, Elon Musk.
+                            By comparing the time it takes for an average wage earner to afford everyday items to the
+                            time it takes for a billionaire, the app highlights the vast economic disparities in our
+                            society.
                         </p>
 
                         <p class="text-sm">
-                            While not always accurate, this demonstration usually leads to important questions like <i>"How
-                            the fuck can these guys have this much money?"</i>, <i>"Will I ever be able to buy a house?"</i>
+                            While the calculations may not always be precise, the demonstrations are designed to raise
+                            important questions. Questions like,
+                            <i>"How the fuck did these guys end up with so much money?"</i>,
+                            <i>"Will I ever be able to buy a house in this market?"</i>
                             or even <i>"Who should I contact to buy a 65 m Yacht right now?"</i>.
                         </p>
 
                         <p class="text-sm">
-                            Let me get this straight: the point is definitely not to be perfectly accurate. I find the arguments
-                            saying that Musk's indecent fortune shouldn't be compared to a wage, that only tethered to the
-                            value of his companies or whatever, <u>to be misleading</u>. What matters is that these people
-                            have access to infinitely more than the rest of us, and that we will never, ever catch up.
-                            This should make us question things.
+                            Let's be clear: the goal is not to achieve perfect accuracy. One might — and undeniably will
+                            — argue that comparing Musk's fortune to an average wage is misleading because his wealth is
+                            tied to the value of his companies. While mostly true, this argument misses the point; the
+                            crucial issue is that
+                            <strong>
+                                the ultra-wealthy have access to resources and opportunities that are orders of magnitude
+                                greater than what the rest of us can ever hope to attain.
+                            </strong>
+                            This disparity should prompt us to question the fairness and sustainability of our economic
+                            systems, if anything.
                         </p>
 
                         <p class="text-sm">
-                            If the numbers in this app were to be balanced, it would be up not down.
-                        </p>
-                    </div>
-                </UCard>
-
-                <UCard
-                    variant="soft"
-                    class="md:order-3"
-                >
-                    <div class="space-y-4">
-                        <p class="text-sm">
-                            This app was made in 🇫🇷 France!
-                        </p>
-
-                        <p class="text-sm">
-                            Hence the very <i>french</i> context, wage types, currency and so on.
+                            If any adjustments were to be made to the numbers in this app, they would likely reveal even
+                            greater disparities, not lesser ones.
                         </p>
                     </div>
                 </UCard>
@@ -90,8 +86,11 @@
                 >
                     <div class="space-y-4">
                         <p class="text-sm">
-                            All this was created in a few days using
-                            <ULink to="https://nuxt.com/" target="_blank">Nuxt 3</ULink>,
+                            This app was made in 🇫🇷 France!
+                        </p>
+
+                        <p class="text-sm">
+                            All this was created in a few days using<ULink to="https://nuxt.com/" target="_blank">Nuxt 3</ULink>,
                             <ULink to="https://ui.nuxt.com/" target="_blank">Nuxt UI</ULink> and
                             <ULink to="https://tailwindcss.com/" target="_blank">TailwindCSS</ULink>.
                             It is open source and can be found on
@@ -99,8 +98,11 @@
                         </p>
 
                         <p class="text-sm">
-                            It is not perfect and there are many things to improve. If you have any suggestions or encounter any bugs, please
-                            feel free to <ULink to="https://github.com/ghartemann/moneymaker/issues/new" target="_blank">open an issue on the Github repository</ULink>.
+                            It is not perfect and there are many things to improve. If you have any suggestions or
+                            encounter any bugs, please feel free to
+                            <ULink to="https://github.com/ghartemann/moneymaker/issues/new" target="_blank">
+                                open an issue on the Github repository
+                            </ULink>.
                         </p>
                     </div>
                 </UCard>

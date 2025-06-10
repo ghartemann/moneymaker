@@ -4,6 +4,21 @@ import type { Wage } from "~/constants/interfaces/Wage";
 
 const wagesData: Wage[] = [
     {
+        name: 'Bengali minimum wage',
+        hourlyWage: 0.24 * currencies.usdToEur,
+        displayed: false,
+        sources: [
+            {
+                name: 'FairLabor.org',
+                text: '<i>The hourly wage for garment workers in Bangladesh varies, but the legal minimum is based on a ' +
+                    'monthly wage. The current minimum wage for the garment sector is 12,500 Bangladeshi taka (BDT) per ' +
+                    'month, which is roughly equivalent to $113 USD. This translates to approximately 24 cents per hour ' +
+                    'for a 48-hour workweek. </i>',
+                link: 'https://www.fairlabor.org/resource/fair-labor-associations-bangladesh-wage-trends-report-and-recommendations'
+            },
+        ]
+    },
+    {
         name: 'French RSA',
         hourlyWage: 647.79 / 35 / 4,
         displayed: false,

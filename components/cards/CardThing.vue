@@ -1,5 +1,5 @@
 <template>
-    <UCard variant="soft">
+    <UCard variant="soft" :ui="{body: '!p-4'}">
         <div class="w-full flex gap-4 items-center">
             <UIcon :name="thing.icon" class="size-6"/>
 

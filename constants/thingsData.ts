@@ -1,5 +1,5 @@
 import currencies from "~/constants/currencies.js";
-import type {Thing} from "~/constants/interfaces/Thing";
+import type {Thing} from "~/interfaces/Thing";
 
 const thingsData: Thing[] = [
     {
@@ -17,6 +17,13 @@ const thingsData: Thing[] = [
         sources: []
     },
     {
+        name: 'Vampire Survivors',
+        slug: 'vampire-survivors',
+        icon: 'i-lucide-ghost',
+        price: 4.99,
+        sources: []
+    },
+    {
         name: 'A pint (50 cL) of beer',
         slug: 'beer',
         icon: 'i-lucide-beer',
@@ -28,6 +35,13 @@ const thingsData: Thing[] = [
         slug: 'lunch',
         icon: 'i-lucide-utensils',
         price: 16,
+        sources: []
+    },
+    {
+        name: 'Montreal transit monthly pass',
+        slug: 'metro',
+        icon: 'i-lucide-credit-card',
+        price: 100 * currencies.cadToEur, // 100 CAD
         sources: []
     },
     {
@@ -50,6 +64,20 @@ const thingsData: Thing[] = [
         icon: 'i-lucide-smartphone',
         price: 1229,
         sources: []
+    },
+    {
+        name: 'French driver license',
+        slug: 'driving-license',
+        icon: 'i-lucide-car-front',
+        price: 1800,
+        sources: [
+            {
+                name: 'Banque Française Mutualiste',
+                text: '<i>According to a study conducted in 2016 by UFC-Que Choisir among 1,076 driving schools, the ' +
+                    'average cost of a driver\'s license is 1,804 euros.</i> (translation)',
+                link: 'https://banquefrancaisemutualiste.fr/parlons-public/comment-reduire-cout-permis-de-conduire'
+            }
+        ]
     },
     {
         name: 'Montreal Plateau 2B rent',
@@ -98,9 +126,25 @@ const thingsData: Thing[] = [
     {
         name: 'A Tesla Model S',
         slug: 'tesla',
-        icon: 'i-lucide-car-front',
+        icon: 'i-lucide-truck-electric',
         price: 112390, // 112k
         sources: []
+    },
+    {
+        name: 'Raising a kid from 1 to 25',
+        slug: 'kid',
+        icon: 'i-lucide-baby',
+        price: 264310, // 264.3k
+        sources: [
+            {
+                name: 'Le Parisien',
+                text: '<i>Having one or more children comes at a cost that the Belgian insurer AG wanted to determine. ' +
+                    'Based on figures from Gezinsbond, a Belgian non-profit organization specializing in household ' +
+                    'budgets, it is estimated to be slightly less than that of a small house in Belgium: 264,310 euros ' +
+                    'up to the age of 25 for each child.</i> (translation)',
+                link: 'https://www.leparisien.fr/societe/combien-coute-un-enfant-a-ses-parents-jusqua-ses-25-ans-19-03-2025-M2L3UA2XJZF4FLPBUXXFIZOTHM.php'
+            }
+        ]
     },
     {
         name: 'A not so big house',
@@ -209,6 +253,25 @@ const thingsData: Thing[] = [
         ]
     },
     {
+        name: 'Quebec-Toronto high-speed train',
+        slug: 'high-speed-train',
+        icon: 'i-lucide-train',
+        price: 75000000000 * currencies.cadToEur, // 75 billion
+        sources: [
+            {
+                name: 'Montreal Gazette',
+                text: '<i>Assuming high-speed rail ambitions stay on track, the line would connect an area of about 24 ' +
+                    'million people, 60 per cent of Canada’s population. [...] Planning is based on costs between $60 ' +
+                    'billion and $90 billion, Imbleau said, but those numbers are subject to change.</i>',
+                date: '2025-02-21',
+                link: 'https://www.montrealgazette.com/news/article767502.html'
+            },
+            {
+                text: 'Aiming for the middle of that range, we get 75 billion CAD, which is about 50 billion EUR.'
+            }
+        ]
+    },
+    {
         name: 'A Falcon Heavy launch',
         slug: 'spacex',
         icon: 'i-lucide-rocket',
@@ -260,6 +323,25 @@ const thingsData: Thing[] = [
             {
                 name: 'EM Airplane',
                 link: 'https://www.emairplane.com/journal/how-much-does-a-boeing-747-jet-cost'
+            }
+        ]
+    },
+    {
+        name: 'GTA V dev + marketing',
+        slug: 'gta-v',
+        icon: 'i-lucide-siren',
+        price: 352000000 * currencies.usdToEur, // 352 million
+        sources: [
+            {
+                name: 'Wikipedia',
+                text: 'Media analyst Arvind Bhatia estimated the game\'s development budget exceeded US$137 million, ' +
+                    'and The Scotsman reporter Marty McLaughlin estimated that the combined development and marketing ' +
+                    'efforts exceeded £170 million (US$265 million), making it the most expensive video game ever made ' +
+                    'at its time.',
+                link: 'https://en.wikipedia.org/wiki/Development_of_Grand_Theft_Auto_V'
+            },
+            {
+                text: 'The game was released in 2013; adjusting for inflation, that would be about $US352 million in 2025.'
             }
         ]
     },
@@ -386,6 +468,20 @@ const thingsData: Thing[] = [
         ]
     },
     {
+        name: 'Israel\'s illegal war',
+        slug: 'israel',
+        icon: 'i-lucide-bomb',
+        price: 55600000000 * currencies.usdToEur, // 55.6 billion
+        sources: [
+            {
+                name: 'Wikipedia',
+                text: '<i>According to the Bank of Israel, Israel’s war-related costs from 2023 to 2025 could end up ' +
+                    'amounting to $55.6 billion, thereby costing Israel 10% of its economy.</i>',
+                link: 'https://en.wikipedia.org/wiki/Economic_impact_of_the_Gaza_war'
+            }
+        ]
+    },
+    {
         name: 'Building 500k soc. housing units',
         slug: 'housing',
         icon: 'i-lucide-home',
@@ -412,6 +508,22 @@ const thingsData: Thing[] = [
                     'trade union) [...]</i> (translation)',
                 date: '2023-11-15',
                 link: 'https://www.lemonde.fr/politique/article/2023/11/15/la-cour-des-comptes-presse-l-executif-de-chiffrer-la-fraude-fiscale_6200227_823448.html'
+            }
+        ]
+    },
+    {
+        name: 'The Channel Tunnel',
+        slug: 'channel-tunnel',
+        icon: 'i-lucide-train-front-tunnel',
+        price: 87900000000, // 87.9 billion,
+        sources: [
+            {
+                name: 'Wikipedia',
+                text: '<i>The construction was completed a year late and the bill was almost twice as high as expected ' +
+                    '(initial construction cost of 27.3 billion francs, i.e. a total of 47.8 billion, with a final cost ' +
+                    'of 87.9 billion). As a result, Eurotunnel ended up with a debt of 9 billion euros, ten times ' +
+                    'its turnover, with half of its annual income spent on interest payments.</i> (translation)',
+                link: 'https://en.wikipedia.org/wiki/Channel_Tunnel'
             }
         ]
     },
@@ -447,17 +559,32 @@ const thingsData: Thing[] = [
         ]
     },
     {
+        name: 'US military budget',
+        slug: 'us-military',
+        icon: 'i-lucide-swords',
+        price: 849800000000 * currencies.usdToEur, // 849.8 billion
+        sources: [
+            {
+                name: 'Wikipedia',
+                text: '<i>As of 11 March 2024 the US Department of Defense fiscal year 2025 (FY2025) budget request ' +
+                    'was $849.8 billion. [...] On 21 December 2024 the Senate ' +
+                    'approved the Continuing Resolution for President Biden\'s signature into law.</i>',
+                link: 'https://en.wikipedia.org/wiki/Military_budget_of_the_United_States'
+            }
+        ]
+    },
+    {
         name: 'Pharmaceutical industry',
         slug: 'big-pharma',
         icon: 'i-lucide-cross',
-        price: 1700000000000 * currencies.usdToEur, // 1700 billion
+        price: 1700000000000 * currencies.usdToEur, // 1.7 trillion
         sources: [
             {
                 name: 'BioSpace',
                 link: 'https://www.biospace.com/press-releases/pharmaceutical-market-size-to-surpass-usd-2-82-trillion-by-2033',
                 date: '2025-01-29',
                 text: '<i>The pharmaceutical market has witnessed significant growth, reaching a valuation of over ' +
-                    'USD 1.7 trillion in 2024, with a steady CAGR of 5.79%.</i>'
+                    'USD 1.7 trillion in 2024 [...]</i>'
             }
         ]
     }

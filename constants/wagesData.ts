@@ -1,6 +1,6 @@
 import useFormat from "~/composables/format.js";
 import currencies from "~/constants/currencies.js";
-import type { Wage } from "~/constants/interfaces/Wage";
+import type { Wage } from "~/interfaces/Wage";
 
 const wagesData: Wage[] = [
     {
@@ -103,15 +103,15 @@ const wagesData: Wage[] = [
         ]
     },
     {
-        name: 'Average French CEO annual salary',
-        hourlyWage: 200000 / 1820,
+        name: 'Average CAC40 CEO',
+        hourlyWage: 2611255 / 1820,
         displayed: false,
         sources: [
-            // {
-            //     name: '',
-            //     text: '',
-            //     link: ''
-            // }
+            {
+                name: 'Zone Bourse',
+                text: '<i>Dirigeant-type : le salaire annuel moyen s’élève à 2 611 255 euros, la médiane à 2 097 607 euros.</i>',
+                link: 'https://www.zonebourse.com/actualite-bourse/Classement-2024-des-remunerations-des-PDG-du-CAC-40-49687732'
+            }
         ]
     },
     {

@@ -82,9 +82,24 @@ const tooltipTime = ref(false);
 
 const timeLeft = computed(() => {
     const moneyNeeded = props.thing.price - (props.moneyMaker.money % props.thing.price);
-    const timeLeft = moneyNeeded / (props.moneyMaker.hourlyWage / 3600);
+    let hoursLeft = moneyNeeded / props.moneyMaker.hourlyWage;
+    
+    if (props.selectedTimeTab === 'parttime') {
+        // Calculate working days (8 hours per day)
+        const workingDays = Math.floor(hoursLeft / 8);
+        // Remaining working hours
+        const remainingHours = hoursLeft % 8;
+        
+        // Convert working days to weeks (5 days per week)
+        const weeks = Math.floor(workingDays / 5);
+        // Remaining working days
+        const remainingDays = workingDays % 5;
+        
+        // Convert to display hours
+        hoursLeft = (weeks * 7 * 24) + (remainingDays * 24) + remainingHours;
+    }
 
-    return useFormat().formatHours(timeLeft / 3600, true, true, true).join(' ');
+    return useFormat().formatHours(hoursLeft, true, true, true).join(' ');
 });
 
 const progressValue = computed(() => {
@@ -93,7 +108,9 @@ const progressValue = computed(() => {
 });
 
 const timeItllTake = computed(() => {
-    return props.moneyMaker.things[props.thing.slug].timeItLlTake;
+    return props.selectedTimeTab === 'parttime' 
+        ? props.moneyMaker.things[props.thing.slug].timeItLlTakePartTime
+        : props.moneyMaker.things[props.thing.slug].timeItLlTake;
 });
 
 const timeTruncated = computed(() => {

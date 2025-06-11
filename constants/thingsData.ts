@@ -73,6 +73,16 @@ const thingsData: Thing[] = [
         sources: []
     },
     {
+        name: 'A Nintendo Switch 2',
+        slug: 'switch-2',
+        icon: 'gamepad',
+        price: {
+            value: 469.99,
+            currency: 'EUR'
+        },
+        sources: []
+    },
+    {
         name: 'A standard PS5',
         slug: 'ps5',
         icon: 'gamepad-2',
@@ -142,6 +152,21 @@ const thingsData: Thing[] = [
                     '- 2 TB PCIe M.2 SSD + 2 TB hard drive<br>' +
                     '(translation)',
                 link: 'https://www.ldlc.com/fiche/PB00583336.html'
+            }
+        ]
+    },
+    {
+        name: 'A swimming pool',
+        slug: 'pool',
+        icon: 'waves-ladder',
+        price: {
+            value: 25000, // 25k
+            currency: 'EUR'
+        },
+        sources: [
+            {
+                name: 'Desjoyaux.fr',
+                link: 'https://www.desjoyaux.fr/conseils-piscine/guide-piscine/combien-coute-une-piscine-enterree/'
             }
         ]
     },
@@ -290,6 +315,24 @@ const thingsData: Thing[] = [
             {
                 name: 'Private Islands Inc.',
                 link: 'https://www.privateislandsonline.com/caribbean/bahamas/the-abacos/coconut-palm-bay-the-ultimate-private-island-style-retreat'
+            }
+        ]
+    },
+    {
+        name: 'Google Chrome',
+        slug: 'chrome',
+        icon: 'chrome',
+        price: {
+            value: 20000000, // 20M
+            currency: 'USD'
+        },
+        sources: [
+            {
+                name: 'Bloomberg',
+                text: '<i>Alphabet\'s Chrome browser could go for as much as $20 billion if a judge agrees to a ' +
+                    'Justice Department proposal to sell the business, in what would be a historic crackdown on one of ' +
+                    'the world’s biggest tech companies.</i>',
+                link: 'https://www.bloomberg.com/news/articles/2024-11-18/doj-will-push-google-to-sell-off-chrome-to-break-search-monopoly'
             }
         ]
     },
@@ -619,7 +662,7 @@ const thingsData: Thing[] = [
     {
         name: 'Building 500k soc. housing units',
         slug: 'housing',
-        icon: 'home',
+        icon: 'building',
         price: {
             value: 156000 * 500000, // 78 billion
             currency: 'EUR'
@@ -629,6 +672,24 @@ const thingsData: Thing[] = [
                 name: 'Caisse des Dépôts',
                 date: '2021-11-10',
                 link: 'https://www.caissedesdepots.fr/blog/article/couts-de-construction-des-logements-sociaux'
+            }
+        ]
+    },
+    {
+        name: 'Activision Blizzard',
+        slug: 'activision',
+        icon: 'snowflake',
+        price: {
+            value: 75400000000, // 75.4 billion
+            currency: 'USD'
+        },
+        sources: [
+            {
+                name: 'Wikipedia',
+                text: '<i>On January 18, 2022, Microsoft announced its intent to acquire Activision Blizzard for $68.7 ' +
+                    'billion. The acquisition was completed on October 13, 2023, with its total cost amounting to ' +
+                    '$75.4 billion.</i>',
+                link: 'https://en.wikipedia.org/wiki/Acquisition_of_Activision_Blizzard_by_Microsoft'
             }
         ]
     },

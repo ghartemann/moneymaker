@@ -823,6 +823,6 @@ const thingsData: Thing[] = [
 
 export default thingsData.map(thing => ({
     ...thing,
-    icon: 'i-lucide-' + thing.icon,
+    icon: 'lucide-' + thing.icon,
     price: useFormat().convertCurrency(thing.price.value, thing.price.currency)
 }));

@@ -11,6 +11,7 @@
         "start": "nuxt start"
     },
     "dependencies": {
+        "@iconify-json/lucide": "^1.2.47",
         "@nuxt/ui": "^3.0.2",
         "@nuxtjs/tailwindcss": "^6.13.2",
         "@sentry/nuxt": "^9",

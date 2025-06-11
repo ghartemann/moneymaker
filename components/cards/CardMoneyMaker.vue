@@ -40,28 +40,16 @@
             </div>
 
             <div class="space-y-2">
-                <h2 class="text-center text-xs">
-                    Time it'll take to buy one of these (and <span class="underline font-semibold">nothing</span> else)
+                <h2 class="text-center text-xs text-balance">
+                    Time it'll take to buy one of these (and <span class="underline font-semibold">nothing</span> else), working:
                 </h2>
 
-                <UTooltip
-                    v-model:open="tooltipDisabled"
-                    :delay-duration="0"
-                    :ui="{content: 'h-full min-w-fit max-w-96'}"
-                >
-                    <UTabs
-                        @click="tooltipDisabled = true"
-                        v-model="selectedTimeTab"
-                        :items="tabs"
-                        class="w-full opacity-40"
-                        size="xs"
-                        disabled
-                    ></UTabs>
-
-                    <template #content>
-                        Disabled for now, sorry!
-                    </template>
-                </UTooltip>
+                <UTabs
+                    v-model="selectedTimeTab"
+                    :items="tabs"
+                    class="w-full"
+                    size="xs"
+                ></UTabs>
 
                 <div class="flex flex-col gap-2">
                     <card-thing
@@ -93,25 +81,18 @@ defineProps({
     }
 });
 
-const tooltipDisabled = ref(false);
-
 const selectedTimeTab = defineModel();
 
 const tabs = [
     {
-        label: 'working 24/7',
+        label: '24/7 (all the time)',
         value: 'fulltime'
     },
     {
-        label: 'working decent hours',
+        label: '9-5, Monday-Friday',
         value: 'parttime'
     }
 ];
-
-// TODO: debug
-watch(() => selectedTimeTab.value, () => {
-    selectedTimeTab.value = 'fulltime';
-});
 </script>
 
 <style scoped>

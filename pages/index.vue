@@ -66,6 +66,7 @@ useSeoMeta({
 const rate = ref(20);
 const timeElapsed = ref(0); // in seconds
 const lastUpdateTime = ref(Date.now());
+const animationFrameId = ref(null);
 
 const selectedTimeTab = ref('fulltime');
 
@@ -76,11 +77,32 @@ const loadingModel = ref(null);
 
 onMounted(() => {
     initMoneyMakers();
-
-    setInterval(() => {
-        update();
-    }, rate.value);
+    startAnimation();
 });
+
+onUnmounted(() => {
+    if (animationFrameId.value) {
+        cancelAnimationFrame(animationFrameId.value);
+    }
+});
+
+function startAnimation() {
+    let lastFrameTime = performance.now();
+    
+    function animate(currentTime) {
+        const deltaTime = currentTime - lastFrameTime;
+        
+        // Only update if enough time has passed (based on rate)
+        if (deltaTime >= rate.value) {
+            update();
+            lastFrameTime = currentTime;
+        }
+        
+        animationFrameId.value = requestAnimationFrame(animate);
+    }
+    
+    animationFrameId.value = requestAnimationFrame(animate);
+}
 
 function initMoneyMakers() {
     loading.value = true;

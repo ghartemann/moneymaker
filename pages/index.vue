@@ -63,7 +63,7 @@ useSeoMeta({
     twitterCard: 'summary'
 });
 
-const rate = ref(20);
+const rate = ref(10);
 const timeElapsed = ref(0); // in seconds
 const lastUpdateTime = ref(Date.now());
 const animationFrameId = ref(null);
@@ -88,19 +88,19 @@ onUnmounted(() => {
 
 function startAnimation() {
     let lastFrameTime = performance.now();
-    
+
     function animate(currentTime) {
         const deltaTime = currentTime - lastFrameTime;
-        
+
         // Only update if enough time has passed (based on rate)
         if (deltaTime >= rate.value) {
         update();
             lastFrameTime = currentTime;
         }
-        
+
         animationFrameId.value = requestAnimationFrame(animate);
     }
-    
+
     animationFrameId.value = requestAnimationFrame(animate);
 }
 
@@ -115,7 +115,7 @@ function initMoneyMakers() {
             money: 0,
             things: thingsData.reduce((acc, thing) => {
                 const baseHours = thing.price / moneyMaker.hourlyWage;
-                
+
                 acc[thing.slug] = {
                     owned: 0,
                     timeItLlTake: baseHours,
@@ -124,12 +124,12 @@ function initMoneyMakers() {
                         const workingDays = Math.floor(baseHours / 8);
                         // Remaining working hours
                         const remainingHours = baseHours % 8;
-                        
+
                         // Convert working days to weeks (5 days per week)
                         const weeks = Math.floor(workingDays / 5);
                         // Remaining working days
                         const remainingDays = workingDays % 5;
-                        
+
                         // Convert back to hours
                         return (weeks * 7 * 24) + (remainingDays * 24) + remainingHours;
                     })()

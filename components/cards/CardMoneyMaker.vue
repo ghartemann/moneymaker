@@ -81,17 +81,15 @@ defineProps({
     }
 });
 
-const tooltipDisabled = ref(false);
-
 const selectedTimeTab = defineModel();
 
 const tabs = [
     {
-        label: '24/7, all the time',
+        label: '24/7 (all the time)',
         value: 'fulltime'
     },
     {
-        label: 'Monday-Friday, 9-17',
+        label: '9-5, Monday-Friday',
         value: 'parttime'
     }
 ];

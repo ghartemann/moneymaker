@@ -102,5 +102,4 @@ const timeTruncated = computed(() => {
 </script>
 
 <style scoped>
-
 </style>

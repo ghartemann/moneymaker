@@ -94,7 +94,7 @@ function startAnimation() {
         
         // Only update if enough time has passed (based on rate)
         if (deltaTime >= rate.value) {
-            update();
+        update();
             lastFrameTime = currentTime;
         }
         

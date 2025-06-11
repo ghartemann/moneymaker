@@ -50,7 +50,7 @@
                 :ui="{content: 'w-48'}"
             >
                 <UButton
-                    icon="i-lucide-menu"
+                    icon="lucide-menu"
                     color="neutral"
                     variant="outline"
                 ></UButton>
@@ -72,12 +72,12 @@ const optionsItems = computed(() => {
     return [
         {
             label: 'Theme',
-            icon: isDark.value ? 'i-lucide-moon' : 'i-lucide-sun',
+            icon: isDark.value ? 'lucide-moon' : 'lucide-sun',
             onSelect: toggleColorMode
         },
         {
             label: 'About',
-            icon: 'i-lucide-circle-help',
+            icon: 'lucide-circle-help',
             onSelect: showAbout
         },
     ]

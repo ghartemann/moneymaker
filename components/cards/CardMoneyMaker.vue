@@ -41,15 +41,27 @@
 
             <div class="space-y-2">
                 <h2 class="text-center text-xs text-balance">
-                    Time it'll take to buy one of these (and <span class="underline font-semibold">nothing</span> else), working:
+                    Time it'll take to buy one of these (and <span class="underline font-semibold">nothing</span> else),
+                    working:
                 </h2>
 
-                <UTabs
-                    v-model="selectedTimeTab"
-                    :items="tabs"
-                    class="w-full"
-                    size="xs"
-                ></UTabs>
+                <div class="flex gap-2 items-center">
+                    <UTabs
+                        v-model="selectedTimeTab"
+                        :items="tabs"
+                        class="grow mb-0 pb-0"
+                        size="xs"
+                    ></UTabs>
+
+                    <div class="flex flex-col gap-2">
+                        <TooltipSources
+                            :sources="explanation"
+                            icon="lucide-circle-help"
+                        ></TooltipSources>
+
+                        <div></div>
+                    </div>
+                </div>
 
                 <div class="flex flex-col gap-2">
                     <card-thing
@@ -91,6 +103,22 @@ const tabs = [
     {
         label: '9-5, Monday-Friday',
         value: 'parttime'
+    }
+];
+
+const explanation = [
+    {
+        title: '24/7 (all the time)',
+        text: 'Assuming you work 24/7, all year round, without any breaks or holidays, at a specific hourly wage.'
+    },
+    {
+        title: '9-5, Monday-Friday',
+        text: 'Assuming you work 9-5, Monday to Friday, with weekends off. Days are 8 hours long, weeks are 5 days ' +
+            'long. This is a more realistic scenario.'
+    },
+    {
+        text: 'In both cases, it does not take into account any taxes or other deductions that may apply to your ' +
+            'income, or any other expenses you may have.'
     }
 ];
 </script>

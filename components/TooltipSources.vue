@@ -6,7 +6,7 @@
     >
         <UIcon
             class="size-4 text-gray-500"
-            name="i-lucide-info"
+            :name="icon"
             @click="model = true"
         ></UIcon>
 
@@ -16,6 +16,10 @@
                      :key="index"
                      class="space-y-2"
                 >
+                    <div v-if="source.title" class="font-semibold">
+                        {{ source.title }}
+                    </div>
+
                     <div v-if="source.text"
                          v-html="source.text"
                     ></div>
@@ -44,6 +48,10 @@ defineProps({
     sources: {
         type: Array,
         required: true
+    },
+    icon: {
+        type: String,
+        default: 'lucide-info'
     }
 });
 </script>

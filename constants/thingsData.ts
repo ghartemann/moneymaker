@@ -115,6 +115,7 @@ const thingsData: Thing[] = [
                 name: 'Banque Française Mutualiste',
                 text: '<i>According to a study conducted in 2016 by UFC-Que Choisir among 1,076 driving schools, the ' +
                     'average cost of a driver\'s license is 1,804 euros.</i> (translation)',
+                date: '2024-01-10',
                 link: 'https://banquefrancaisemutualiste.fr/parlons-public/comment-reduire-cout-permis-de-conduire'
             }
         ]
@@ -152,6 +153,23 @@ const thingsData: Thing[] = [
                     '- 2 TB PCIe M.2 SSD + 2 TB hard drive<br>' +
                     '(translation)',
                 link: 'https://www.ldlc.com/fiche/PB00583336.html'
+            }
+        ]
+    },
+    {
+        name: 'A funeral',
+        slug: 'funeral',
+        icon: 'flower-2',
+        price: {
+            value: 8300, // 8k
+            currency: 'USD'
+        },
+        sources: [
+            {
+                name: 'NFDA',
+                text: '<i>The national median cost of a funeral with a viewing and burial in 2023 was $8,300 while the ' +
+                    'median cost of a funeral with cremation was $6,280.</i>',
+                link: 'https://nfda.org/news/statistics'
             }
         ]
     },
@@ -215,6 +233,7 @@ const thingsData: Thing[] = [
                     'Based on figures from Gezinsbond, a Belgian non-profit organization specializing in household ' +
                     'budgets, it is estimated to be slightly less than that of a small house in Belgium: 264,310 euros ' +
                     'up to the age of 25 for each child.</i> (translation)',
+                date: '2025-03-19',
                 link: 'https://www.leparisien.fr/societe/combien-coute-un-enfant-a-ses-parents-jusqua-ses-25-ans-19-03-2025-M2L3UA2XJZF4FLPBUXXFIZOTHM.php'
             }
         ]
@@ -245,6 +264,29 @@ const thingsData: Thing[] = [
                     'says, with several hundred customers already in line to fly.</i>',
                 date: '2024-01-12',
                 link: 'https://news.sky.com/story/virgin-galactics-first-commercial-space-flight-is-set-to-take-off-what-will-happen-on-board-and-how-much-are-tickets-12911100'
+            }
+        ]
+    },
+    {
+        name: 'Average lifetime earnings',
+        slug: 'lifetime-earnings',
+        icon: 'wallet',
+        price: {
+            value: 1547280, // 1.5M
+            currency: 'EUR'
+        },
+        sources: [
+            {
+                name: 'Futura-Sciences',
+                text: '<i>If we use these figures, a person in the middle class will earn about 1,263,600 euros net ' +
+                    'salary during their working life. They will receive nearly 283,680 euros in retirement, over a ' +
+                    'period of twenty years. Therefore, it is estimated that a person can earn a total of 1,547,280 ' +
+                    'euros in their lifetime, including salaries and pensions.</i> (translation)',
+                date: '2023-02-02',
+                link: 'https://www.futura-sciences.com/tech/actualites/internet-euros-gagne-t-on-moyenne-cours-vie-102697/'
+            },
+            {
+                text: 'This is the total amount of money you\'re expected to earn over your <i><strong>ENTIRE LIFETIME</strong></i>.'
             }
         ]
     },
@@ -332,6 +374,7 @@ const thingsData: Thing[] = [
                 text: '<i>Alphabet\'s Chrome browser could go for as much as $20 billion if a judge agrees to a ' +
                     'Justice Department proposal to sell the business, in what would be a historic crackdown on one of ' +
                     'the world’s biggest tech companies.</i>',
+                date: '2024-11-18',
                 link: 'https://www.bloomberg.com/news/articles/2024-11-18/doj-will-push-google-to-sell-off-chrome-to-break-search-monopoly'
             }
         ]
@@ -467,10 +510,10 @@ const thingsData: Thing[] = [
         sources: [
             {
                 name: 'Homesmontecarlo.com',
-                date: '2025-01-23',
                 text: '<i>This penthouse, perched atop the Odeon Tower, embodies the ultimate in luxury real estate in ' +
                     'Monaco. With an estimated market value of 335 million euros, it is the most expensive apartment in ' +
                     'the world, attracting the attention of wealthy investors in search of exceptional properties.</i>',
+                date: '2025-01-23',
                 link: 'https://www.homesmontecarlo.com/the-secrets-of-the-worlds-most-expensive-apartment-in-monaco'
             }
         ]
@@ -501,10 +544,26 @@ const thingsData: Thing[] = [
         sources: [
             {
                 name: 'Politico',
-                text: 'A new scale-up scheme is set to get the green light early this week, with a budget of €300 ' +
+                text: '<i>A new scale-up scheme is set to get the green light early this week, with a budget of €300 ' +
                     'million for next year, according to a draft plan seen by POLITICO. The total budget for the next ' +
-                    'three years — until the end of the EU\'s current budget — amounts to €900 million.',
+                    'three years — until the end of the EU\'s current budget — amounts to €900 million.</i>',
+                date: '2024-10-28',
                 link: 'https://www.politico.eu/article/eu-900-million-critical-technology-microchip-quantum/'
+            }
+        ]
+    },
+    {
+        name: 'Burj Khalifa',
+        slug: 'burj-khalifa',
+        icon: 'move-up',
+        price: {
+            value: 1500000000, // 1.5 billion
+            currency: 'USD'
+        },
+        sources: [
+            {
+                name: 'Wikipedia',
+                link: 'https://en.wikipedia.org/wiki/Burj_Khalifa'
             }
         ]
     },
@@ -522,6 +581,7 @@ const thingsData: Thing[] = [
                 text: '<i>As of May 2024, Disneyland Paris was the highest valued theme park in Europe with an ' +
                     'estimated value of two billion U.S. dollars. Meanwhile, Legoland Windsor ranked second with an ' +
                     'estimated value of 671 million U.S. dollars.</i>',
+                date: '2024-06-26',
                 link: 'https://www.statista.com/statistics/922212/leading-theme-parks-based-on-value-in-europe'
             }
         ]
@@ -540,6 +600,7 @@ const thingsData: Thing[] = [
                 text: '<i>The filing with the Securities and Exchange Commission late on Tuesday showed that Trump’s ' +
                     '114mn shares are included in the sale, which will take place “from time to time in one or more ' +
                     'offerings”. The stake is worth about $2.3bn and held in a trust controlled by his son Donald Trump Jr.</i>',
+                // date: 'TODO',
                 link: 'https://www.ft.com/content/1b41e7c2-c835-4aa0-b874-6f8a8add107e'
             }
         ]
@@ -555,7 +616,7 @@ const thingsData: Thing[] = [
         sources: [
             {
                 name: 'Worldometer',
-                date: '2025-04-02',
+                date: '2025-06-10',
                 link: 'https://www.worldometers.info/world-population'
             }
         ]
@@ -575,6 +636,7 @@ const thingsData: Thing[] = [
                     'per square foot in prime areas. Central Park covers approximately 843 acres, which is about ' +
                     '36,000,000 square feet. If we use a conservative estimate of $1,000 per square foot for the land, ' +
                     'the total value could be around $36 billion.</i>',
+                // date: 'TODO',
                 link: 'https://www.quora.com/How-much-is-the-land-in-Central-Park-worth'
             },
             {
@@ -612,10 +674,10 @@ const thingsData: Thing[] = [
         sources: [
             {
                 name: 'France 24',
-                date: '2025-02-11',
                 text: '<i>More than $53 billion will be required to rebuild Gaza and end the "humanitarian catastrophe" ' +
                     'that has gripped the war-ravaged territory, including $20 billion in the first three years alone, ' +
                     'the United Nations said Tuesday</i>',
+                date: '2025-02-11',
                 link: 'https://www.france24.com/en/live-news/20250211-at-least-53-billion-needed-to-rebuild-gaza-un-estimates'
             }
         ]
@@ -810,12 +872,12 @@ const thingsData: Thing[] = [
         slug: 'trickledown',
         icon: 'cloud-rain',
         price: {
-            value: ((35000 * 0.78) / 1820) * 30,
+            value: ((35000 * 0.78) / 1820) * 40,
             currency: 'EUR'
         },
         sources: [
             {
-                text: 'I\'d say approximately 30 hours of work?'
+                text: 'I\'d say approximately 40 hours of work?'
             }
         ]
     }

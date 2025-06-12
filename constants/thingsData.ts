@@ -361,25 +361,6 @@ const thingsData: Thing[] = [
         ]
     },
     {
-        name: 'Google Chrome',
-        slug: 'chrome',
-        icon: 'chrome',
-        price: {
-            value: 20000000, // 20M
-            currency: 'USD'
-        },
-        sources: [
-            {
-                name: 'Bloomberg',
-                text: '<i>Alphabet\'s Chrome browser could go for as much as $20 billion if a judge agrees to a ' +
-                    'Justice Department proposal to sell the business, in what would be a historic crackdown on one of ' +
-                    'the world’s biggest tech companies.</i>',
-                date: '2024-11-18',
-                link: 'https://www.bloomberg.com/news/articles/2024-11-18/doj-will-push-google-to-sell-off-chrome-to-break-search-monopoly'
-            }
-        ]
-    },
-    {
         name: 'A TGV Duplex train',
         slug: 'tgv',
         icon: 'train-front',
@@ -618,6 +599,25 @@ const thingsData: Thing[] = [
                 name: 'Worldometer',
                 date: '2025-06-10',
                 link: 'https://www.worldometers.info/world-population'
+            }
+        ]
+    },
+    {
+        name: 'Google Chrome',
+        slug: 'chrome',
+        icon: 'chrome',
+        price: {
+            value: 20000000000, // 20B
+            currency: 'USD'
+        },
+        sources: [
+            {
+                name: 'Bloomberg',
+                text: '<i>Alphabet\'s Chrome browser could go for as much as $20 billion if a judge agrees to a ' +
+                    'Justice Department proposal to sell the business, in what would be a historic crackdown on one of ' +
+                    'the world’s biggest tech companies.</i>',
+                date: '2024-11-18',
+                link: 'https://www.bloomberg.com/news/articles/2024-11-18/doj-will-push-google-to-sell-off-chrome-to-break-search-monopoly'
             }
         ]
     },

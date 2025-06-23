@@ -73,6 +73,28 @@ const thingsData: Thing[] = [
         sources: []
     },
     {
+        name: 'Adopting a dog from the SPA',
+        slug: 'dog',
+        icon: 'paw-print',
+        price: {
+            value: 270,
+            currency: 'EUR'
+        },
+        sources: [
+            {
+                name: 'La SPA',
+                link: 'https://www.la-spa.fr/adopter/sinformer-sur-ladoption/conditions-dadoption/'
+            },
+            {
+                text: 'This is the adoption fee, which includes the first vaccinations, sterilization, and microchipping.'
+            },
+            {
+                text: '<strong>If you\'re considering getting a dog, please consider adopting from your local shelter ' +
+                    'rather than buying one from a breeder. There are so many dogs in need of a home.</strong>'
+            }
+        ]
+    },
+    {
         name: 'A Nintendo Switch 2',
         slug: 'switch-2',
         icon: 'gamepad',
@@ -469,10 +491,10 @@ const thingsData: Thing[] = [
         sources: [
             {
                 name: 'Wikipedia',
-                text: 'Media analyst Arvind Bhatia estimated the game\'s development budget exceeded US$137 million, ' +
+                text: '<i>Media analyst Arvind Bhatia estimated the game\'s development budget exceeded US$137 million, ' +
                     'and The Scotsman reporter Marty McLaughlin estimated that the combined development and marketing ' +
                     'efforts exceeded £170 million (US$265 million), making it the most expensive video game ever made ' +
-                    'at its time.',
+                    'at its time.</i>',
                 link: 'https://en.wikipedia.org/wiki/Development_of_Grand_Theft_Auto_V'
             },
             {
@@ -640,8 +662,9 @@ const thingsData: Thing[] = [
                 link: 'https://www.quora.com/How-much-is-the-land-in-Central-Park-worth'
             },
             {
-                text: 'Disclaimers: this is an AI estimation, so it\'s probably terrible, plus converting Central Park ' +
-                    'to housing would actually devaluate property value so much that this number is probably way, way off, but whatever.'
+                text: 'Disclaimers: this is an AI estimate, so it\'s probably terrible, plus converting Central Park ' +
+                    'to housing would actually devaluate property value so much since, you know, it\'s not near any park ' +
+                    'anymore? This number is probably way, way off, but whatever.'
             }
         ]
     },

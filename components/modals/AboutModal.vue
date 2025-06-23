@@ -90,7 +90,7 @@
                         </p>
 
                         <p class="text-sm">
-                            All this was created in a few days using<ULink to="https://nuxt.com/" target="_blank">Nuxt 3</ULink>,
+                            All this was created in a few days using <ULink to="https://nuxt.com/" target="_blank">Nuxt 3</ULink>,
                             <ULink to="https://ui.nuxt.com/" target="_blank">Nuxt UI</ULink> and
                             <ULink to="https://tailwindcss.com/" target="_blank">TailwindCSS</ULink>.
                             It is open source and can be found on
@@ -119,10 +119,6 @@ const model = defineModel({
 
 const roadmap = [
     {
-        title: 'Add a toggle [ 24/7 / 8 hours a day ]',
-        description: 'Buying an iPhone sure takes 5 days working 24/7, but it takes a month working decent hours'
-    },
-    {
         title: 'Add more wages and things to buy',
         description: 'I\'ll eventually have to order them somehow'
     },
@@ -140,7 +136,7 @@ const roadmap = [
     },
     {
         title: 'Code optimizations',
-        description: 'This interval thing will probably break at some point — or it already has... ?'
+        description: 'Don\'t know which ones yet'
     }
 ];
 </script>

@@ -650,7 +650,7 @@ const thingsData: Thing[] = [
         slug: 'twitter',
         icon: 'twitter',
         price: {
-            value: 440000000000, // 44 billion
+            value: 44000000000, // 44 billion
             currency: 'USD'
         },
         sources: [
@@ -850,6 +850,27 @@ const thingsData: Thing[] = [
         ]
     },
     {
+        name: 'War in Iraq (the last one)',
+        slug: 'us-iraq-war',
+        icon: 'moon-star',
+        price: {
+            value: 1100000000000, // 1.1 trillion
+            currency: 'USD'
+        },
+        sources: [
+            {
+                name: 'Wikipedia',
+                text: '<i>The costs of the Iraq War are often contested, as academics and critics have unearthed many ' +
+                    'hidden costs not represented in official estimates. The most recent major report on these costs ' +
+                    'come from Brown University in the form of the Costs of War, which totaled just over $1.1 trillion. ' +
+                    'The United States Department of Defense\'s direct spending on Iraq totaled at least $757.8 ' +
+                    'billion, but also highlighting the complementary costs at home, such as interest paid on the ' +
+                    'funds borrowed to finance the wars.</i>',
+                link: 'https://en.wikipedia.org/wiki/Financial_cost_of_the_Iraq_War'
+            }
+        ]
+    },
+    {
         name: 'Pharmaceutical industry',
         slug: 'big-pharma',
         icon: 'cross',
@@ -864,6 +885,21 @@ const thingsData: Thing[] = [
                 date: '2025-01-29',
                 text: '<i>The pharmaceutical market has witnessed significant growth, reaching a valuation of over ' +
                     'USD 1.7 trillion in 2024 [...]</i>'
+            }
+        ]
+    },
+    {
+        name: 'War in Afghanistan',
+        slug: 'us-afghan-war',
+        icon: 'moon-star',
+        price: {
+            value: 2300000000000, // 2.3 trillion
+            currency: 'USD'
+        },
+        sources: [
+            {
+                name: 'Watson Institute for International & Public Affairs',
+                link: 'https://watson.brown.edu/costsofwar/figures/2021/human-and-budgetary-costs-date-us-war-afghanistan-2001-2022'
             }
         ]
     },

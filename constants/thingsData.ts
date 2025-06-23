@@ -599,6 +599,9 @@ const thingsData: Thing[] = [
                 name: 'Worldometer',
                 date: '2025-06-10',
                 link: 'https://www.worldometers.info/world-population'
+            },
+            {
+                text: 'Population grows at approximately 2.86 people per second based on a 1.1% annual growth rate.'
             }
         ]
     },

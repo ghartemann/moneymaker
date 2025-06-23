@@ -20,7 +20,7 @@
                     <div class="flex justify-between items-baseline">
                         <div class="flex gap-1">
                             <div class="text-xs select-none">
-                                {{ useFormat().formatNumber(thing.price) }}
+                                {{ useFormat().formatNumber(currentPrice) }}
                             </div>
 
                             <TooltipSources
@@ -62,6 +62,7 @@
 <script setup>
 import useFormat from "../../composables/format.js";
 import TooltipSources from "~/components/TooltipSources.vue";
+import { ref, computed, onMounted, onUnmounted } from 'vue';
 
 const props = defineProps({
     thing: {
@@ -75,13 +76,47 @@ const props = defineProps({
     selectedTimeTab: {
         type: String,
         required: true
+    },
+    populationTick: {
+        type: Number,
+        required: true
     }
 });
 
 const tooltipTime = ref(false);
+const updateTimer = ref(null);
+
+const currentPrice = computed(() => {
+    if (props.thing.slug === 'people') {
+        // Using populationTick to force reactivity
+        props.populationTick;
+        const basePopulation = 8228063040; // Base population as of June 2025
+        const growthPerSecond = 2.86; // ~2.86 people born per second (net growth)
+        const now = Date.now();
+        const baseDate = new Date('2025-06-10').getTime(); // Reference date from the source
+        const secondsElapsed = (now - baseDate) / 1000;
+        return Math.floor(basePopulation + (secondsElapsed * growthPerSecond));
+    }
+    return props.thing.price;
+});
+
+onMounted(() => {
+    if (props.thing.slug === 'people') {
+        // Force update every second for the population counter
+        updateTimer.value = setInterval(() => {
+            currentPrice.value; // Access the computed to trigger reactivity
+        }, 1000);
+    }
+});
+
+onUnmounted(() => {
+    if (updateTimer.value) {
+        clearInterval(updateTimer.value);
+    }
+});
 
 const timeLeft = computed(() => {
-    const moneyNeeded = props.thing.price - (props.moneyMaker.money % props.thing.price);
+    const moneyNeeded = currentPrice.value - (props.moneyMaker.money % currentPrice.value);
     let hoursLeft = moneyNeeded / props.moneyMaker.hourlyWage;
     
     if (props.selectedTimeTab === 'parttime') {
@@ -103,8 +138,8 @@ const timeLeft = computed(() => {
 });
 
 const progressValue = computed(() => {
-    const effectiveMoney = props.moneyMaker.money % props.thing.price;
-    return (effectiveMoney / props.thing.price) * 100;
+    const effectiveMoney = props.moneyMaker.money % currentPrice.value;
+    return (effectiveMoney / currentPrice.value) * 100;
 });
 
 const timeItllTake = computed(() => {

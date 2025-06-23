@@ -70,6 +70,7 @@
                         :money-maker="moneyMaker"
                         :selected-time-tab="selectedTimeTab"
                         :thing="thing"
+                        :population-tick="populationTick"
                     ></card-thing>
                 </div>
             </div>
@@ -90,6 +91,10 @@ defineProps({
     },
     timeElapsed: {
         type: Number
+    },
+    populationTick: {
+        type: Number,
+        required: true
     }
 });
 

@@ -25,6 +25,7 @@
                     v-model="selectedTimeTab"
                     :money-maker="moneyMaker"
                     :time-elapsed="timeElapsed"
+                    :population-tick="populationTick"
                     class="!w-full grow-0 shrink-0"
                 ></card-money-maker>
             </div>
@@ -43,6 +44,10 @@ defineProps({
         required: true
     },
     timeElapsed: {
+        type: Number,
+        required: true
+    },
+    populationTick: {
         type: Number,
         required: true
     }

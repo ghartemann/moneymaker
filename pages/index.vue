@@ -19,6 +19,7 @@
                 v-model="selectedTimeTab"
                 :money-makers="moneyMakers.filter((mm) => mm.displayed)"
                 :time-elapsed="timeElapsed"
+                :population-tick="populationTick"
                 class="max-w-full mx-auto"
             ></MoneyMakersEnabled>
 
@@ -41,6 +42,7 @@ import MoneyMakersEnabled from "~/components/MoneyMakersEnabled.vue";
 import MoneyMakersDisabled from "~/components/MoneyMakersDisabled.vue";
 import wagesData from "~/constants/wagesData.ts";
 import CreatedBy from "~/components/CreatedBy.vue";
+import useFormat from "~/composables/format";
 
 const route = useRoute();
 
@@ -67,8 +69,25 @@ const rate = ref(10);
 const timeElapsed = ref(0); // in seconds
 const lastUpdateTime = ref(Date.now());
 const animationFrameId = ref(null);
+const currentPopulation = ref(8228063040); // Base population as of June 2025
+const populationTick = ref(0); // Add this to force reactivity
 
 const selectedTimeTab = ref('fulltime');
+
+const thingsWithLivePopulation = computed(() => {
+    return thingsData.map(thing => {
+        if (thing.slug === 'people') {
+            return {
+                ...thing,
+                price: {
+                    value: currentPopulation.value,
+                    currency: 'EUR'
+                }
+            };
+        }
+        return thing;
+    });
+});
 
 const moneyMakers = ref([]);
 
@@ -114,7 +133,8 @@ function initMoneyMakers() {
             ...moneyMaker,
             money: 0,
             things: thingsData.reduce((acc, thing) => {
-                const baseHours = thing.price / moneyMaker.hourlyWage;
+                const price = thing.slug === 'people' ? currentPopulation.value : thing.price;
+                const baseHours = price / moneyMaker.hourlyWage;
 
                 acc[thing.slug] = {
                     owned: 0,
@@ -150,12 +170,17 @@ function update() {
     lastUpdateTime.value = now;
 
     timeElapsed.value += delta;
+    
+    // Update population (2.86 people born per second)
+    currentPopulation.value += 2.86 * delta;
+    populationTick.value++; // Increment to force reactivity
 
     moneyMakers.value.forEach(moneyMaker => {
         moneyMaker.money += (moneyMaker.hourlyWage / 3600) * delta;
 
         thingsData.forEach(thing => {
-            moneyMaker.things[thing.slug].owned = Math.floor(moneyMaker.money / thing.price);
+            const price = thing.slug === 'people' ? currentPopulation.value : thing.price;
+            moneyMaker.things[thing.slug].owned = Math.floor(moneyMaker.money / price);
         });
     });
 }

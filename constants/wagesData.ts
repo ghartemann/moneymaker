@@ -110,6 +110,7 @@ const wagesData: Wage[] = [
             {
                 name: 'Zone Bourse',
                 text: '<i>Dirigeant-type : le salaire annuel moyen s’élève à 2 611 255 euros, la médiane à 2 097 607 euros.</i>',
+                date: '2025-04-23',
                 link: 'https://www.zonebourse.com/actualite-bourse/Classement-2024-des-remunerations-des-PDG-du-CAC-40-49687732'
             }
         ]
@@ -124,8 +125,8 @@ const wagesData: Wage[] = [
                 name: 'Capital',
                 text: '<i>For 2023, Alexandre Bompard will receive more than €9 million in total: at least €4.5 million ' +
                     'in salary and up to €5.3 million in shares.</i>',
-                link: 'https://www.capital.fr/entreprises-marches/carrefour-les-9-millions-d-euros-du-pdg-exasperent-les-salaries-mais-pas-les-actionnaires-1497240',
-                date: '2024-05-25'
+                date: '2024-05-25',
+                link: 'https://www.capital.fr/entreprises-marches/carrefour-les-9-millions-d-euros-du-pdg-exasperent-les-salaries-mais-pas-les-actionnaires-1497240'
             }
         ]
     },
@@ -167,6 +168,7 @@ const wagesData: Wage[] = [
                 text: '<i>In 2023 alone, Bezos’s net worth increased by $70 billion, from $107 billion to $177 billion. ' +
                     'This means he earned around $191.78 million per day or an incredible $7.99 million per hour. ' +
                     'His wealth growth was largely driven by the value of Amazon stock, in which he owns around 9%.</i>',
+                date: '2024-07-09',
                 link: 'https://finance.yahoo.com/news/jeff-bezos-earns-7-9-211032368.html'
             }
         ]
@@ -183,6 +185,7 @@ const wagesData: Wage[] = [
                     'million an hour or a jaw-dropping $6,420 per second. While these numbers make for great trivia, ' +
                     'they\'re not reflective of an hourly wage – it\'s more about the rapid growth of his assets, ' +
                     'primarily tied to Tesla and SpaceX stock.</i>',
+                date: '2025-01-21',
                 link: 'https://finance.yahoo.com/news/elon-musk-richest-man-world-151517895.html'
             },
             {

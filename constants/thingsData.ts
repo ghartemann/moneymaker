@@ -196,6 +196,21 @@ const thingsData: Thing[] = [
         ]
     },
     {
+        name: 'Your wedding',
+        slug: 'your-wedding',
+        icon: 'blend',
+        price: {
+            value: 13500, // 13.5k
+            currency: 'EUR'
+        },
+        sources: [
+            {
+                name: 'dressing-club.com',
+                link: 'https://dressing-club.com/fr/blog/combien-coute-un-mariage-en-2024-en-france-n60'
+            }
+        ]
+    },
+    {
         name: 'A swimming pool',
         slug: 'pool',
         icon: 'waves-ladder',
@@ -290,6 +305,25 @@ const thingsData: Thing[] = [
         ]
     },
     {
+        name: 'Buying every game on Steam',
+        slug: 'steam',
+        icon: 'tag',
+        price: {
+            value: 1257883.65,
+            currency: 'USD'
+        },
+        sources: [
+            {
+                name: 'Buy All Steam Games',
+                date: '2025-06-23',
+                link: 'https://steam.seewang.me/'
+            },
+            {
+                text: 'This is the discounter price.'
+            }
+        ]
+    },
+    {
         name: 'Average lifetime earnings',
         slug: 'lifetime-earnings',
         icon: 'wallet',
@@ -379,6 +413,25 @@ const thingsData: Thing[] = [
             {
                 name: 'Private Islands Inc.',
                 link: 'https://www.privateislandsonline.com/caribbean/bahamas/the-abacos/coconut-palm-bay-the-ultimate-private-island-style-retreat'
+            }
+        ]
+    },
+    {
+        name: 'Bezos-Sanchez wedding',
+        slug: 'wedding',
+        icon: 'gem',
+        price: {
+            value: 20000000, // 20M
+            currency: 'USD'
+        },
+        sources: [
+            {
+                name: 'Daily Mail',
+                text: '<i>Wedding experts Kunal Madan, the CEO and Founder of DressPreservation.com, and Zoe Buke, ' +
+                    'from Hitched.co.uk, told the Daily Mail their wedding will likely cost as much as $15 million to ' +
+                    '$20 million - depending on venue exclusivity, location planning, and celebrity headcount.</i>',
+                date: '2025-06-12',
+                link: 'https://www.dailymail.co.uk/femail/article-14803485/lauren-sanchez-jeff-bezos-venice-wedding-cost-details.html'
             }
         ]
     },

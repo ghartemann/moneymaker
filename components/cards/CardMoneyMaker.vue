@@ -11,7 +11,7 @@
 
         <div class="flex gap-1">
             <div class="text-xs text-gray-500">
-                {{ useFormat().formatNumber(moneyMaker.hourlyWage) }} per hour
+                {{ useFormat().formatPrice(moneyMaker.hourlyWage) }} per hour
             </div>
 
             <TooltipSources
@@ -27,7 +27,7 @@
                 </div>
 
                 <div class="text-3xl font-bold">
-                    {{ useFormat().formatNumber(moneyMaker.money) }}
+                    {{ useFormat().formatPrice(moneyMaker.money) }}
                 </div>
 
                 <div class="text-xs">
@@ -65,7 +65,7 @@
 
                 <div class="flex flex-col gap-2">
                     <card-thing
-                        v-for="thing in thingsData.sort((a, b) => a.price - b.price)"
+                        v-for="thing in things"
                         :key="thing.name"
                         :money-maker="moneyMaker"
                         :selected-time-tab="selectedTimeTab"
@@ -78,10 +78,10 @@
 </template>
 
 <script setup>
-import useFormat from "~/composables/format.js";
+import useFormat from "~/composables/useFormat.js";
 import CardThing from "~/components/cards/CardThing.vue";
-import thingsData from "~/constants/thingsData.ts";
 import TooltipSources from "~/components/TooltipSources.vue";
+import useThings from "~/composables/useThings.js";
 
 defineProps({
     moneyMaker: {
@@ -92,6 +92,8 @@ defineProps({
         type: Number
     }
 });
+
+const things = useThings().getThings();
 
 const selectedTimeTab = defineModel();
 

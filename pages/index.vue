@@ -35,12 +35,12 @@
 </template>
 
 <script setup>
-import thingsData from "~/constants/thingsData.js";
 import TopBar from "~/components/TopBar.vue";
 import MoneyMakersEnabled from "~/components/MoneyMakersEnabled.vue";
 import MoneyMakersDisabled from "~/components/MoneyMakersDisabled.vue";
 import wagesData from "~/constants/wagesData.ts";
 import CreatedBy from "~/components/CreatedBy.vue";
+import useThings from "~/composables/useThings.js";
 
 const route = useRoute();
 
@@ -70,6 +70,7 @@ const animationFrameId = ref(null);
 
 const selectedTimeTab = ref('fulltime');
 
+const things = ref(useThings().getThings());
 const moneyMakers = ref([]);
 
 const loading = computed(() => moneyMakers.value.length === 0);
@@ -113,7 +114,7 @@ function initMoneyMakers() {
         mm.push({
             ...moneyMaker,
             money: 0,
-            things: thingsData.reduce((acc, thing) => {
+            things: things.value.reduce((acc, thing) => {
                 const baseHours = thing.price / moneyMaker.hourlyWage;
 
                 acc[thing.slug] = {
@@ -154,7 +155,7 @@ function update() {
     moneyMakers.value.forEach(moneyMaker => {
         moneyMaker.money += (moneyMaker.hourlyWage / 3600) * delta;
 
-        thingsData.forEach(thing => {
+        things.value.forEach(thing => {
             moneyMaker.things[thing.slug].owned = Math.floor(moneyMaker.money / thing.price);
         });
     });

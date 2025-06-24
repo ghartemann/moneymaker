@@ -1,5 +1,4 @@
 import type {Thing} from "~/interfaces/Thing";
-import useFormat from "~/composables/format";
 
 const thingsData: Thing[] = [
     {
@@ -984,19 +983,15 @@ const thingsData: Thing[] = [
         slug: 'trickledown',
         icon: 'cloud-rain',
         price: {
-            value: ((35000 * 0.78) / 1820) * 40,
+            value: ((35000 * 0.78) / 1820) * 50,
             currency: 'EUR'
         },
         sources: [
             {
-                text: 'I\'d say approximately 40 hours of work?'
+                text: 'I\'d say approximately 50 hours of work?'
             }
         ]
     }
 ];
 
-export default thingsData.map(thing => ({
-    ...thing,
-    icon: 'lucide-' + thing.icon,
-    price: useFormat().convertCurrency(thing.price.value, thing.price.currency)
-}));
+export default thingsData;

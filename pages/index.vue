@@ -22,7 +22,7 @@
                 class="max-w-full mx-auto"
             ></MoneyMakersEnabled>
 
-            <UContainer class="mt-4 mb-8">
+            <UContainer class="mt-4 mb-8" id="moneyMakersDisabled">
                 <MoneyMakersDisabled
                     v-model="selectedTimeTab"
                     :money-makers="moneyMakers.filter((mm) => !mm.displayed)"
@@ -31,6 +31,8 @@
         </template>
 
         <CreatedBy class="absolute bottom-0"></CreatedBy>
+
+        <VTour :steps="steps" auto-start/>
     </div>
 </template>
 
@@ -94,7 +96,7 @@ function startAnimation() {
 
         // Only update if enough time has passed (based on rate)
         if (deltaTime >= rate.value) {
-        update();
+            update();
             lastFrameTime = currentTime;
         }
 
@@ -159,6 +161,18 @@ function update() {
         });
     });
 }
+
+const steps = [
+    {
+        target: '.buttonFullTime',
+        body: 'This is the toggle to switch between full-time and part-time calculations. ' +
+            'Full-time assumes you work 24/7, while part-time assumes a 9-5 schedule.',
+    },
+    {
+        target: "#moneyMakersDisabled",
+        body: "You can enable or disable wage types here. Disabled wage types will not be displayed in the main list.",
+    }
+];
 </script>
 
 <style scoped>

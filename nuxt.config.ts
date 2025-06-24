@@ -14,7 +14,8 @@ export default defineNuxtConfig({
 
     modules: [
         '@nuxt/ui',
-        '@sentry/nuxt/module'
+        '@sentry/nuxt/module',
+        'nuxt-tour'
     ],
 
     app: {

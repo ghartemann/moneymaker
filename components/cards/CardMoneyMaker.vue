@@ -45,7 +45,7 @@
                     working:
                 </h2>
 
-                <div class="flex gap-2 items-center">
+                <div class="flex gap-2 items-center buttonFullTime">
                     <UTabs
                         v-model="selectedTimeTab"
                         :items="tabs"

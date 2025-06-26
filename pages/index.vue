@@ -1,6 +1,9 @@
 <template>
     <div class="w-full min-h-screen flex flex-col overflow-hidden relative pb-16">
-        <TopBar></TopBar>
+        <TopBar
+            v-model="selectedTimeTab"
+            :money-makers="moneyMakers.filter((mm) => !mm.displayed)"
+        ></TopBar>
 
         <div v-if="loading" class="w-72 md:w-96 m-auto h-96">
             <UProgress v-model="loadingModel"></UProgress>
@@ -15,19 +18,12 @@
         </div>
 
         <template v-else>
-            <MoneyMakersEnabled
+            <WageTypesEnabled
                 v-model="selectedTimeTab"
                 :money-makers="moneyMakers.filter((mm) => mm.displayed)"
                 :time-elapsed="timeElapsed"
                 class="max-w-full mx-auto"
-            ></MoneyMakersEnabled>
-
-            <UContainer class="mt-4 mb-8">
-                <MoneyMakersDisabled
-                    v-model="selectedTimeTab"
-                    :money-makers="moneyMakers.filter((mm) => !mm.displayed)"
-                ></MoneyMakersDisabled>
-            </UContainer>
+            ></WageTypesEnabled>
         </template>
 
         <CreatedBy class="absolute bottom-0"></CreatedBy>
@@ -36,11 +32,10 @@
 
 <script setup>
 import TopBar from "~/components/TopBar.vue";
-import MoneyMakersEnabled from "~/components/MoneyMakersEnabled.vue";
-import MoneyMakersDisabled from "~/components/MoneyMakersDisabled.vue";
-import wagesData from "~/constants/wagesData.ts";
+import WageTypesEnabled from "~/components/WageTypesEnabled.vue";
 import CreatedBy from "~/components/CreatedBy.vue";
 import useThings from "~/composables/useThings.js";
+import useWages from "~/composables/useWages.js";
 
 const route = useRoute();
 
@@ -71,6 +66,7 @@ const animationFrameId = ref(null);
 const selectedTimeTab = ref('fulltime');
 
 const things = ref(useThings().getThings());
+const wages = ref(useWages().getWages());
 const moneyMakers = ref([]);
 
 const loading = computed(() => moneyMakers.value.length === 0);
@@ -110,7 +106,7 @@ function initMoneyMakers() {
 
     const mm = [];
 
-    wagesData.forEach(moneyMaker => {
+    wages.value.forEach(moneyMaker => {
         mm.push({
             ...moneyMaker,
             money: 0,

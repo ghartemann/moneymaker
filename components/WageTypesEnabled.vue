@@ -21,12 +21,12 @@
                  v-for="moneyMaker in moneyMakers"
                  :key="moneyMaker.name"
             >
-                <card-money-maker
+                <card-wage
                     v-model="selectedTimeTab"
                     :money-maker="moneyMaker"
                     :time-elapsed="timeElapsed"
                     class="!w-full grow-0 shrink-0"
-                ></card-money-maker>
+                ></card-wage>
             </div>
         </TransitionGroup>
     </div>
@@ -34,7 +34,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
-import CardMoneyMaker from "~/components/cards/CardMoneyMaker.vue";
+import CardWage from "~/components/cards/CardWage.vue";
 import NuxtPlaceholder from "~/components/NuxtPlaceholder.vue";
 
 defineProps({

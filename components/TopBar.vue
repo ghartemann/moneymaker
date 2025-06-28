@@ -7,42 +7,23 @@
         </h1>
 
         <div class="space-x-2">
-            <!--            <UModal>-->
-            <!--                <UButton-->
-            <!--                    icon="i-lucide-plus"-->
-            <!--                    color="neutral"-->
-            <!--                    variant="outline"-->
-            <!--                ></UButton>-->
+            <UDrawer>
+                <UButton
+                    icon="i-lucide-plus"
+                    color="neutral"
+                    variant="outline"
+                    class="animate-pulse-nuxt"
+                ></UButton>
 
-            <!--                <template #content>-->
-            <!--                    <div class="p-4 space-y-2">-->
-            <!--                        <div class="text-center text-lg font-bold">-->
-            <!--                            Add a money maker-->
-            <!--                        </div>-->
-
-            <!--                        <div class="text-center text-xs text-gray-500">-->
-            <!--                            Add a money maker to the list-->
-            <!--                        </div>-->
-
-            <!--                        <div>-->
-            <!--                            <UInput-->
-            <!--                                placeholder="Name"-->
-            <!--                            ></UInput>-->
-
-            <!--                            <UInput-->
-            <!--                                placeholder="Hourly wage"-->
-            <!--                            ></UInput>-->
-
-            <!--                            <UButton-->
-            <!--                                color="primary"-->
-            <!--                                variant="solid"-->
-            <!--                            >-->
-            <!--                                Add-->
-            <!--                            </UButton>-->
-            <!--                        </div>-->
-            <!--                    </div>-->
-            <!--                </template>-->
-            <!--            </UModal>-->
+                <template #body>
+                    <UContainer class="mt-4 mb-8">
+                        <WageTypesDisabled
+                            v-model="selectedTimeTab"
+                            :money-makers="moneyMakers.filter((mm) => !mm.displayed)"
+                        ></WageTypesDisabled>
+                    </UContainer>
+                </template>
+            </UDrawer>
 
             <UDropdownMenu
                 :items="optionsItems"
@@ -63,8 +44,18 @@
 
 <script setup>
 import AboutModal from "~/components/modals/AboutModal.vue";
+import WageTypesDisabled from "~/components/WageTypesDisabled.vue";
 
 const router = useRouter();
+
+const selectedTimeTab = defineModel();
+
+const props = defineProps({
+    moneyMakers: {
+        type: Array,
+        required: true
+    }
+});
 
 const showAboutModal = ref(false);
 

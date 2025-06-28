@@ -17,6 +17,10 @@ export default defineNuxtConfig({
         '@sentry/nuxt/module'
     ],
 
+    plugins: [
+        '~/plugins/db.js'
+    ],
+
     app: {
         head: {
             title: 'TrickleDown.js',

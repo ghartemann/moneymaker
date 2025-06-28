@@ -589,6 +589,23 @@ const thingsData: Thing[] = [
         ]
     },
     {
+        name: 'Koru (Bezos\' superyacht)',
+        slug: 'koru',
+        icon: 'sailboat',
+        price: {
+            value: 500000000, // 500 million
+            currency: 'USD'
+        },
+        sources: [
+            {
+                name: 'Wikipedia',
+                text: '<i>The superyacht is reported to have cost at least US$500 million, and to require annual ' +
+                    'maintenance costs of at least $30 million.</i>',
+                link: 'https://en.wikipedia.org/wiki/Koru_(yacht)'
+            }
+        ]
+    },
+    {
         name: 'EU\'s 2025-2028 AI budget',
         slug: 'eu-ai-budget',
         icon: 'euro',
@@ -975,6 +992,21 @@ const thingsData: Thing[] = [
             {
                 name: 'Watson Institute for International & Public Affairs',
                 link: 'https://watson.brown.edu/costsofwar/figures/2021/human-and-budgetary-costs-date-us-war-afghanistan-2001-2022'
+            }
+        ]
+    },
+    {
+        name: 'The whole american GDP',
+        slug: 'us-gdp',
+        icon: 'chart-no-axes-combined',
+        price: {
+            value: 30507000000000, // 30.5 trillion
+            currency: 'USD'
+        },
+        sources: [
+            {
+                name: 'Wikipedia',
+                link: 'https://en.wikipedia.org/wiki/Economy_of_the_United_States'
             }
         ]
     },

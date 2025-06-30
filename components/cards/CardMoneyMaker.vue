@@ -1,38 +1,29 @@
 <template>
-    <UCard :ui="{body: '!w-96 relative'}">
-        <div ref="nameRef">
+    <UCard :ui="{body: '!w-96'}">
+        <!-- Section WageInfos dans un conteneur -->
+        <div class="relative">
+            <div ref="nameRef" class="h-0"></div>
             <WageInfos
                 v-model="selectedTimeTab"
                 :money-maker="moneyMaker"
                 :time-elapsed="timeElapsed"
-            ></WageInfos>
+                :class="[
+                    isScrolled ? 'fixed top-0 w-96 -mx-6 shadow-lg backdrop-blur-lg p-4 rounded-lg z-50' : ''
+                ]"
+            />
         </div>
 
-        <Transition
-            enter-active-class="transition-all duration-300 ease-in-out"
-            enter-from-class="opacity-0"
-            enter-to-class="opacity-100"
-            leave-active-class="transition-all duration-300 ease-in-out"
-            leave-from-class="opacity-100"
-            leave-to-class="opacity-0"
-        >
-        <WageInfos
-            v-show="moneyMaker.displayed && isScrolled"
-            class="fixed top-0 -ml-6 !w-96 px-6 py-4 z-50 backdrop-blur-lg"
-            v-model="selectedTimeTab"
-            :money-maker="moneyMaker"
-            :time-elapsed="timeElapsed"
-        ></WageInfos>
-        </Transition>
-
-        <div v-if="moneyMaker.displayed" class="flex flex-col gap-2">
+        <!-- Liste des things -->
+        <div v-if="moneyMaker.displayed" class="flex flex-col gap-2 mt-4"                 :class="[
+                    isScrolled ? 'mt-72' : ''
+                ]">
             <card-thing
                 v-for="thing in things"
                 :key="thing.name"
                 :money-maker="moneyMaker"
                 :selected-time-tab="selectedTimeTab"
                 :thing="thing"
-            ></card-thing>
+            />
         </div>
     </UCard>
 </template>

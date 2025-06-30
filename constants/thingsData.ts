@@ -501,6 +501,24 @@ const thingsData: Thing[] = [
         ]
     },
     {
+        name: 'Mad Max: Fury Road',
+        slug: 'mad-max',
+        icon: 'fuel',
+        price: {
+            value: 154600000, // 154 million
+            currency: 'USD'
+        },
+        sources: [
+            {
+                name: 'Wikipedia',
+                text: '<i>Mad Max: Fury Road grossed $154.3 million in the United States and Canada, and $226.1 ' +
+                    'million in other countries, for a worldwide total of $380.4 million against a production budget ' +
+                    'of $154.6–185.2 million.</i>',
+                link: 'https://en.wikipedia.org/wiki/Mad_Max:_Fury_Road'
+            }
+        ]
+    },
+    {
         name: 'Trump\'s inauguration',
         slug: 'trump',
         icon: 'angry',
@@ -924,7 +942,7 @@ const thingsData: Thing[] = [
         ]
     },
     {
-        name: 'US military budget',
+        name: 'The US military budget',
         slug: 'us-military',
         icon: 'swords',
         price: {

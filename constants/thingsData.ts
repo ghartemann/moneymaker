@@ -731,6 +731,30 @@ const thingsData: Thing[] = [
         ]
     },
     {
+        name: 'The new ICE budget',
+        slug: 'fascists',
+        icon: 'box',
+        price: {
+            value: 29900000000, // 29.9 billion
+            currency: 'USD'
+        },
+        sources: [
+            {
+                name: 'American Immigration Council',
+                text: '<i>The bill, passed today with Vice President JD Vance contributing the tie-breaking vote, ' +
+                    'earmarks some $170 billion for immigration- and border enforcement-related funding provisions. ' +
+                    'The bill includes:<br>' +
+                    '- $45 billion for building new immigration detention centers, including family detention ' +
+                    'facilities. This represents a 265 percent annual budget increase to ICE’s current detention ' +
+                    'budget. It is a 62 percent larger budget than the entire federal prison system and could result ' +
+                    'in daily detention of at least 116,000 non-citizens.<br>' +
+                    '- $29.9 billion toward ICE’s enforcement and deportation operations, increasing ICE’s annual ' +
+                    'budget three-fold.',
+                link: 'https://www.americanimmigrationcouncil.org/press-release/congress-approves-unprecedented-funding-mass-detention-deportation-2025/'
+            }
+        ]
+    },
+    {
         name: 'Central Park, NYC',
         slug: 'central-park',
         icon: 'trees',

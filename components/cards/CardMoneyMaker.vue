@@ -17,7 +17,7 @@
                 v-model="selectedTimeTab"
                 :money-maker="moneyMaker"
                 :time-elapsed="timeElapsed"
-                :class="[{'fixed top-0 w-96 -mx-6 shadow-lg backdrop-blur-lg px-6 py-4 rounded-t-lg z-50': isScrolled, 'hidden': !isScrolled}]"
+                :class="[isScrolled ? 'fixed top-0 w-96 -mx-6 shadow-lg backdrop-blur-lg px-6 pt-1.5 rounded-t-lg z-50' : 'hidden']"
             ></wage-infos>
         </div>
 

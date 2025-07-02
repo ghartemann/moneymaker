@@ -1,29 +1,36 @@
 <template>
     <UCard :ui="{body: '!w-96'}">
-        <!-- Section WageInfos dans un conteneur -->
         <div class="relative">
+            <!-- the name of the money maker, used to detect if scrolled -->
             <div ref="nameRef" class="h-0"></div>
-            <WageInfos
+
+            <!-- the first one that disappears when scrolled-->
+            <wage-infos
                 v-model="selectedTimeTab"
                 :money-maker="moneyMaker"
                 :time-elapsed="timeElapsed"
-                :class="[
-                    isScrolled ? 'fixed top-0 w-96 -mx-6 shadow-lg backdrop-blur-lg p-4 rounded-lg z-50' : ''
-                ]"
-            />
+                :class="[{'opacity-0': isScrolled}]"
+            ></wage-infos>
+
+            <!-- the second one that appears when scrolled-->
+            <wage-infos
+                v-model="selectedTimeTab"
+                :money-maker="moneyMaker"
+                :time-elapsed="timeElapsed"
+                :class="[{'fixed top-0 w-96 -mx-6 shadow-lg backdrop-blur-lg px-6 py-4 rounded-t-lg z-50': isScrolled, 'hidden': !isScrolled}]"
+            ></wage-infos>
         </div>
 
-        <!-- Liste des things -->
-        <div v-if="moneyMaker.displayed" class="flex flex-col gap-2 mt-4"                 :class="[
-                    isScrolled ? 'mt-72' : ''
-                ]">
+        <div v-if="moneyMaker.displayed"
+             class="flex flex-col gap-2 mt-4"
+        >
             <card-thing
                 v-for="thing in things"
                 :key="thing.name"
                 :money-maker="moneyMaker"
                 :selected-time-tab="selectedTimeTab"
                 :thing="thing"
-            />
+            ></card-thing>
         </div>
     </UCard>
 </template>
@@ -43,6 +50,13 @@ const props = defineProps({
     }
 });
 
+const selectedTimeTab = defineModel({
+    type: String,
+    default: 'fulltime'
+});
+
+const things = useThings().getThings();
+
 const nameRef = ref(null);
 const isScrolled = ref(false);
 
@@ -61,14 +75,6 @@ onMounted(() => {
     if (nameRef.value) {
         observer.observe(nameRef.value);
     }
-});
-
-const things = useThings().getThings();
-
-const selectedTimeTab = defineModel();
-
-watch(() => isScrolled.value, (newValue) => {
-    console.log('isScrolled changed:', newValue);
 });
 </script>
 

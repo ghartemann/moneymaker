@@ -195,6 +195,27 @@ const thingsData: Thing[] = [
         ]
     },
     {
+        name: 'The priciest MacBook™ Pro',
+        slug: 'macbook',
+        icon: 'laptop',
+        price: {
+            value: 8989,
+            currency: 'EUR'
+        },
+        sources: [
+            {
+                name: 'Apple',
+                text: 'MacBook Pro 16-inch – Space Black<br>' +
+                    '- 16-inch Liquid Retina XDR display<br>' +
+                    '- Nano-texture glass<br>' +
+                    '- Apple M4 Max chip with 16-core CPU, 40-core GPU, and 16-core Neural Engine<br>' +
+                    '- 128GB unified memory<br>' +
+                    '- 8TB SSD storage',
+                link: 'https://www.apple.com/fr/shop/buy-mac/macbook-pro/16-pouces-noir-sid%C3%A9ral-verre-d%E2%80%99%C3%A9cran-standard-puce-apple-m4-max-avec-cpu-16-c%C5%93urs-et-gpu-40-c%C5%93urs-48-go-de-m%C3%A9moire-1to'
+            }
+        ]
+    },
+    {
         name: 'Your wedding',
         slug: 'your-wedding',
         icon: 'blend',
@@ -416,25 +437,6 @@ const thingsData: Thing[] = [
         ]
     },
     {
-        name: 'Bezos-Sanchez wedding',
-        slug: 'wedding',
-        icon: 'gem',
-        price: {
-            value: 20000000, // 20M
-            currency: 'USD'
-        },
-        sources: [
-            {
-                name: 'Daily Mail',
-                text: '<i>Wedding experts Kunal Madan, the CEO and Founder of DressPreservation.com, and Zoe Buke, ' +
-                    'from Hitched.co.uk, told the Daily Mail their wedding will likely cost as much as $15 million to ' +
-                    '$20 million - depending on venue exclusivity, location planning, and celebrity headcount.</i>',
-                date: '2025-06-12',
-                link: 'https://www.dailymail.co.uk/femail/article-14803485/lauren-sanchez-jeff-bezos-venice-wedding-cost-details.html'
-            }
-        ]
-    },
-    {
         name: 'A TGV Duplex train',
         slug: 'tgv',
         icon: 'train-front',
@@ -462,6 +464,25 @@ const thingsData: Thing[] = [
                 name: 'Boat International',
                 date: '2024-10-28',
                 link: 'https://www.boatinternational.com/yachts-for-sale/eternity-codecasa-2010'
+            }
+        ]
+    },
+    {
+        name: 'Bezos-Sanchez wedding',
+        slug: 'wedding',
+        icon: 'gem',
+        price: {
+            value: 45000000, // 40M
+            currency: 'EUR'
+        },
+        sources: [
+            {
+                name: 'CNBC',
+                text: '<i>The president of the Veneto regional government which comprises Venice, Luca Zaia, told ' +
+                    'reporters Tuesday that the wedding and its various accompaniments were set to cost 40 million to ' +
+                    '48 million euros ($47-$56 million).</i>',
+                date: '2025-06-27',
+                link: 'https://www.cnbc.com/2025/06/27/jeff-bezos-50-million-venice-wedding-what-we-know.html'
             }
         ]
     },
@@ -585,6 +606,35 @@ const thingsData: Thing[] = [
             {
                 name: 'Wikipedia',
                 link: 'https://fr.wikipedia.org/wiki/Parc_Olympique_lyonnais'
+            }
+        ]
+    },
+    {
+        name: 'The territory of Louisiana',
+        slug: 'louisiana',
+        icon: 'shrimp',
+        price: {
+            value: 371000000, // 371 million
+            currency: 'USD'
+        },
+        sources: [
+            {
+                name: 'Wikipedia',
+                text: '<i>On April 11, 1803, just days before Monroe\'s arrival, Barbé-Marbois offered Livingston all ' +
+                    'of Louisiana for $15 million, which averages to less than three cents per acre (7¢/ha). The ' +
+                    'total of $15 million is equivalent to about $371 million in 2023 dollars, or 70 cents per acre.</i>',
+                link: 'https://en.wikipedia.org/wiki/Louisiana_Purchase'
+            },
+            {
+                name: 'Wikipedia',
+                text: 'You might be surprised — especially if you\'re as geographically sophisticated as I am, which ' +
+                    'is to say, not very — to learn that the Louisiana in question here was much larger than the U.S. ' +
+                    'state we know today. It spanned over 2,140,000 km², covering parts of 15 present-day ' +
+                    'U.S. states and 2 Canadian provinces: Arkansas, Iowa, Missouri, Kansas, Oklahoma, Nebraska, ' +
+                    'Minnesota, Louisiana, New Mexico, Texas, North Dakota, South Dakota, Wyoming, Montana, and ' +
+                    'Colorado — plus Alberta and Saskatchewan in Canada.' +
+                    '<img src="https://upload.wikimedia.org/wikipedia/commons/5/57/Louisiana_Purchase.png" />',
+                link: 'https://en.wikipedia.org/wiki/Louisiana_Purchase#/media/File:Louisiana_Purchase.png'
             }
         ]
     },
@@ -775,6 +825,24 @@ const thingsData: Thing[] = [
         ]
     },
     {
+        name: 'French 2026 defense budget',
+        slug: 'france-defense',
+        icon: 'flame',
+        price: {
+            value: 53700000000,// 53.7 billion
+            currency: 'EUR'
+        },
+        sources: [
+            {
+                name: 'France Info',
+                text: '<i>As it stands, the French Military Programming Law, passed in 2023 for the 2024–2030 period, ' +
+                    'allocates €413 billion to the armed forces, with annual budget increases of just over €3 billion, ' +
+                    'reaching €67.4 billion by 2030.</i> (translation)',
+                link: 'https://www.franceinfo.fr/societe/armee-securite-defense/infographie-de-32-milliards-en-2017-a-plus-de-67-prevus-en-2030-comment-le-budget-de-la-defense-francaise-a-evolue-ces-dernieres-annees_7374634.html'
+            }
+        ]
+    },
+    {
         name: 'Quebec-Toronto high-speed train',
         slug: 'high-speed-train',
         icon: 'train',
@@ -889,7 +957,7 @@ const thingsData: Thing[] = [
     {
         name: 'Ending world hunger',
         slug: 'hunger',
-        icon: 'shield-plus',
+        icon: 'cooking-pot',
         price: {
             value: 333000000000, // 333 billion
             currency: 'USD'
@@ -920,6 +988,10 @@ const thingsData: Thing[] = [
                 name: 'Bloomberg',
                 link: 'https://www.bloomberg.com/billionaires/profiles/elon-r-musk/',
                 date: '2025-04-10',
+            },
+            {
+                text: "This might be outdated since the loser managed to lose a lot of money by openly aligning with " +
+                    "Nazis and spectacularly sabotaging U.S. politics — but honestly, I couldn’t care less."
             }
         ]
     },

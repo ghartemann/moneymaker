@@ -1,7 +1,7 @@
 <template>
     <UCard variant="soft" :ui="{body: '!p-4'}">
         <div class="w-full flex gap-4 items-center">
-            <UIcon :name="thing.icon" class="size-6"/>
+            <UIcon :name="thing.icon" class="size-6 shrink-0"/>
 
             <USeparator orientation="vertical" class="h-12"/>
 
@@ -17,7 +17,7 @@
                         </div>
                     </div>
 
-                    <div class="flex justify-between items-baseline">
+                    <div class="flex justify-between items-baseline gap-2">
                         <div class="flex gap-1">
                             <div class="text-xs select-none">
                                 {{ useFormat().formatPrice(thing.price) }}

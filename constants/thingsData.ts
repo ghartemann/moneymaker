@@ -1,4 +1,5 @@
 import type {Thing} from "~/interfaces/Thing";
+import useFormat from "~/composables/useFormat";
 
 const thingsData: Thing[] = [
     {
@@ -329,7 +330,7 @@ const thingsData: Thing[] = [
         slug: 'steam',
         icon: 'tag',
         price: {
-            value: 1257883.65,
+            value: 1301118.8,
             currency: 'USD'
         },
         sources: [
@@ -339,7 +340,8 @@ const thingsData: Thing[] = [
                 link: 'https://steam.seewang.me/'
             },
             {
-                text: 'This is the discounter price.'
+                text: 'This is the undiscounted price. You can expect an average 35% discount, making aht total price about ' +
+                    useFormat().formatPrice(1301118.8 * .64, 0, 2, 'USD') + '.'
             }
         ]
     },

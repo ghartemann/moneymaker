@@ -2,6 +2,7 @@
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineNuxtConfig({
+    ssr: true,
     compatibilityDate: '2024-11-01',
     devtools: {enabled: true},
     css: ['~/assets/css/main.css'],
@@ -14,7 +15,8 @@ export default defineNuxtConfig({
 
     modules: [
         '@nuxt/ui',
-        '@sentry/nuxt/module'
+        '@sentry/nuxt/module',
+        '@nuxtjs/sitemap',
     ],
 
     app: {
@@ -47,4 +49,4 @@ export default defineNuxtConfig({
     sourcemap: {
         client: 'hidden'
     }
-})
+});

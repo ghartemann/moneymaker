@@ -47,8 +47,8 @@ const route = useRoute();
 const meta = {
     title: 'TrickleDown.js',
     description: 'How long would it take you to buy a 65 m Yacht? What about Elon Musk?',
-    image: route.fullPath + '3d-money.jpg',
-    url: 'https://trickledown.ghartemann.fr'
+    image: 'https://trickledown.ghartemann.fr/3d-money.jpg',
+    url: 'https://trickledown.ghartemann.fr/'
 };
 
 useSeoMeta({
@@ -61,6 +61,12 @@ useSeoMeta({
     twitterDescription: meta.description,
     twitterImage: meta.image,
     twitterCard: 'summary'
+});
+
+useHead({
+    link: [
+        { rel: 'canonical', href: meta.url }
+    ]
 });
 
 const rate = ref(10);

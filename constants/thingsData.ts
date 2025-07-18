@@ -267,14 +267,40 @@ const thingsData: Thing[] = [
         sources: []
     },
     {
-        name: 'A Tesla Model S',
+        name: 'A Cybertruck',
         slug: 'tesla',
         icon: 'truck-electric',
         price: {
-            value: 112390, // 112k
-            currency: 'EUR'
+            value: 99990, // 100k
+            currency: 'USD'
         },
-        sources: []
+        sources: [
+            {
+                name: 'Tesla',
+                link: 'https://www.tesla.com/cybertruck/design#overview'
+            },
+            {
+                text: 'Costs a shitload for a pile of shit.'
+            }
+        ]
+    },
+    {
+        name: 'A Steinway D Grand piano',
+        slug: 'piano',
+        icon: 'piano',
+        price: {
+            value: 230700, // 230k
+            currency: 'USD',
+        },
+        sources: [
+            {
+                name: 'Piano pricepoint',
+                link: 'https://pianopricepoint.com/steinway-d-grand-piano/'
+            },
+            {
+                text: 'Far from the most expensive piano.'
+            }
+        ]
     },
     {
         name: 'Raising a kid from 1 to 25',
@@ -336,12 +362,12 @@ const thingsData: Thing[] = [
         sources: [
             {
                 name: 'Buy All Steam Games',
-                date: '2025-06-23',
+                date: '2025-07-16',
                 link: 'https://steam.seewang.me/'
             },
             {
-                text: 'This is the undiscounted price. You can expect an average 35% discount, making aht total price about ' +
-                    useFormat().formatPrice(1301118.8 * .64, 0, 2, 'USD') + '.'
+                text: 'This is the full price before discounts. On average, you can expect a 35% discount, bringing the total to approximately ' +
+                    useFormat().formatPrice(1301118.8 * .65, 0, 2, 'USD') + '.'
             }
         ]
     },
@@ -364,7 +390,8 @@ const thingsData: Thing[] = [
                 link: 'https://www.futura-sciences.com/tech/actualites/internet-euros-gagne-t-on-moyenne-cours-vie-102697/'
             },
             {
-                text: 'This is the total amount of money you\'re expected to earn over your <i><strong>ENTIRE LIFETIME</strong></i>.'
+                text: 'This is the total amount of money you\'re expected to earn over your <i><strong>ENTIRE LIFETIME</strong></i>. ' +
+                    'It is an average and isn\'t correlated to your profile or anything.'
             }
         ]
     },
@@ -1089,12 +1116,12 @@ const thingsData: Thing[] = [
         slug: 'trickledown',
         icon: 'cloud-rain',
         price: {
-            value: ((35000 * 0.78) / 1820) * 50,
+            value: ((35000 * 0.78) / 1820) * 75,
             currency: 'EUR'
         },
         sources: [
             {
-                text: 'I\'d say approximately 50 hours of work?'
+                text: 'I\'d say approximately 75 hours of work?'
             }
         ]
     }

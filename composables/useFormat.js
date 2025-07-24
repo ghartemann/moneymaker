@@ -22,13 +22,14 @@ export default function useFormat() {
         const yearsNice = formatNumberNice(years, true);
 
         if (years > 0) {
+            const unit = short && years >= 50000000 ? 'y' : (years > 1 ? 'years' : 'year');
+
             if (roughly && years > 1) {
                 parts.unshift('~');
-                parts.push(`${yearsNice} years`);
+                parts.push(`${yearsNice} ${unit}`);
                 return parts;
             }
 
-            const unit = years > 1 ? 'years' : 'year';
             parts.push(`${yearsNice} ${unit}`);
         }
 

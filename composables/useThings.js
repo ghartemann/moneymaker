@@ -9,7 +9,8 @@ export default function useThings() {
             price: useFormat().convertCurrency(thing.price.value, thing.price.currency),
             sources: [
                 ...thing.sources,
-                ...(thing.price.currency !== 'EUR'
+                ...(
+                    thing.price.currency !== 'EUR'
                         ? [{
                             text: `Price has been converted from ${thing.price.currency}.<br>` +
                                 `Original price: ${useFormat().formatPrice(thing.price.value, 0, 2, thing.price.currency)}`

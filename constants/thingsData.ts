@@ -179,7 +179,7 @@ const thingsData: Thing[] = [
         ]
     },
     {
-        name: 'A funeral',
+        name: 'Your funeral',
         slug: 'funeral',
         icon: 'flower-2',
         price: {
@@ -356,7 +356,7 @@ const thingsData: Thing[] = [
         slug: 'steam',
         icon: 'tag',
         price: {
-            value: 1301118.8,
+            value: 1376016.97,
             currency: 'USD'
         },
         sources: [
@@ -367,7 +367,7 @@ const thingsData: Thing[] = [
             },
             {
                 text: 'This is the full price before discounts. On average, you can expect a 35% discount, bringing the total to approximately ' +
-                    useFormat().formatPrice(1301118.8 * .65, 0, 2, 'USD') + '.'
+                    useFormat().formatPrice(1376016.97 * .65, 0, 2, 'USD') + '.'
             }
         ]
     },
@@ -501,8 +501,8 @@ const thingsData: Thing[] = [
         slug: 'wedding',
         icon: 'gem',
         price: {
-            value: 45000000, // 40M
-            currency: 'EUR'
+            value: 50000000, // 50M
+            currency: 'USD'
         },
         sources: [
             {
@@ -528,25 +528,6 @@ const thingsData: Thing[] = [
                 name: 'Wikipedia',
                 text: '<i>In 2022, the published price for a reusable launch was $97 million.</i>',
                 link: 'https://en.wikipedia.org/wiki/Falcon_Heavy#Launch_prices'
-            }
-        ]
-    },
-    {
-        name: 'Losing the Wisconsin election',
-        slug: 'wisconsin',
-        icon: 'scale',
-        price: {
-            value: 100000000, // 100 million
-            currency: 'USD'
-        },
-        sources: [
-            {
-                name: 'PBS Wisconsin',
-                text: '<i>Money is pouring into this swing state election so fast and so many ads have been reserved ' +
-                    'that political observers now believe the current race is likely to reach $100 million by April 1, ' +
-                    'which is election day.</i>',
-                date: '2025-03-31',
-                link: 'https://pbswisconsin.org/news-item/how-a-2025-election-in-wisconsin-became-the-most-expensive-race-for-a-court-seat-in-us-history/'
             }
         ]
     },
@@ -579,6 +560,24 @@ const thingsData: Thing[] = [
             {
                 name: 'EM Airplane',
                 link: 'https://www.emairplane.com/journal/how-much-does-a-boeing-747-jet-cost'
+            }
+        ]
+    },
+    {
+        name: 'Trump\'s fucking ballroom',
+        slug: 'ballroom',
+        icon: 'construction',
+        price: {
+            value: 300000000, // 300 million
+            currency: 'USD'
+        },
+        sources: [
+            {
+                name: 'BBC',
+                date: '2025-10-24',
+                link: 'https://www.bbc.com/news/articles/c891yxgj44ko',
+                text: '<i>A full list revealing the wealthy donors and corporations paying for US President Donald Trump\'s new $300m(£225m) White House ballroom has been ' +
+                    'released by the Trump administration.</i>'
             }
         ]
     },
@@ -665,6 +664,24 @@ const thingsData: Thing[] = [
                     '<img src="https://upload.wikimedia.org/wikipedia/commons/5/57/Louisiana_Purchase.png" />',
                 link: 'https://en.wikipedia.org/wiki/Louisiana_Purchase#/media/File:Louisiana_Purchase.png'
             }
+        ]
+    },
+    {
+        name: 'Anant Ambani\'s wedding',
+        slug: 'ambani',
+        icon: 'gem',
+        price: {
+            value: 600000000, // 600 million
+            currency: 'USD'
+        },
+        sources: [
+            {
+                name: 'The Guardian',
+                date: '2024-07-12',
+                text: '<i>The event has dominated headlines, in India and globally, for months. Estimates say the five-month wedding spectacle is likely to cost upwards of ' +
+                    '$600m – an eye-watering sum that still accounts for only 0.5% of the Ambani fortune.</i>',
+                link: 'https://www.theguardian.com/world/article/2024/jul/12/ambani-wedding-india-anant-radhika-merchant-mumbai-guests'
+            },
         ]
     },
     {
@@ -761,7 +778,7 @@ const thingsData: Thing[] = [
         slug: 'people',
         icon: 'person-standing',
         price: {
-            value: 8228063040, // 8.2 billion
+            value: 8255287181, // 8.2 billion
             currency: 'EUR'
         },
         sources: [
@@ -1009,18 +1026,18 @@ const thingsData: Thing[] = [
         slug: 'muskrat',
         icon: 'trash-2',
         price: {
-            value: 450000000000, // 450 billion
+            value: 500100000000, // 500.1 billion
             currency: 'USD'
         },
         sources: [
             {
-                name: 'Bloomberg',
-                link: 'https://www.bloomberg.com/billionaires/profiles/elon-r-musk/',
-                date: '2025-04-10',
+                name: 'BBC',
+                link: 'https://www.bbc.com/news/articles/c89d3547npjo',
+                date: '2025-10-01',
             },
             {
-                text: "This might be outdated since the loser managed to lose a lot of money by openly aligning with " +
-                    "Nazis and spectacularly sabotaging U.S. politics — but honestly, I couldn’t care less."
+                text: "The tech magnate's net worth briefly reached $500.1bn on Wednesday afternoon New York time, before dipping slightly to just over $499bn later in the day, " +
+                    "the Forbes billionaires index reported."
             }
         ]
     },
@@ -1116,12 +1133,12 @@ const thingsData: Thing[] = [
         slug: 'trickledown',
         icon: 'cloud-rain',
         price: {
-            value: ((35000 * 0.78) / 1820) * 75,
+            value: ((35000 * 0.78) / 1820) * 80,
             currency: 'EUR'
         },
         sources: [
             {
-                text: 'I\'d say approximately 75 hours of work?'
+                text: 'I\'d say approximately 80 hours of work?'
             }
         ]
     }

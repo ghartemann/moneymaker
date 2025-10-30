@@ -1,5 +1,5 @@
 <template>
-    <UCard :ui="{body: '!w-96'}">
+    <UCard>
         <div class="relative">
             <!-- the name of the money maker, used to detect if scrolled -->
             <div ref="nameRef" class="h-0"></div>
@@ -17,7 +17,8 @@
                 v-model="selectedTimeTab"
                 :money-maker="moneyMaker"
                 :time-elapsed="timeElapsed"
-                :class="[isScrolled ? 'fixed top-0 w-96 -mx-6 shadow-lg backdrop-blur-lg px-6 pt-1.5 rounded-t-lg z-50' : 'hidden']"
+                :class="[isScrolled ? 'fixed top-0 -mx-6 shadow-lg backdrop-blur-lg px-6 pt-1.5 rounded-t-lg z-50' : 'hidden']"
+                :style="{ width: width || '100%' }"
             ></wage-infos>
         </div>
 
@@ -47,6 +48,9 @@ const props = defineProps({
     },
     timeElapsed: {
         type: Number
+    },
+    width: {
+        type: String
     }
 });
 

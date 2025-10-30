@@ -1,5 +1,5 @@
-import type {Thing} from "~/interfaces/Thing";
-import useFormat from "~/composables/useFormat";
+import type {Thing} from "../interfaces/Thing";
+import useFormat from "../../moneymaker/composables/useFormat";
 
 const thingsData: Thing[] = [
     {

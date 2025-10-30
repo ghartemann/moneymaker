@@ -1,4 +1,4 @@
-import type {Source} from "~/interfaces/Source";
+import type {Source} from "./Source";
 
 export interface Wage {
     name: string;

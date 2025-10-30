@@ -41,8 +41,9 @@ import MoneyMakersDisabled from "~/components/MoneyMakersDisabled.vue";
 import wagesData from "~/constants/wagesData.ts";
 import CreatedBy from "~/components/CreatedBy.vue";
 import useThings from "~/composables/useThings.js";
+import v from "~/version.json";
 
-const route = useRoute();
+const stopMode = ref(v.stopMode);
 
 const meta = {
     title: 'TrickleDown.js',
@@ -84,7 +85,10 @@ const loadingModel = ref(null);
 
 onMounted(() => {
     initMoneyMakers();
-    startAnimation();
+
+    if (stopMode.value === false) {
+        startAnimation();
+    }
 });
 
 onUnmounted(() => {
@@ -101,7 +105,7 @@ function startAnimation() {
 
         // Only update if enough time has passed (based on rate)
         if (deltaTime >= rate.value) {
-        update();
+            update();
             lastFrameTime = currentTime;
         }
 

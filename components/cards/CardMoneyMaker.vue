@@ -1,128 +1,85 @@
 <template>
-    <UCard :ui="{body: '!w-96'}">
-        <div class="flex justify-between items-center">
-            <div>
-                {{ moneyMaker.name }}
-                <span v-if="moneyMaker.subName" class="text-xs text-gray-500"> {{ moneyMaker.subName }}</span>
-            </div>
+    <UCard>
+        <div class="relative">
+            <!-- the name of the money maker, used to detect if scrolled -->
+            <div ref="nameRef" class="h-0"></div>
 
-            <USwitch v-model="moneyMaker.displayed"></USwitch>
+            <!-- the first one that disappears when scrolled-->
+            <wage-infos
+                v-model="selectedTimeTab"
+                :money-maker="moneyMaker"
+                :time-elapsed="timeElapsed"
+                :class="[{'opacity-0': isScrolled}]"
+            ></wage-infos>
+
+            <!-- the second one that appears when scrolled-->
+            <wage-infos
+                v-model="selectedTimeTab"
+                :money-maker="moneyMaker"
+                :time-elapsed="timeElapsed"
+                :class="[isScrolled ? 'fixed top-0 -mx-6 shadow-lg backdrop-blur-lg px-6 pt-1.5 rounded-t-lg z-50' : 'hidden']"
+                :style="{ width: width || '100%' }"
+            ></wage-infos>
         </div>
 
-        <div class="flex gap-1">
-            <div class="text-xs text-gray-500">
-                {{ useFormat().formatPrice(moneyMaker.hourlyWage) }} per hour
-            </div>
-
-            <TooltipSources
-                v-if="moneyMaker.sources.length > 0"
-                :sources="moneyMaker.sources"
-            ></TooltipSources>
+        <div v-if="moneyMaker.displayed"
+             class="flex flex-col gap-2 mt-4"
+        >
+            <card-thing
+                v-for="thing in things"
+                :key="thing.name"
+                :money-maker="moneyMaker"
+                :selected-time-tab="selectedTimeTab"
+                :thing="thing"
+            ></card-thing>
         </div>
-
-        <template v-if="moneyMaker.displayed">
-            <div class="text-center my-6">
-                <div class="text-xs">
-                    Made
-                </div>
-
-                <div class="text-3xl font-bold">
-                    {{ useFormat().formatPrice(moneyMaker.money) }}
-                </div>
-
-                <div class="text-xs">
-                    since this page was loaded
-                </div>
-
-                <div class="text-xs text-gray-500">
-                    about {{ useFormat().formatHours(timeElapsed / 60 / 60, true).join(' ') }} ago
-                </div>
-            </div>
-
-            <div class="space-y-2">
-                <h2 class="text-center text-xs text-balance">
-                    Time it'll take to buy one of these (and <span class="underline font-semibold">nothing</span> else),
-                    working:
-                </h2>
-
-                <div class="flex gap-2 items-center">
-                    <UTabs
-                        v-model="selectedTimeTab"
-                        :items="tabs"
-                        class="grow mb-0 pb-0"
-                        size="xs"
-                    ></UTabs>
-
-                    <div class="flex flex-col gap-2">
-                        <TooltipSources
-                            :sources="explanation"
-                            icon="lucide-circle-help"
-                        ></TooltipSources>
-
-                        <div></div>
-                    </div>
-                </div>
-
-                <div class="flex flex-col gap-2">
-                    <card-thing
-                        v-for="thing in things"
-                        :key="thing.name"
-                        :money-maker="moneyMaker"
-                        :selected-time-tab="selectedTimeTab"
-                        :thing="thing"
-                    ></card-thing>
-                </div>
-            </div>
-        </template>
     </UCard>
 </template>
 
 <script setup>
-import useFormat from "~/composables/useFormat.js";
 import CardThing from "~/components/cards/CardThing.vue";
-import TooltipSources from "~/components/TooltipSources.vue";
 import useThings from "~/composables/useThings.js";
+import WageInfos from "~/components/WageInfos.vue";
 
-defineProps({
+const props = defineProps({
     moneyMaker: {
         type: Object,
         required: true
     },
     timeElapsed: {
         type: Number
+    },
+    width: {
+        type: String
     }
+});
+
+const selectedTimeTab = defineModel({
+    type: String,
+    default: 'fulltime'
 });
 
 const things = useThings().getThings();
 
-const selectedTimeTab = defineModel();
+const nameRef = ref(null);
+const isScrolled = ref(false);
 
-const tabs = [
-    {
-        label: '24/7 (all the time)',
-        value: 'fulltime'
-    },
-    {
-        label: '9-5, Monday-Friday',
-        value: 'parttime'
-    }
-];
+onMounted(() => {
+    const observer = new IntersectionObserver(
+        (entries) => {
+            if (!props.moneyMaker.displayed) {
+                return;
+            }
 
-const explanation = [
-    {
-        title: '24/7 (all the time)',
-        text: 'Assuming you work 24/7, all year round, without any breaks or holidays, at a specific hourly wage.'
-    },
-    {
-        title: '9-5, Monday-Friday',
-        text: 'Assuming you work 9-5, Monday to Friday, with weekends off. Days are 8 hours long, weeks are 5 days ' +
-            'long. This is a more realistic scenario.'
-    },
-    {
-        text: 'In both cases, it does not take into account any taxes or other deductions that may apply to your ' +
-            'income, or any other expenses you may have.'
+            isScrolled.value = !entries[0].isIntersecting;
+        },
+        { threshold: 0 }
+    );
+
+    if (nameRef.value) {
+        observer.observe(nameRef.value);
     }
-];
+});
 </script>
 
 <style scoped>

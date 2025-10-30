@@ -1,5 +1,5 @@
-import type {Source} from "~/interfaces/Source";
-import type {Price} from "~/interfaces/Price";
+import type {Source} from "./Source";
+import type {Price} from "./Price";
 
 export interface Thing {
     name: string;

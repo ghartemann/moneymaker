@@ -1,5 +1,5 @@
-import type {Thing} from "~/interfaces/Thing";
-import useFormat from "~/composables/useFormat";
+import type {Thing} from "../interfaces/Thing";
+import useFormat from "../../moneymaker/composables/useFormat";
 
 const thingsData: Thing[] = [
     {
@@ -551,6 +551,24 @@ const thingsData: Thing[] = [
         ]
     },
     {
+        name: 'Mad Max: Fury Road',
+        slug: 'mad-max',
+        icon: 'fuel',
+        price: {
+            value: 154600000, // 154 million
+            currency: 'USD'
+        },
+        sources: [
+            {
+                name: 'Wikipedia',
+                text: '<i>Mad Max: Fury Road grossed $154.3 million in the United States and Canada, and $226.1 ' +
+                    'million in other countries, for a worldwide total of $380.4 million against a production budget ' +
+                    'of $154.6–185.2 million.</i>',
+                link: 'https://en.wikipedia.org/wiki/Mad_Max:_Fury_Road'
+            }
+        ]
+    },
+    {
         name: 'Trump\'s inauguration',
         slug: 'trump',
         icon: 'angry',
@@ -792,6 +810,30 @@ const thingsData: Thing[] = [
         ]
     },
     {
+        name: 'The new ICE budget',
+        slug: 'fascists',
+        icon: 'box',
+        price: {
+            value: 29900000000, // 29.9 billion
+            currency: 'USD'
+        },
+        sources: [
+            {
+                name: 'American Immigration Council',
+                text: '<i>The bill, passed today with Vice President JD Vance contributing the tie-breaking vote, ' +
+                    'earmarks some $170 billion for immigration- and border enforcement-related funding provisions. ' +
+                    'The bill includes:<br>' +
+                    '- $45 billion for building new immigration detention centers, including family detention ' +
+                    'facilities. This represents a 265 percent annual budget increase to ICE’s current detention ' +
+                    'budget. It is a 62 percent larger budget than the entire federal prison system and could result ' +
+                    'in daily detention of at least 116,000 non-citizens.<br>' +
+                    '- $29.9 billion toward ICE’s enforcement and deportation operations, increasing ICE’s annual ' +
+                    'budget three-fold.',
+                link: 'https://www.americanimmigrationcouncil.org/press-release/congress-approves-unprecedented-funding-mass-detention-deportation-2025/'
+            }
+        ]
+    },
+    {
         name: 'Central Park, NYC',
         slug: 'central-park',
         icon: 'trees',
@@ -1025,7 +1067,7 @@ const thingsData: Thing[] = [
         ]
     },
     {
-        name: 'US military budget',
+        name: 'The US military budget',
         slug: 'us-military',
         icon: 'swords',
         price: {
